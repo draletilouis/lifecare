@@ -16,11 +16,14 @@
   <meta name="twitter:image" content="https://lifecare.example/assets/og-image.png" />
   <!-- shell:head -->
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
-  <meta name="theme-color" content="#0f3b2d" />
+  <meta name="theme-color" content="#0b364c" />
+  <!-- build:robots-meta -->
+    <meta name="robots" content="noindex, nofollow" />
+  <!-- /build:robots-meta -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=76c120d4" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css?v=97bfa98a" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -73,7 +76,6 @@
     <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" /><path d="M7 12c1.5-3 3.5-4 5-4s3.5 1 5 4c-1.5 3-3.5 4-5 4s-3.5-1-5-4z" /><circle cx="12" cy="12" r="1.5" /></symbol>
     <symbol id="i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></symbol>
     <symbol id="i-tooth" viewBox="0 0 24 24"><path d="M12 5.5C10.5 4 8.5 3 6.5 3.5 4 4.2 3.2 7 3.8 9.5c.5 2 1.2 3.5 1.7 6 .4 2 .8 4.5 2 5 1.4.6 2-1.5 2.4-3.2.3-1.4.9-2.3 2.1-2.3s1.8.9 2.1 2.3c.4 1.7 1 3.8 2.4 3.2 1.2-.5 1.6-3 2-5 .5-2.5 1.2-4 1.7-6 .6-2.5-.2-5.3-2.7-6-2-.5-4 .5-5.5 2Z" /></symbol>
-    <symbol id="i-heartline" viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 24H560l12-14 14 28 16-34 14 26 10-6H1200" vector-effect="non-scaling-stroke" /></symbol>
   </svg>
   <!-- /shell:icons -->
 
@@ -194,7 +196,7 @@
             <a href="/departments/dental/">Dental Clinic</a>
           <!-- /build:mobile-departments -->
           <!-- build:doctors-link -->
-
+            <a href="/doctors/">Find a doctor</a>
           <!-- /build:doctors-link -->
           <a href="/departments/"><strong>All departments</strong></a>
         </div>
@@ -235,27 +237,76 @@
             <li><span aria-current="page">About us</span></li>
           </ol>
         </nav>
-        <p class="eyebrow">About Life Care</p>
-        <h1>A hospital for the families of West Nile</h1>
-        <p class="lead">Life Care Hospital is a private hospital in Arua City. We bring emergency, maternity, children’s, surgical and outpatient care together with diagnostics and a pharmacy, so families can get the care they need close to home.</p>
+        <h1>About Life Care Hospital</h1>
+        <p class="lead">Life Care Hospital is a private hospital in Arua City, in the West Nile region of Uganda.</p>
       </div>
     </section>
 
     <section class="section" aria-labelledby="who-title">
       <div class="container split split--center">
         <div>
-          <p class="eyebrow">Who we are</p>
-          <h2 id="who-title">We care for your Life</h2>
+          <h2 id="who-title">Who we are</h2>
           <div class="prose" style="margin-top:1.25rem">
-            <p>Arua City is the commercial centre of West Nile, close to the borders with the Democratic Republic of the Congo and South Sudan. Families here, and many who travel from across the region, need a hospital they can reach quickly and trust to look after them well.</p>
-            <p>That is why Life Care Hospital was built around one simple promise, written into our logo: <strong>we care for your life</strong>. It means being here day and night, explaining clearly what we find and what it will cost, and treating every patient with the same respect we would want for our own family.</p>
-            <p>Under one roof we offer emergency care, maternity, care for children and adults, surgery, inpatient wards, laboratory testing, ultrasound and X-ray, a pharmacy and dental care.</p>
+            <!-- SAMPLE: this history is invented for the internal preview. Replace it with the real one: the year the hospital opened, who founded it, the medical director, and the number of beds and staff. -->
+            <p>Life Care Hospital opened in 2009 as a small clinic on the edge of Arua town, founded by Dr Emmanuel Anguyo, a physician who grew up in Maracha. It became a full hospital in 2016, when the maternity unit and operating theatre opened.</p>
+            <p>Today the hospital has 64 beds and about 120 staff, and Dr Anguyo still leads its medical team.</p>
+            <p>We offer emergency care, maternity, care for children and adults, surgery, inpatient wards, laboratory testing, ultrasound and X-ray, a pharmacy and dental care.</p>
+            <p>Arua City is the main town of West Nile, close to the borders with DR Congo and South Sudan. Our patients come from across the region and from both neighbouring countries.</p>
           </div>
-          <p style="margin-top:1.5rem"><a href="/departments/" class="text-link">Explore our departments <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></p>
+          <p style="margin-top:1.5rem"><a href="/departments/" class="text-link">Our departments <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></p>
         </div>
-        <div class="about-logo">
+        <div class="about-logo about-logo--wide">
           <!-- Placeholder photograph (Unsplash). Replace with the hospital's own: see assets/photos/CREDITS.md -->
-          <img src="/assets/photos/nurse-green-scrubs-1600.jpg" srcset="/assets/photos/nurse-green-scrubs-800.jpg 800w, /assets/photos/nurse-green-scrubs-1600.jpg 1600w" sizes="(max-width: 1024px) 100vw, 45vw" alt="A nurse in green scrubs with a stethoscope stands in a doorway." width="1600" height="2400" loading="lazy" style="object-position: 50% 30%" />
+          <img src="/assets/photos/hospital-exterior-1600.jpg" srcset="/assets/photos/hospital-exterior-800.jpg 800w, /assets/photos/hospital-exterior-1600.jpg 1600w" sizes="(max-width: 1024px) 100vw, 45vw" alt="The hospital’s main building, with steps up to the entrance." width="1600" height="1067" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- build:leadership -->
+      <section class="section" aria-labelledby="leaders-title">
+        <div class="container">
+          <div class="section__head">
+            <h2 id="leaders-title">Hospital leadership</h2>
+          </div>
+          <div class="people people--wide">
+            <a href="/doctors/#dr-emmanuel-anguyo" class="person">
+              <span class="person__photo"><img src="/assets/doctors/emmanuel-anguyo.jpg" alt="" width="400" height="400" loading="lazy" /></span>
+              <span class="person__name">Dr Emmanuel Anguyo</span>
+              <span class="person__role">Founder and Medical Director</span>
+            </a>
+            <a href="/doctors/#sister-rose-maturu" class="person">
+              <span class="person__photo"><img src="/assets/doctors/rose-maturu.jpg" alt="" width="400" height="400" loading="lazy" /></span>
+              <span class="person__name">Sister Rose Maturu</span>
+              <span class="person__role">Head of Nursing and Midwifery</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    <!-- /build:leadership -->
+
+    <section class="section section--tight" aria-labelledby="inside-title">
+      <div class="container">
+        <div class="section__head">
+          <h2 id="inside-title">Inside the hospital</h2>
+        </div>
+        <!-- Placeholder photographs (Unsplash). Replace with the hospital's own: see assets/photos/CREDITS.md -->
+        <div class="gallery">
+          <figure>
+            <img src="/assets/photos/corridor-800.jpg" alt="The outpatient corridor, with seats along the wall." width="800" height="1200" loading="lazy" />
+            <figcaption>Outpatient corridor</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/photos/waiting-area-800.jpg" alt="Chairs by a window in a waiting area." width="800" height="1067" loading="lazy" />
+            <figcaption>Waiting area</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/photos/midwife-ward-800.jpg" alt="A midwife with a mother and her newborn on the maternity ward." width="800" height="533" loading="lazy" />
+            <figcaption>Maternity ward</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/photos/laboratory-800.jpg" alt="A laboratory scientist at a microscope." width="800" height="1067" loading="lazy" />
+            <figcaption>Laboratory</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -274,32 +325,26 @@
           </div>
         </div>
         <div class="section__head">
-          <p class="eyebrow">Our values</p>
-          <h2 id="values-title">What guides us</h2>
+          <h2 id="values-title">Our values</h2>
         </div>
         <div class="values">
           <div class="value">
-            <span class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-heart" /></svg></span>
             <h3>Compassion</h3>
             <p>We treat every patient as we would want our own family to be treated.</p>
           </div>
           <div class="value">
-            <span class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg></span>
             <h3>Respect</h3>
             <p>We protect the dignity, privacy and choices of every patient.</p>
           </div>
           <div class="value">
-            <span class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg></span>
             <h3>Integrity</h3>
             <p>We are honest about what we find, what we can do and what it costs.</p>
           </div>
           <div class="value">
-            <span class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-award" /></svg></span>
             <h3>Excellence</h3>
             <p>We follow sound clinical practice and keep learning and improving.</p>
           </div>
           <div class="value">
-            <span class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-activity" /></svg></span>
             <h3>Teamwork</h3>
             <p>Our departments work together so your care is joined up.</p>
           </div>
@@ -310,9 +355,8 @@
     <section class="section" aria-labelledby="team-title">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">Our people</p>
-          <h2 id="team-title">The team behind your care</h2>
-          <p>Every visit to Life Care involves a team of trained people, each registered with their professional body where the law requires it.</p>
+          <h2 id="team-title">Our staff</h2>
+          <p>Doctors, nurses, midwives and other clinical staff are registered with their professional councils, as Ugandan law requires.</p>
         </div>
         <div class="team-grid">
           <div class="team-role">
@@ -346,9 +390,7 @@
     <section class="section section--surface" aria-labelledby="quality-title">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">Quality and safety</p>
-          <h2 id="quality-title">Safe care, every time</h2>
-          <p>Patients trust us with their lives. These are the commitments we make to keep that trust.</p>
+          <h2 id="quality-title">Quality and safety</h2>
         </div>
         <div class="block__grid">
           <div class="panel">
@@ -372,13 +414,26 @@
     </section>
 
     <!-- build:trust -->
-
+      <section class="section section--tight trust" aria-labelledby="trust-title">
+        <div class="container">
+          <h2 class="sr-only" id="trust-title">Life Care Hospital in figures</h2>
+          <dl class="trust__stats">
+            <div><dt>Caring for West Nile since</dt><dd>2009</dd></div>
+            <div><dt>Inpatient beds</dt><dd>64</dd></div>
+            <div><dt>Staff</dt><dd>120</dd></div>
+            <div><dt>Emergency and maternity</dt><dd>24 hours</dd></div>
+          </dl>
+          <ul class="trust__marks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Licensed by the Uganda Medical and Dental Practitioners Council</strong><small>Private hospital licence</small></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Laboratory registered with the Allied Health Professionals Council</strong><small>Clinical laboratory</small></span></li>
+          </ul>
+        </div>
+      </section>
     <!-- /build:trust -->
 
     <section class="section" id="careers" aria-labelledby="careers-title">
       <div class="container split split--center">
         <div>
-          <p class="eyebrow">Careers</p>
           <h2 id="careers-title">Work with us</h2>
           <div class="prose" style="margin-top:1.25rem">
             <p>We are always glad to hear from qualified, registered health professionals and support staff who share our values and want to serve the people of West Nile.</p>
@@ -452,7 +507,7 @@
           <a aria-current="page" href="/about/">About us</a>
           <a href="/about/#values">Mission and values</a>
           <!-- build:doctors-link -->
-
+            <a href="/doctors/">Find a doctor</a>
           <!-- /build:doctors-link -->
           <a href="/about/#careers">Careers</a>
           <a href="/refer/">Refer a patient</a>
@@ -480,7 +535,6 @@
           <a href="/assets/lifecare-hospital.vcf" class="footer__save" download="Life Care Hospital.vcf"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg> Save our numbers to your phone</a>
         </div>
       </div>
-      <svg class="heartline" aria-hidden="true"><use href="#i-heartline" /></svg>
       <div class="footer__bottom">
         <span>&copy; <span data-fact="year">2026</span> Life Care Hospital, Arua. All rights reserved.</span>
         <nav aria-label="Legal">

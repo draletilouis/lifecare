@@ -10,9 +10,9 @@
 const ARTICLES = [
   {
     slug: 'malaria',
-    title: 'Malaria: test the same day, treat it the right way',
+    title: 'Malaria',
     category: 'Common illness',
-    summary: 'Malaria is common in West Nile and can become severe within hours, especially in young children and pregnant women. How to recognise it, when to come in, and how to protect your family.',
+    summary: 'Malaria is common in West Nile and can become severe within hours, especially in young children and pregnant women. Anyone with a fever should be tested the same day.',
     readMinutes: 4,
     updated: 'October 2026',
     reviewedBy: null,
@@ -51,9 +51,9 @@ const ARTICLES = [
 
   {
     slug: 'antenatal-care',
-    title: 'Antenatal care: start early, come often',
+    title: 'Antenatal care',
     category: 'Pregnancy',
-    summary: 'Regular antenatal visits protect you and your baby. When to start, what happens at each visit, and the danger signs that mean you should come in straight away.',
+    summary: 'When to start antenatal visits, what happens at each one, and the danger signs in pregnancy.',
     readMinutes: 4,
     updated: 'October 2026',
     reviewedBy: null,
@@ -84,9 +84,9 @@ const ARTICLES = [
 
   {
     slug: 'child-danger-signs',
-    title: 'When to bring your child to hospital immediately',
+    title: 'Danger signs in children',
     category: 'Children',
-    summary: 'Children can become seriously ill very quickly. These danger signs mean your child needs care straight away, at any hour. Plus how to care for diarrhoea at home.',
+    summary: 'The signs that mean a sick child must be seen straight away, at any hour, and how to care for diarrhoea at home.',
     readMinutes: 3,
     updated: 'October 2026',
     reviewedBy: null,
@@ -114,9 +114,9 @@ const ARTICLES = [
 
   {
     slug: 'high-blood-pressure',
-    title: 'High blood pressure: the condition you cannot feel',
+    title: 'High blood pressure',
     category: 'Long-term conditions',
-    summary: 'Many adults have high blood pressure and do not know it. A two-minute check can protect your heart, brain and kidneys.',
+    summary: 'Many adults have high blood pressure and do not know it. The check takes two minutes.',
     readMinutes: 3,
     updated: 'October 2026',
     reviewedBy: null,
@@ -151,9 +151,9 @@ const ARTICLES = [
 
   {
     slug: 'cholera-and-safe-water',
-    title: 'Cholera and diarrhoea: safe water saves lives',
+    title: 'Cholera and diarrhoea',
     category: 'Prevention',
-    summary: 'Cholera spreads through unsafe water and food and can kill within hours through dehydration. The signs, what to do at once, and simple steps that protect your household.',
+    summary: 'How cholera spreads, the signs to watch for, what to do straight away, and how to keep your household safe.',
     readMinutes: 3,
     updated: 'October 2026',
     reviewedBy: null,

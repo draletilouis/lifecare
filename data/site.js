@@ -73,10 +73,39 @@ module.exports = {
   // Short facts shown as chips under the homepage headline. Keep to confirmed facts.
   credentials: ['Emergency and maternity: 24 hours', 'Laboratory, ultrasound and X-ray on site', 'Cash, mobile money and insurance'],
 
-  // Figures and registrations shown on the homepage and About page. Leave empty until confirmed;
-  // the section is hidden while the list is empty.
-  stats: [], // e.g. { value: '120', label: 'Inpatient beds' }
-  accreditations: [], // e.g. { name: 'Licensed by the Uganda Medical and Dental Practitioners Council', detail: 'Licence number …' }
+  // True while the site holds invented sample content (doctors, clinic days, insurers, figures, history)
+  // for the internal preview. While it is true, every page tells search engines not to index the site.
+  // Replace the sample content with confirmed facts, then set this to false before launch.
+  sampleContent: true,
+
+  // Insurers and medical schemes whose members can be treated on cover. Shown on the homepage and the
+  // patient guide; the list is hidden while empty. SAMPLE: not confirmed with the hospital.
+  insurers: [
+    'AAR Healthcare',
+    'Jubilee Health Insurance',
+    'UAP Old Mutual',
+    'Prudential Assurance',
+    'Sanlam',
+    'ICEA LION',
+    'Liberty Health',
+    'GA Insurance',
+    'Britam',
+    'IAA Healthcare',
+    'CIC Africa',
+  ],
+
+  // Figures and registrations shown on the homepage and About page. The section is hidden while both
+  // lists are empty. SAMPLE: the values below are invented.
+  stats: [
+    { value: '2009', label: 'Caring for West Nile since' },
+    { value: '64', label: 'Inpatient beds' },
+    { value: '120', label: 'Staff' },
+    { value: '24 hours', label: 'Emergency and maternity' },
+  ],
+  accreditations: [
+    { name: 'Licensed by the Uganda Medical and Dental Practitioners Council', detail: 'Private hospital licence' },
+    { name: 'Laboratory registered with the Allied Health Professionals Council', detail: 'Clinical laboratory' },
+  ],
 
   // A public-health notice shown at the top of every page while "on" is true, for example during an
   // outbreak in the region. Keep the wording short, factual and approved by the medical director.
@@ -96,6 +125,7 @@ module.exports = {
   },
 
   PENDING: [
+    'SAMPLE CONTENT for the internal preview: doctors, clinic days, insurers, figures, licences and the About page history are invented. Replace them and set sampleContent to false before launch',
     'url',
     'phones.main',
     'phones.emergency',
@@ -114,13 +144,12 @@ module.exports = {
     'payment',
     'foreignCurrency',
     'credentials',
-    'stats and accreditations: add once confirmed (hidden while empty)',
     'data/articles.js: each article needs review and sign-off by a Life Care clinician',
     'data/packages.js: confirm package contents and add prices',
     'refer/index.html: confirm the referral process (referral line, reply to the referring clinician)',
     'patients/international/index.html: confirm interpreter languages, currencies and help with accommodation',
     'departments (data/departments.js): confirm the list and every service named',
-    'about/index.html: mission, vision and values are drafts',
+    'about/index.html: add the history (year opened, founder, medical director, beds and staff); mission, vision and values are drafts',
     'ambulance: confirm whether the hospital runs one (emergency page)',
   ],
 };

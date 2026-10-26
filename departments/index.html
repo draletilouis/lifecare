@@ -16,11 +16,14 @@
   <meta name="twitter:image" content="https://lifecare.example/assets/og-image.png" />
   <!-- shell:head -->
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
-  <meta name="theme-color" content="#0f3b2d" />
+  <meta name="theme-color" content="#0b364c" />
+  <!-- build:robots-meta -->
+    <meta name="robots" content="noindex, nofollow" />
+  <!-- /build:robots-meta -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=76c120d4" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css?v=97bfa98a" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -73,7 +76,6 @@
     <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" /><path d="M7 12c1.5-3 3.5-4 5-4s3.5 1 5 4c-1.5 3-3.5 4-5 4s-3.5-1-5-4z" /><circle cx="12" cy="12" r="1.5" /></symbol>
     <symbol id="i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></symbol>
     <symbol id="i-tooth" viewBox="0 0 24 24"><path d="M12 5.5C10.5 4 8.5 3 6.5 3.5 4 4.2 3.2 7 3.8 9.5c.5 2 1.2 3.5 1.7 6 .4 2 .8 4.5 2 5 1.4.6 2-1.5 2.4-3.2.3-1.4.9-2.3 2.1-2.3s1.8.9 2.1 2.3c.4 1.7 1 3.8 2.4 3.2 1.2-.5 1.6-3 2-5 .5-2.5 1.2-4 1.7-6 .6-2.5-.2-5.3-2.7-6-2-.5-4 .5-5.5 2Z" /></symbol>
-    <symbol id="i-heartline" viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 24H560l12-14 14 28 16-34 14 26 10-6H1200" vector-effect="non-scaling-stroke" /></symbol>
   </svg>
   <!-- /shell:icons -->
 
@@ -194,7 +196,7 @@
             <a href="/departments/dental/">Dental Clinic</a>
           <!-- /build:mobile-departments -->
           <!-- build:doctors-link -->
-
+            <a href="/doctors/">Find a doctor</a>
           <!-- /build:doctors-link -->
           <a aria-current="page" href="/departments/"><strong>All departments</strong></a>
         </div>
@@ -237,9 +239,8 @@
         </nav>
         <div class="page-hero__grid">
           <div class="page-hero__content">
-            <p class="eyebrow">Departments and services</p>
             <h1>Our departments</h1>
-            <p class="lead">Every department works side by side in one hospital, so your clinician can call on the laboratory, imaging, theatre or pharmacy the same day. Choose a department to see what it offers, its hours and what to bring.</p>
+            <p class="lead">Choose a department to see what it treats, its opening hours and what to bring.</p>
           </div>
           <aside class="glance" aria-labelledby="unsure-title">
             <h2 class="glance__title" id="unsure-title">Not sure where to go?</h2>
@@ -306,20 +307,20 @@
                 </span>
                 <span class="dept-card__arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
               </a>
-              <a href="/departments/gynaecology/" class="dept-card" data-search="gynaecology &amp; family planning women obstetrics gynecology period menstruation fertility infertility family planning contraception cervical screening fibroids women’s health at every age: period problems, fertility concerns, screening and contraception. private, respectful care for women’s health concerns, cervical cancer screening and a choice of family planning methods. gynaecology consultations period problems, pelvic pain, discharge and infections, fibroids and the menopause. fertility assessment first tests for couples trying to conceive, with referral for specialised treatment when needed. cervical cancer screening screening that finds early changes before they become cancer, with treatment or referral if anything is found. family planning counselling and a choice of short- and long-acting methods, including pills, injections, implants and iuds. sexual health confidential testing and treatment for sexually transmitted infections, including treatment for partners. early pregnancy care care for bleeding in early pregnancy and after a miscarriage, with ultrasound assessment.">
+              <a href="/departments/gynaecology/" class="dept-card" data-search="gynaecology &amp; family planning women obstetrics gynecology period menstruation fertility infertility family planning contraception cervical screening fibroids period problems, fertility concerns, cervical cancer screening and family planning. private, respectful care for women’s health concerns, cervical cancer screening and a choice of family planning methods. gynaecology consultations period problems, pelvic pain, discharge and infections, fibroids and the menopause. fertility assessment first tests for couples trying to conceive, with referral for specialised treatment when needed. cervical cancer screening screening that finds early changes before they become cancer, with treatment or referral if anything is found. family planning counselling and a choice of short- and long-acting methods, including pills, injections, implants and iuds. sexual health confidential testing and treatment for sexually transmitted infections, including treatment for partners. early pregnancy care care for bleeding in early pregnancy and after a miscarriage, with ultrasound assessment.">
                 <span class="dept-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-venus" /></svg></span>
                 <span class="dept-card__body">
                   <span class="dept-card__name">Gynaecology &amp; Family Planning</span>
-                  <span class="dept-card__text">Women’s health at every age: period problems, fertility concerns, screening and contraception.</span>
+                  <span class="dept-card__text">Period problems, fertility concerns, cervical cancer screening and family planning.</span>
                   <span class="dept-card__hours"><svg class="icon" aria-hidden="true"><use href="#i-clock" /></svg> Monday to Saturday, 8:00 am – 8:00 pm</span>
                 </span>
                 <span class="dept-card__arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
               </a>
-              <a href="/departments/paediatrics/" class="dept-card" data-search="children’s clinic paediatrics pediatrics child children baby newborn immunisation vaccination vaccine growth care for newborns, children and teenagers, from fevers and coughs to immunisation and growth checks. careful, gentle care for babies, children and teenagers, including immunisation, growth checks and admission for sick children. sick child consultations assessment and treatment of fever, cough, diarrhoea, rashes and other childhood illnesses. newborn care newborn checks, help with feeding, and assessment of jaundice and other early problems. immunisation vaccines on uganda’s national immunisation schedule, with every dose recorded on your child’s health card. growth and nutrition weight and height checks, screening for malnutrition, and advice on breastfeeding and feeding. children’s admissions inpatient care for severe malaria, pneumonia, dehydration and other serious illness. deworming and vitamin a routine doses for young children, given at the clinic.">
+              <a href="/departments/paediatrics/" class="dept-card" data-search="children’s clinic paediatrics pediatrics child children baby newborn immunisation vaccination vaccine growth care for sick children, newborn checks, immunisation and growth checks. clinics and a ward for babies, children and teenagers, including immunisation and growth checks. sick child consultations assessment and treatment of fever, cough, diarrhoea, rashes and other childhood illnesses. newborn care newborn checks, help with feeding, and assessment of jaundice and other early problems. immunisation vaccines on uganda’s national immunisation schedule, with every dose recorded on your child’s health card. growth and nutrition weight and height checks, screening for malnutrition, and advice on breastfeeding and feeding. children’s admissions inpatient care for severe malaria, pneumonia, dehydration and other serious illness. deworming and vitamin a routine doses for young children, given at the clinic.">
                 <span class="dept-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-baby" /></svg></span>
                 <span class="dept-card__body">
                   <span class="dept-card__name">Children’s Clinic</span>
-                  <span class="dept-card__text">Care for newborns, children and teenagers, from fevers and coughs to immunisation and growth checks.</span>
+                  <span class="dept-card__text">Care for sick children, newborn checks, immunisation and growth checks.</span>
                   <span class="dept-card__hours"><svg class="icon" aria-hidden="true"><use href="#i-clock" /></svg> Monday to Saturday, 8:00 am – 8:00 pm</span>
                 </span>
                 <span class="dept-card__arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
@@ -329,11 +330,11 @@
           <section class="directory__group" aria-labelledby="cat-surgical">
             <h2 class="directory__heading" id="cat-surgical">Surgery and hospital stays</h2>
             <div class="directory__grid">
-              <a href="/departments/surgery/" class="dept-card" data-search="surgery &amp; theatre surgeon operation theatre hernia appendix circumcision lump wound planned and emergency operations in our own theatre, from hernia repairs to caesarean sections. assessment, operations and recovery care for general surgical conditions, planned or in an emergency. general surgery operations for hernias, lumps and swellings, appendicitis and other abdominal conditions. emergency surgery assessment and surgery for acute abdominal pain, injuries and other urgent conditions, at any hour. caesarean section planned and emergency caesarean sections, with the maternity team. minor surgery removal of cysts and small lumps, circumcision, draining of abscesses and wound care. injuries and wounds treatment of cuts, burns and injuries, with referral to an orthopaedic surgeon when needed. surgical clinic assessment before an operation, and wound checks and follow-up afterwards.">
+              <a href="/departments/surgery/" class="dept-card" data-search="surgery &amp; theatre surgeon operation theatre hernia appendix circumcision lump wound planned and emergency operations, including hernia repairs and caesarean sections. assessment, operations and recovery care for general surgical conditions, planned or in an emergency. general surgery operations for hernias, lumps and swellings, appendicitis and other abdominal conditions. emergency surgery assessment and surgery for acute abdominal pain, injuries and other urgent conditions, at any hour. caesarean section planned and emergency caesarean sections, with the maternity team. minor surgery removal of cysts and small lumps, circumcision, draining of abscesses and wound care. injuries and wounds treatment of cuts, burns and injuries, with referral to an orthopaedic surgeon when needed. surgical clinic assessment before an operation, and wound checks and follow-up afterwards.">
                 <span class="dept-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-scalpel" /></svg></span>
                 <span class="dept-card__body">
                   <span class="dept-card__name">Surgery &amp; Theatre</span>
-                  <span class="dept-card__text">Planned and emergency operations in our own theatre, from hernia repairs to caesarean sections.</span>
+                  <span class="dept-card__text">Planned and emergency operations, including hernia repairs and caesarean sections.</span>
                   <span class="dept-card__hours"><svg class="icon" aria-hidden="true"><use href="#i-clock" /></svg> Monday to Saturday, 8:00 am – 8:00 pm</span>
                 </span>
                 <span class="dept-card__arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
@@ -352,7 +353,7 @@
           <section class="directory__group" aria-labelledby="cat-support">
             <h2 class="directory__heading" id="cat-support">Tests, medicines and dental care</h2>
             <div class="directory__grid">
-              <a href="/departments/laboratory/" class="dept-card" data-search="laboratory lab test blood urine stool malaria hiv typhoid sugar results blood, urine and stool tests for diagnosis and check-ups, with most routine results the same day. on-site testing that helps your clinician find the cause of your illness quickly, with most routine results ready the same day. blood counts and grouping full blood count, haemoglobin, blood grouping and cross-matching. malaria and infections malaria tests, and tests for typhoid, brucellosis, syphilis and hepatitis b. hiv testing voluntary, confidential testing with counselling before and after. blood chemistry blood sugar, kidney and liver function, and cholesterol. urine and stool tests urinalysis, pregnancy tests and stool examination. check-up packages groups of tests for routine check-ups and employment requirements.">
+              <a href="/departments/laboratory/" class="dept-card" data-search="laboratory lab test blood urine stool malaria hiv typhoid sugar results blood, urine and stool tests for diagnosis and check-ups, with most routine results the same day. blood, urine and stool tests on site. most routine results are ready the same day. blood counts and grouping full blood count, haemoglobin, blood grouping and cross-matching. malaria and infections malaria tests, and tests for typhoid, brucellosis, syphilis and hepatitis b. hiv testing voluntary, confidential testing with counselling before and after. blood chemistry blood sugar, kidney and liver function, and cholesterol. urine and stool tests urinalysis, pregnancy tests and stool examination. check-up packages groups of tests for routine check-ups and employment requirements.">
                 <span class="dept-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-microscope" /></svg></span>
                 <span class="dept-card__body">
                   <span class="dept-card__name">Laboratory</span>
@@ -361,7 +362,7 @@
                 </span>
                 <span class="dept-card__arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
               </a>
-              <a href="/departments/imaging/" class="dept-card" data-search="ultrasound &amp; x-ray scan ultrasound x-ray xray radiology pregnancy scan imaging ultrasound scans, including pregnancy scans, and x-rays, with a written report for your clinician. ultrasound scans and x-rays that show your clinician what is happening inside the body, without surgery. pregnancy scans dating, growth checks and the position of the baby and placenta. abdominal and pelvic ultrasound the liver, gall bladder, kidneys, bladder, womb, ovaries and prostate. small-parts ultrasound breast, thyroid, scrotum and lumps under the skin. chest x-ray for coughs, chest infections and check-ups. bone and joint x-ray for injuries, suspected fractures and joint pain. written reports a report on every examination, sent to your clinician.">
+              <a href="/departments/imaging/" class="dept-card" data-search="ultrasound &amp; x-ray scan ultrasound x-ray xray radiology pregnancy scan imaging ultrasound scans, including pregnancy scans, and x-rays, with a written report for your clinician. ultrasound scans, including pregnancy scans, and x-rays, with a written report for your clinician. pregnancy scans dating, growth checks and the position of the baby and placenta. abdominal and pelvic ultrasound the liver, gall bladder, kidneys, bladder, womb, ovaries and prostate. small-parts ultrasound breast, thyroid, scrotum and lumps under the skin. chest x-ray for coughs, chest infections and check-ups. bone and joint x-ray for injuries, suspected fractures and joint pain. written reports a report on every examination, sent to your clinician.">
                 <span class="dept-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-scan" /></svg></span>
                 <span class="dept-card__body">
                   <span class="dept-card__name">Ultrasound &amp; X-ray</span>
@@ -379,7 +380,7 @@
                 </span>
                 <span class="dept-card__arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
               </a>
-              <a href="/departments/dental/" class="dept-card" data-search="dental clinic dentist teeth tooth toothache gum filling extraction check-ups, cleaning, fillings, extractions and treatment of tooth pain for the whole family. care for teeth and gums for adults and children, from check-ups and cleaning to fillings and extractions. check-ups and cleaning examination, scaling and polishing, and advice on caring for teeth and gums. fillings repair of decayed and broken teeth. extractions removal of teeth that cannot be saved, with local anaesthetic. tooth pain and infection treatment of toothache, abscesses and swelling. gum care treatment of bleeding and swollen gums. children’s dental care gentle check-ups and treatment for children.">
+              <a href="/departments/dental/" class="dept-card" data-search="dental clinic dentist teeth tooth toothache gum filling extraction check-ups, cleaning, fillings, extractions and treatment of tooth pain for the whole family. check-ups, cleaning, fillings and extractions for adults and children. check-ups and cleaning examination, scaling and polishing, and advice on caring for teeth and gums. fillings repair of decayed and broken teeth. extractions removal of teeth that cannot be saved, with local anaesthetic. tooth pain and infection treatment of toothache, abscesses and swelling. gum care treatment of bleeding and swollen gums. children’s dental care gentle check-ups and treatment for children.">
                 <span class="dept-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-tooth" /></svg></span>
                 <span class="dept-card__body">
                   <span class="dept-card__name">Dental Clinic</span>
@@ -456,7 +457,7 @@
           <a href="/about/">About us</a>
           <a href="/about/#values">Mission and values</a>
           <!-- build:doctors-link -->
-
+            <a href="/doctors/">Find a doctor</a>
           <!-- /build:doctors-link -->
           <a href="/about/#careers">Careers</a>
           <a href="/refer/">Refer a patient</a>
@@ -484,7 +485,6 @@
           <a href="/assets/lifecare-hospital.vcf" class="footer__save" download="Life Care Hospital.vcf"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg> Save our numbers to your phone</a>
         </div>
       </div>
-      <svg class="heartline" aria-hidden="true"><use href="#i-heartline" /></svg>
       <div class="footer__bottom">
         <span>&copy; <span data-fact="year">2026</span> Life Care Hospital, Arua. All rights reserved.</span>
         <nav aria-label="Legal">

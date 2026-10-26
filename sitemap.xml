@@ -13,6 +13,7 @@
   <url><loc>https://lifecare.example/departments/imaging/</loc></url>
   <url><loc>https://lifecare.example/departments/pharmacy/</loc></url>
   <url><loc>https://lifecare.example/departments/dental/</loc></url>
+  <url><loc>https://lifecare.example/doctors/</loc></url>
   <url><loc>https://lifecare.example/emergency/</loc></url>
   <url><loc>https://lifecare.example/appointments/</loc></url>
   <url><loc>https://lifecare.example/patients/</loc></url>

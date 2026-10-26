@@ -60,11 +60,16 @@ The look comes from studying the leading hospital websites: Mayo Clinic, Clevela
 Mass General Brigham, Cedars-Sinai, Karolinska, Singapore General, UCSF, Stanford, NYU Langone, Great Ormond
 Street, Aga Khan and others. What it borrows from them:
 
-- **Type:** a serif for headlines (Newsreader) and a plain sans for reading (Source Sans 3).
-- **Colour:** warm paper backgrounds and one deep green taken from the logo. Red is reserved for emergencies.
-- **Photographs and lines:** real photographs, with thin rules and typographic lists instead of icon tiles and boxes.
-- **Task-led entry:** the homepage "I need …" finder, the "Where to get care" routes and the family task cards.
-- **Brand marks:** the logo's circle appears once in the hero, and its heartbeat line is used as a signature rule.
+- **Colour:** the logo's own blue (deepened to navy for the header bar, hero and footer) and its green
+  (buttons and small marks), on white pages with light grey bands. Red is reserved for emergencies.
+- **Type:** one plain sans throughout (Source Sans 3), bold for headings.
+- **Photographs and lines:** real photographs, with thin rules and lists instead of icon tiles and boxes.
+- **Task-led entry:** the homepage "I need …" finder, the "Where to go" routes and the family task cards.
+- **Plain wording:** headings say what the section is ("Opening hours", "How to find us"), not slogans.
+
+An earlier version used a serif with italic words, cream backgrounds, small uppercase labels above every
+heading and slogan headlines. Together those read as AI-generated, so they were removed. Keep new pages
+plain in the same way.
 
 All styles are in `css/site.css`; the colours and fonts are the variables at its top.
 
@@ -118,6 +123,26 @@ or the referring health worker, then presses Send.
 To receive requests by email instead, create a form on a form-delivery service such as
 [Formspree](https://formspree.io). Then put its address in `FORM_ENDPOINT` at the top of
 `js/modules/request-form.js`. If the service cannot be reached, WhatsApp is used as the fallback.
+
+## Sample content (internal preview only)
+
+So the preview looks like a finished site, it currently holds **invented** content:
+
+- nine clinicians in `data/doctors.js`, with stock portraits in `assets/doctors/`
+- a weekly timetable in `data/clinics.js`
+- a list of insurers, figures (year opened, beds, staff) and two licences in `data/site.js`
+- a short history on the About page
+- stock photos standing in for the building and its interior
+
+None of it is real. While `sampleContent` in `data/site.js` is `true`:
+
+- every page carries `noindex, nofollow`
+- `robots.txt` blocks search engines
+
+Before launch:
+
+1. Replace each item with confirmed facts, or remove it. Never publish a stock photo under a real person's name.
+2. Then set `sampleContent: false`.
 
 ## Before launch: details to confirm with the hospital
 

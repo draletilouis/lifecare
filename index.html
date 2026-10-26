@@ -119,11 +119,14 @@
   <link rel="preload" as="image" href="/assets/photos/nurse-comforting-child-1600.jpg" imagesrcset="/assets/photos/nurse-comforting-child-800.jpg 800w, /assets/photos/nurse-comforting-child-1600.jpg 1600w" imagesizes="(max-width: 1024px) 100vw, 48vw" />
   <!-- shell:head -->
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
-  <meta name="theme-color" content="#0f3b2d" />
+  <meta name="theme-color" content="#0b364c" />
+  <!-- build:robots-meta -->
+    <meta name="robots" content="noindex, nofollow" />
+  <!-- /build:robots-meta -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=76c120d4" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css?v=97bfa98a" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -176,7 +179,6 @@
     <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" /><path d="M7 12c1.5-3 3.5-4 5-4s3.5 1 5 4c-1.5 3-3.5 4-5 4s-3.5-1-5-4z" /><circle cx="12" cy="12" r="1.5" /></symbol>
     <symbol id="i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></symbol>
     <symbol id="i-tooth" viewBox="0 0 24 24"><path d="M12 5.5C10.5 4 8.5 3 6.5 3.5 4 4.2 3.2 7 3.8 9.5c.5 2 1.2 3.5 1.7 6 .4 2 .8 4.5 2 5 1.4.6 2-1.5 2.4-3.2.3-1.4.9-2.3 2.1-2.3s1.8.9 2.1 2.3c.4 1.7 1 3.8 2.4 3.2 1.2-.5 1.6-3 2-5 .5-2.5 1.2-4 1.7-6 .6-2.5-.2-5.3-2.7-6-2-.5-4 .5-5.5 2Z" /></symbol>
-    <symbol id="i-heartline" viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 24H560l12-14 14 28 16-34 14 26 10-6H1200" vector-effect="non-scaling-stroke" /></symbol>
   </svg>
   <!-- /shell:icons -->
 
@@ -297,7 +299,7 @@
             <a href="/departments/dental/">Dental Clinic</a>
           <!-- /build:mobile-departments -->
           <!-- build:doctors-link -->
-
+            <a href="/doctors/">Find a doctor</a>
           <!-- /build:doctors-link -->
           <a href="/departments/"><strong>All departments</strong></a>
         </div>
@@ -332,18 +334,17 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__panel">
-        <p class="eyebrow eyebrow--light">Private hospital · Arua City, West Nile</p>
-        <h1 id="hero-title">We care for your life, <em>day and night.</em></h1>
-        <p class="lead">Emergency, maternity, children’s, surgical and outpatient care, with our own laboratory, ultrasound, X-ray and pharmacy. Most patients are seen, tested and treated under one roof.</p>
+        <h1 id="hero-title">Life Care Hospital, Arua</h1>
+        <p class="lead">A private hospital in Arua City. Emergency and maternity care day and night, plus outpatient and children’s clinics, surgery, a laboratory, ultrasound, X-ray and a pharmacy in the same building.</p>
         <div class="hero__actions">
           <a href="/appointments/" class="btn btn--on-dark btn--lg">Book an appointment</a>
           <a href="tel:+2567XXXXXXXX" data-fact-href="tel:phones.emergency" class="hero__urgent"><span class="pulse" aria-hidden="true"></span><span class="hero__urgent-text">Emergency: <span data-fact="phones.emergency">+256 7XX XXX XXX</span></span></a>
         </div>
         <ul class="hero__chips" aria-label="At a glance">
           <!-- build:credentials -->
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>Emergency and maternity: 24 hours</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>Laboratory, ultrasound and X-ray on site</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>Cash, mobile money and insurance</span></li>
+            <li>Emergency and maternity: 24 hours</li>
+            <li>Laboratory, ultrasound and X-ray on site</li>
+            <li>Cash, mobile money and insurance</li>
           <!-- /build:credentials -->
         </ul>
       </div>
@@ -389,31 +390,27 @@
       <div class="container">
         <div class="section__head section__head--split">
           <div>
-            <p class="eyebrow">Where to get care</p>
-            <h2 id="routes-title">The right care, at the right time</h2>
+            <h2 id="routes-title">Where to go</h2>
           </div>
-          <p>You never need an appointment for Accident &amp; Emergency or the outpatient clinic.</p>
+          <p>You do not need an appointment for Accident &amp; Emergency or the outpatient clinic.</p>
         </div>
         <div class="routes">
           <div class="route route--urgent">
-            <p class="route__when">Now, at any hour</p>
             <h3>Accident &amp; Emergency</h3>
-            <p>Injuries, sudden severe illness, and emergencies in pregnancy. Open 24 hours, every day of the year.</p>
+            <p>Injuries, sudden severe illness and emergencies in pregnancy. Open 24 hours, every day.</p>
             <div class="route__detail"><a class="route__number" href="tel:+2567XXXXXXXX" data-fact-href="tel:phones.emergency" data-fact="phones.emergency">+256 7XX XXX XXX</a></div>
-            <p><a class="text-link" href="/emergency/">Danger signs not to ignore <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></p>
+            <p><a class="text-link" href="/emergency/">Danger signs <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></p>
           </div>
           <div class="route">
-            <p class="route__when">Today, walk in</p>
             <h3>Outpatient clinic</h3>
-            <p>Fever, coughs, pain and everyday illness, for adults and children. Tests and medicines in the same building.</p>
+            <p>Walk in to see a doctor about fever, coughs, pain or any other illness. Adults and children.</p>
             <div class="route__detail" data-fact="hoursOf.outpatient-clinic">Monday to Saturday, 8:00 am – 8:00 pm</div>
-            <p><a class="text-link" href="/departments/outpatient/">About the clinic <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></p>
+            <p><a class="text-link" href="/departments/outpatient/">Outpatient clinic <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></p>
           </div>
           <div class="route">
-            <p class="route__when">Planned care</p>
-            <h3>Book ahead</h3>
-            <p>Check-ups, reviews of long-term conditions, antenatal visits, family planning and dental care.</p>
-            <div class="route__detail">Send a request; we call you to confirm a time.</div>
+            <h3>Appointments</h3>
+            <p>For check-ups, reviews of long-term conditions, antenatal visits, family planning and dental care.</p>
+            <div class="route__detail">Send a request and we call you back with a time.</div>
             <p><a class="text-link" href="/appointments/">Request an appointment <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></p>
           </div>
         </div>
@@ -421,14 +418,27 @@
     </section>
 
     <!-- build:trust -->
-
+      <section class="section section--tight trust" aria-labelledby="trust-title">
+        <div class="container">
+          <h2 class="sr-only" id="trust-title">Life Care Hospital in figures</h2>
+          <dl class="trust__stats">
+            <div><dt>Caring for West Nile since</dt><dd>2009</dd></div>
+            <div><dt>Inpatient beds</dt><dd>64</dd></div>
+            <div><dt>Staff</dt><dd>120</dd></div>
+            <div><dt>Emergency and maternity</dt><dd>24 hours</dd></div>
+          </dl>
+          <ul class="trust__marks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Licensed by the Uganda Medical and Dental Practitioners Council</strong><small>Private hospital licence</small></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Laboratory registered with the Allied Health Professionals Council</strong><small>Clinical laboratory</small></span></li>
+          </ul>
+        </div>
+      </section>
     <!-- /build:trust -->
 
     <section class="section section--paper" aria-labelledby="families-title">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">For families</p>
-          <h2 id="families-title">Care for every stage of family life</h2>
+          <h2 id="families-title">Pregnancy, children and tests</h2>
         </div>
         <div class="tasks">
           <article class="task">
@@ -471,10 +481,8 @@
     <section class="section" aria-labelledby="departments-title">
       <div class="container dept-index">
         <div class="dept-index__head">
-          <p class="eyebrow">Departments</p>
-          <h2 id="departments-title">Everything under one roof</h2>
-          <p>From a newborn’s first check to an emergency operation, our departments work side by side, so your care is joined up from the first visit to the last.</p>
-          <a href="/departments/" class="text-link">Search all departments <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          <h2 id="departments-title">Our departments</h2>
+          <a href="/departments/" class="text-link">Search the departments <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
         </div>
         <ul class="dept-list">
           <!-- build:department-list -->
@@ -509,21 +517,21 @@
             <li>
               <a href="/departments/gynaecology/">
                 <span class="dept-list__name">Gynaecology &amp; Family Planning</span>
-                <span class="dept-list__text">Women’s health at every age: period problems, fertility concerns, screening and contraception.</span>
+                <span class="dept-list__text">Period problems, fertility concerns, cervical cancer screening and family planning.</span>
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
               </a>
             </li>
             <li>
               <a href="/departments/paediatrics/">
                 <span class="dept-list__name">Children’s Clinic</span>
-                <span class="dept-list__text">Care for newborns, children and teenagers, from fevers and coughs to immunisation and growth checks.</span>
+                <span class="dept-list__text">Care for sick children, newborn checks, immunisation and growth checks.</span>
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
               </a>
             </li>
             <li>
               <a href="/departments/surgery/">
                 <span class="dept-list__name">Surgery &amp; Theatre</span>
-                <span class="dept-list__text">Planned and emergency operations in our own theatre, from hernia repairs to caesarean sections.</span>
+                <span class="dept-list__text">Planned and emergency operations, including hernia repairs and caesarean sections.</span>
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
               </a>
             </li>
@@ -567,15 +575,47 @@
       </div>
     </section>
 
+    <!-- build:doctor-highlights -->
+      <section class="section" aria-labelledby="doctors-title">
+        <div class="container">
+          <div class="section__head section__head--split">
+            <h2 id="doctors-title">Our doctors</h2>
+            <a href="/doctors/" class="text-link">All doctors and clinicians <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          </div>
+          <div class="people">
+            <a href="/doctors/#dr-emmanuel-anguyo" class="person">
+              <span class="person__photo"><img src="/assets/doctors/emmanuel-anguyo.jpg" alt="" width="400" height="400" loading="lazy" /></span>
+              <span class="person__name">Dr Emmanuel Anguyo</span>
+              <span class="person__role">Consultant Physician</span>
+            </a>
+            <a href="/doctors/#dr-grace-ayikoru" class="person">
+              <span class="person__photo"><img src="/assets/doctors/grace-ayikoru.jpg" alt="" width="400" height="400" loading="lazy" /></span>
+              <span class="person__name">Dr Grace Ayikoru</span>
+              <span class="person__role">Consultant Obstetrician and Gynaecologist</span>
+            </a>
+            <a href="/doctors/#dr-patrick-ochaya" class="person">
+              <span class="person__photo"><img src="/assets/doctors/patrick-ochaya.jpg" alt="" width="400" height="400" loading="lazy" /></span>
+              <span class="person__name">Dr Patrick Ochaya</span>
+              <span class="person__role">General Surgeon</span>
+            </a>
+            <a href="/doctors/#dr-sarah-nakato" class="person">
+              <span class="person__photo"><img src="/assets/doctors/sarah-nakato.jpg" alt="" width="400" height="400" loading="lazy" /></span>
+              <span class="person__name">Dr Sarah Nakato</span>
+              <span class="person__role">Paediatrician</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    <!-- /build:doctor-highlights -->
+
     <section class="section section--paper" aria-labelledby="visit-title">
       <div class="container feature">
         <figure class="feature__media">
           <img src="/assets/photos/consultation-1600.jpg" srcset="/assets/photos/consultation-800.jpg 800w, /assets/photos/consultation-1600.jpg 1600w" sizes="(max-width: 1024px) 100vw, 50vw" alt="A doctor talks with a patient across a desk, a blood pressure monitor beside them." width="1600" height="1067" loading="lazy" style="object-position: 40% 50%" />
         </figure>
         <div>
-          <p class="eyebrow">Your first visit</p>
-          <h2 id="visit-title">What to expect when you come to us</h2>
-          <p class="lead">No appointment is needed for the outpatient clinic. This is how a visit usually goes, so you can plan your day.</p>
+          <h2 id="visit-title">Your first visit</h2>
+          <p class="lead">You do not need an appointment for the outpatient clinic. A visit usually goes like this.</p>
           <ol class="steps">
             <li class="step">
               <h3>Register at reception</h3>
@@ -614,25 +654,11 @@
       </div>
     </section>
 
-    <section class="statement" aria-label="Our promise">
-      <div class="container">
-        <p class="eyebrow eyebrow--light">Our promise</p>
-        <blockquote>Our name is our promise: <em>we care for your life</em>, at three in the morning as much as at noon.</blockquote>
-        <div class="statement__meta">
-          <p>Everyone at Life Care, from reception to theatre, is asked to treat each patient with the care they would want for their own family.</p>
-          <p><a href="/about/" class="text-link text-link--light">About Life Care Hospital <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></p>
-        </div>
-      </div>
-      <svg class="heartline" aria-hidden="true"><use href="#i-heartline" /></svg>
-    </section>
-
     <section class="section" aria-labelledby="health-title">
       <div class="container">
         <div class="section__head section__head--split">
           <div>
-            <p class="eyebrow">Health information</p>
-            <h2 id="health-title">Know the signs, act early</h2>
-            <p>Plain advice on the illnesses we see most in West Nile: when to come in, and how to protect your family.</p>
+            <h2 id="health-title">Health information</h2>
           </div>
           <a href="/health/" class="text-link">All health information <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
         </div>
@@ -640,20 +666,20 @@
           <!-- build:article-cards -->
             <a href="/health/malaria/" class="article-card">
               <span class="article-card__cat">Common illness</span>
-              <span class="article-card__title">Malaria: test the same day, treat it the right way</span>
-              <span class="article-card__text">Malaria is common in West Nile and can become severe within hours, especially in young children and pregnant women. How to recognise it, when to come in, and how to protect your family.</span>
+              <span class="article-card__title">Malaria</span>
+              <span class="article-card__text">Malaria is common in West Nile and can become severe within hours, especially in young children and pregnant women. Anyone with a fever should be tested the same day.</span>
               <span class="article-card__meta">4 min read</span>
             </a>
             <a href="/health/antenatal-care/" class="article-card">
               <span class="article-card__cat">Pregnancy</span>
-              <span class="article-card__title">Antenatal care: start early, come often</span>
-              <span class="article-card__text">Regular antenatal visits protect you and your baby. When to start, what happens at each visit, and the danger signs that mean you should come in straight away.</span>
+              <span class="article-card__title">Antenatal care</span>
+              <span class="article-card__text">When to start antenatal visits, what happens at each one, and the danger signs in pregnancy.</span>
               <span class="article-card__meta">4 min read</span>
             </a>
             <a href="/health/child-danger-signs/" class="article-card">
               <span class="article-card__cat">Children</span>
-              <span class="article-card__title">When to bring your child to hospital immediately</span>
-              <span class="article-card__text">Children can become seriously ill very quickly. These danger signs mean your child needs care straight away, at any hour. Plus how to care for diarrhoea at home.</span>
+              <span class="article-card__title">Danger signs in children</span>
+              <span class="article-card__text">The signs that mean a sick child must be seen straight away, at any hour, and how to care for diarrhoea at home.</span>
               <span class="article-card__meta">3 min read</span>
             </a>
           <!-- /build:article-cards -->
@@ -664,9 +690,8 @@
     <section class="section section--paper" aria-labelledby="pay-title">
       <div class="container pay">
         <div>
-          <p class="eyebrow">Paying for your care</p>
-          <h2 id="pay-title">Pay the way that suits you</h2>
-          <p class="pay__note">Insured or covered by your employer? Bring your card or letter and our billing team will confirm your cover. For tests or a planned operation, ask us for an estimate first.</p>
+          <h2 id="pay-title">Paying for treatment</h2>
+          <p class="pay__note">If you are insured or covered by your employer, bring your card or letter and our billing office will check your cover. For tests or a planned operation, ask for an estimate first.</p>
           <p class="pay__links">
             <a href="/patients/#paying" class="text-link">Payment and insurance details <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
             <a href="/packages/" class="text-link">Health check packages <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
@@ -679,16 +704,35 @@
           <div class="pay__method"><strong>Insurance and employer schemes</strong><span>Bring your card or letter</span></div>
         </div>
       </div>
+      <div class="container">
+        <!-- build:insurers -->
+          <div class="insurers">
+            <h3>Insurers and schemes we work with</h3>
+            <ul class="insurers__list">
+              <li>AAR Healthcare</li>
+              <li>Jubilee Health Insurance</li>
+              <li>UAP Old Mutual</li>
+              <li>Prudential Assurance</li>
+              <li>Sanlam</li>
+              <li>ICEA LION</li>
+              <li>Liberty Health</li>
+              <li>GA Insurance</li>
+              <li>Britam</li>
+              <li>IAA Healthcare</li>
+              <li>CIC Africa</li>
+            </ul>
+            <p class="insurers__note">Not on the list? Call reception before your visit and we will check your cover.</p>
+          </div>
+        <!-- /build:insurers -->
+      </div>
     </section>
 
     <section class="section" id="visit" aria-labelledby="find-title">
       <div class="container">
         <div class="section__head section__head--split">
           <div>
-            <p class="eyebrow">Visit us</p>
-            <h2 id="find-title">Find us in <span data-fact="address.city">Arua City</span></h2>
+            <h2 id="find-title">How to find us</h2>
           </div>
-          <p>We are open every day. Emergency and maternity care never close.</p>
         </div>
         <div class="visit">
           <div class="map">
@@ -746,7 +790,6 @@
     <section class="section section--paper" aria-labelledby="faq-title">
       <div class="container faq-layout">
         <div>
-          <p class="eyebrow">Questions</p>
           <h2 id="faq-title">Common questions</h2>
           <p class="lead" style="margin-top:1rem">Can’t find your answer? Call reception on <a class="link" href="tel:+2567XXXXXXXX" data-fact-href="tel:phones.main" data-fact="phones.main">+256 7XX XXX XXX</a> or send us a WhatsApp message.</p>
           <p style="margin-top:1.75rem"><a href="/patients/" class="text-link">Patient and visitor guide <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></p>
@@ -783,7 +826,6 @@
     <section class="section section--tight" aria-labelledby="refer-title">
       <div class="container refer-band">
         <div>
-          <p class="eyebrow">For health workers</p>
           <h2 id="refer-title">Referring a patient to Life Care?</h2>
           <p>Health centres, clinics and doctors across West Nile can refer patients to us for specialist care, surgery, maternity, imaging and admission. Call ahead and we will be ready.</p>
         </div>
@@ -798,7 +840,7 @@
       <div class="container cta-band__inner">
         <div>
           <h2 id="cta-title">Need to see a doctor?</h2>
-          <p>Request an appointment in two minutes, or message us on WhatsApp. In an emergency, come straight in, day or night.</p>
+          <p>Send an appointment request or a WhatsApp message. In an emergency, come straight in.</p>
         </div>
         <div class="cta-band__actions">
           <a href="/appointments/" class="btn btn--on-dark btn--lg">Book an appointment</a>
@@ -854,7 +896,7 @@
           <a href="/about/">About us</a>
           <a href="/about/#values">Mission and values</a>
           <!-- build:doctors-link -->
-
+            <a href="/doctors/">Find a doctor</a>
           <!-- /build:doctors-link -->
           <a href="/about/#careers">Careers</a>
           <a href="/refer/">Refer a patient</a>
@@ -882,7 +924,6 @@
           <a href="/assets/lifecare-hospital.vcf" class="footer__save" download="Life Care Hospital.vcf"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg> Save our numbers to your phone</a>
         </div>
       </div>
-      <svg class="heartline" aria-hidden="true"><use href="#i-heartline" /></svg>
       <div class="footer__bottom">
         <span>&copy; <span data-fact="year">2026</span> Life Care Hospital, Arua. All rights reserved.</span>
         <nav aria-label="Legal">

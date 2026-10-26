@@ -11,10 +11,10 @@ need their written consent.
 | File | Used for | Photographer | Source |
 | --- | --- | --- | --- |
 | nurse-comforting-child | Homepage hero | Lisa Marie Theck | https://unsplash.com/photos/nurse-comforting-a-young-child-on-a-sofa-5PMciQ-z8Xs |
-| nurse-green-scrubs | About, careers | Lisa Marie Theck | https://unsplash.com/photos/a-woman-in-green-scrubs-with-a-stethoscope-O8ekTIhHBRY |
+| nurse-green-scrubs | Not currently used | Lisa Marie Theck | https://unsplash.com/photos/a-woman-in-green-scrubs-with-a-stethoscope-O8ekTIhHBRY |
 | midwife-ward | Maternity | Iwaria Inc. | https://unsplash.com/photos/a-woman-holding-a-baby-in-a-hospital-bed-q7PY6bXbmzk |
 | nurse-ward | Inpatient wards, patient guide | Iwaria Inc. | https://unsplash.com/photos/a-woman-in-a-pink-shirt-and-a-woman-in-a-green-and-yellow-dress-e_4u1tobpbg |
-| doctor-portrait | About, gynaecology | Ato Aikins | https://unsplash.com/photos/a-woman-wearing-a-white-coat-and-a-stethoscope-TPT4pevJEmQ |
+| doctor-portrait | Gynaecology, travelling patients | Ato Aikins | https://unsplash.com/photos/a-woman-wearing-a-white-coat-and-a-stethoscope-TPT4pevJEmQ |
 | clinic-child | Children's clinic | Francisco Venâncio | https://unsplash.com/photos/doctor-sitting-at-the-table-in-front-of-girl-M4Xloxsg0Gw |
 | blood-pressure | Internal medicine | Nappy | https://unsplash.com/photos/a-doctor-checking-a-patients-blood-pressure-dcBO4nt4MRE |
 | consultation | Outpatient clinic, your visit | Ninthgrid | https://unsplash.com/photos/two-men-sitting-at-a-desk-talking-to-each-other-BsboLMESZg8 |
@@ -22,3 +22,8 @@ need their written consent.
 | dentist-child | Dental clinic | Hush Naidoo Jade Photography | https://unsplash.com/photos/dentist-holding-syringe-into-boys-mouth-9ROuHJ25XVc |
 | laboratory | Laboratory, homepage | Andrew Oklu | https://unsplash.com/photos/a-woman-in-a-lab-coat-looking-through-a-microscope-TZUjC1TyPBg |
 | baby-shoulder | Children's clinic, homepage | TopSphere Media | https://unsplash.com/photos/girls-sleeping-on-mothers-shoulder-leUFTSlCEXk |
+| hospital-exterior | About (stands in for the hospital building) | Kame BGCREATIONS | https://unsplash.com/photos/modern-brick-architecture-with-multiple-levels-and-a-cloudy-sky-XqgRJKiEf1o |
+| corridor | About, inside the hospital | Richard Stachmann | https://unsplash.com/photos/a-long-hallway-with-a-bunch-of-chairs-in-it-R4SQwqYq0XI |
+| waiting-area | About, inside the hospital | Adhitya Sibikumar | https://unsplash.com/photos/three-red-chairs-in-a-waiting-room-by-window-2d3cHa8RMSY |
+
+Portraits of the sample doctors are in `assets/doctors/` and credited in `assets/doctors/CREDITS.md`.

@@ -2,7 +2,7 @@
    The shell blocks are left empty here: the build fills them from index.html.
    Text that comes from data/site.js is marked with data-fact so it stays in step. */
 
-module.exports = function renderDepartment(d, { site, icon, escapeHtml: e, category, hours, related, all }) {
+module.exports = function renderDepartment(d, { site, icon, escapeHtml: e, category, hours, related, all, people }) {
   const title = `${d.name} | ${site.name}, Arua`;
   const list = (items) =>
     `<ul class="check-list">\n${items.map((item) => `                <li>${icon('check')}<span>${e(item)}</span></li>`).join('\n')}\n              </ul>`;
@@ -33,6 +33,15 @@ ${d.warning.items.map((item) => `              <li>${e(item)}</li>`).join('\n')}
               <!-- /build:visiting-hours -->
             </tbody>
           </table>
+`
+    : '';
+
+  const team = people.length
+    ? `
+          <h2 id="team">Doctors in this department</h2>
+          <div class="people people--compact">
+${people.join('\n')}
+          </div>
 `
     : '';
 
@@ -118,7 +127,6 @@ ${JSON.stringify(schema, null, 2).replace(/^/gm, '    ')}
         </nav>
         <div class="page-hero__grid">
           <div class="page-hero__content">
-            <p class="eyebrow">${e(category.name)}</p>
             <h1>${e(d.name)}</h1>
             <p class="lead">${e(d.summary)}</p>
             <div class="page-hero__actions">
@@ -162,7 +170,7 @@ ${d.intro.map((p) => `            <p>${e(p)}</p>`).join('\n')}
           <ul class="service-list">
 ${services}
           </ul>
-${warning}
+${team}${warning}
           <div class="two-lists">
             <div>
               <h2 id="when">When to come to us</h2>

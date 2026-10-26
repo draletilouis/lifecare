@@ -124,7 +124,25 @@ function renderDepartmentPage(d, ctx) {
     hours: d.hours ? hoursRow(d.hours) : null,
     related: (d.related || []).map((slug) => findDepartment(slug, `data/departments.js (${d.slug})`)),
     all: DEPARTMENTS.map((x) => ({ ...x, url: deptUrl(x) })),
+    people: DOCTORS.filter((doc) => doc.department === d.slug).map((doc) => personCard(doc)),
   });
+}
+
+// The anchor for a clinician's card in the /doctors/ directory, e.g. "dr-grace-ayikoru".
+const doctorId = (doc) => slug(doc.name);
+
+// A small card for one clinician: photo, name and role (or a leadership title), linking to the directory.
+function personCard(doc, title) {
+  const photo = doc.photo
+    ? `<img src="/assets/doctors/${escapeHtml(doc.photo)}" alt="" width="400" height="400" loading="lazy" />`
+    : `<span class="person__initials" aria-hidden="true">${escapeHtml(doc.name.replace(/^(Dr|Sister|Mr|Mrs|Ms|Prof)\.?\s+/i, '').split(/\s+/).map((w) => w[0]).slice(0, 2).join(''))}</span>`;
+  return [
+    `      <a href="/doctors/#${doctorId(doc)}" class="person">`,
+    `        <span class="person__photo">${photo}</span>`,
+    `        <span class="person__name">${escapeHtml(doc.name)}</span>`,
+    `        <span class="person__role">${escapeHtml(title || doc.role)}</span>`,
+    '      </a>',
+  ].join('\n');
 }
 
 function renderArticlePage(a, ctx) {
@@ -237,7 +255,7 @@ const BLOCKS = {
         ].filter(Boolean)
       : [],
 
-  credentials: () => site.credentials.map((c) => `<li>${icon('check')}<span>${escapeHtml(c)}</span></li>`),
+  credentials: () => site.credentials.map((c) => `<li>${escapeHtml(c)}</li>`),
 
   // Confirmed figures and registrations. The whole section is left out while both lists are empty.
   trust: () => {
@@ -325,6 +343,60 @@ const BLOCKS = {
 
   // "Find a doctor" link, only once data/doctors.js has entries.
   'doctors-link': () => (DOCTORS.length ? ['<a href="/doctors/">Find a doctor</a>'] : []),
+
+  // Homepage: the doctors marked "featured", left out while there are none.
+  'doctor-highlights': () => {
+    const featured = DOCTORS.filter((doc) => doc.featured).slice(0, 4);
+    if (!featured.length) return [];
+    return [
+      '<section class="section" aria-labelledby="doctors-title">',
+      '  <div class="container">',
+      '    <div class="section__head section__head--split">',
+      '      <h2 id="doctors-title">Our doctors</h2>',
+      `      <a href="/doctors/" class="text-link">All doctors and clinicians ${icon('arrow')}</a>`,
+      '    </div>',
+      '    <div class="people">',
+      ...featured.map((doc) => personCard(doc)),
+      '    </div>',
+      '  </div>',
+      '</section>',
+    ];
+  },
+
+  // About page: the people with a "leadership" title in data/doctors.js.
+  leadership: () => {
+    const leaders = DOCTORS.filter((doc) => doc.leadership);
+    if (!leaders.length) return [];
+    return [
+      '<section class="section" aria-labelledby="leaders-title">',
+      '  <div class="container">',
+      '    <div class="section__head">',
+      '      <h2 id="leaders-title">Hospital leadership</h2>',
+      '    </div>',
+      '    <div class="people people--wide">',
+      ...leaders.map((doc) => personCard(doc, doc.leadership)),
+      '    </div>',
+      '  </div>',
+      '</section>',
+    ];
+  },
+
+  // Insurers whose members can be treated on cover, left out while site.insurers is empty.
+  insurers: () =>
+    site.insurers && site.insurers.length
+      ? [
+          '<div class="insurers">',
+          '  <h3>Insurers and schemes we work with</h3>',
+          '  <ul class="insurers__list">',
+          ...site.insurers.map((name) => `    <li>${escapeHtml(name)}</li>`),
+          '  </ul>',
+          '  <p class="insurers__note">Not on the list? Call reception before your visit and we will check your cover.</p>',
+          '</div>',
+        ]
+      : [],
+
+  // Keeps search engines out while the site holds sample content (site.sampleContent).
+  'robots-meta': () => (site.sampleContent ? ['<meta name="robots" content="noindex, nofollow" />'] : []),
 
   'hospital-schema': () => {
     const schema = {
@@ -464,7 +536,12 @@ function sitemap() {
   return ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', ...urls, '</urlset>', ''].join('\n');
 }
 
-const robots = () => ['User-agent: *', 'Allow: /', '', `Sitemap: ${site.url}/sitemap.xml`, ''].join('\n');
+// While the site holds sample content, search engines are asked to stay out entirely.
+const robots = () =>
+  (site.sampleContent
+    ? ['User-agent: *', 'Disallow: /', '']
+    : ['User-agent: *', 'Allow: /', '', `Sitemap: ${site.url}/sitemap.xml`, '']
+  ).join('\n');
 
 // A contact card patients can save to their phone ("Save our numbers").
 const vcard = () => {
@@ -497,7 +574,7 @@ const manifest = () =>
       start_url: '/',
       display: 'browser',
       background_color: '#ffffff',
-      theme_color: '#007c43',
+      theme_color: '#0b364c',
       icons: [
         { src: '/assets/icon-192.png', sizes: '192x192', type: 'image/png' },
         { src: '/assets/icon-512.png', sizes: '512x512', type: 'image/png' },
@@ -517,7 +594,7 @@ function build() {
   const sources = PAGES.map((page) => {
     const { text, eol } = read(page.file);
     if (page.render) {
-      const generated = page.render({ site, icon, escapeHtml, departments: DEPARTMENTS, categories: CATEGORIES });
+      const generated = page.render({ site, icon, escapeHtml, departments: DEPARTMENTS, categories: CATEGORIES, doctorId });
       // Keep the shell already in the file, so an unchanged page is not reported as changed.
       let merged = generated;
       if (text) {
@@ -538,18 +615,16 @@ function build() {
   const home = sources.find((s) => s.page.file === 'index.html');
   const shell = Object.fromEntries(SHELL.map((name) => [name, unmark(extract(home.next, name, 'index.html'))]));
 
-  // Every icon a page uses must be in the shared sprite.
   const symbols = new Set([...shell.icons.matchAll(/<symbol id="([^"]+)"/g)].map((m) => m[1]));
-  for (const s of sources) {
-    for (const [, id] of s.next.matchAll(/<use href="#([^"]+)"/g)) {
-      if (!symbols.has(id)) throw new BuildError(`${s.page.file}: icon "#${id}" is not in the icon sprite in index.html.`);
-    }
-  }
 
   for (const s of sources) {
     for (const name of SHELL) {
       extract(s.next, name, s.page.file);
       s.next = s.next.replace(shellPattern(name), () => markCurrent(shell[name], s.page));
+    }
+    // Every icon a page uses must be in the shared sprite (checked after the shell is copied in).
+    for (const [, id] of s.next.matchAll(/<use href="#([^"]+)"/g)) {
+      if (!symbols.has(id)) throw new BuildError(`${s.page.file}: icon "#${id}" is not in the icon sprite in index.html.`);
     }
     const outside = SHELL.reduce((rest, name) => rest.replace(shellPattern(name), ''), s.next);
     if (/<meta\s+name="theme-color"/i.test(outside)) throw new BuildError(`${s.page.file}: remove its own theme-color tag; the shell sets it.`);

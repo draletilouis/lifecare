@@ -16,11 +16,14 @@
   <meta name="twitter:image" content="https://lifecare.example/assets/og-image.png" />
   <!-- shell:head -->
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
-  <meta name="theme-color" content="#0f3b2d" />
+  <meta name="theme-color" content="#0b364c" />
+  <!-- build:robots-meta -->
+    <meta name="robots" content="noindex, nofollow" />
+  <!-- /build:robots-meta -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=76c120d4" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css?v=97bfa98a" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -73,7 +76,6 @@
     <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" /><path d="M7 12c1.5-3 3.5-4 5-4s3.5 1 5 4c-1.5 3-3.5 4-5 4s-3.5-1-5-4z" /><circle cx="12" cy="12" r="1.5" /></symbol>
     <symbol id="i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></symbol>
     <symbol id="i-tooth" viewBox="0 0 24 24"><path d="M12 5.5C10.5 4 8.5 3 6.5 3.5 4 4.2 3.2 7 3.8 9.5c.5 2 1.2 3.5 1.7 6 .4 2 .8 4.5 2 5 1.4.6 2-1.5 2.4-3.2.3-1.4.9-2.3 2.1-2.3s1.8.9 2.1 2.3c.4 1.7 1 3.8 2.4 3.2 1.2-.5 1.6-3 2-5 .5-2.5 1.2-4 1.7-6 .6-2.5-.2-5.3-2.7-6-2-.5-4 .5-5.5 2Z" /></symbol>
-    <symbol id="i-heartline" viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 24H560l12-14 14 28 16-34 14 26 10-6H1200" vector-effect="non-scaling-stroke" /></symbol>
   </svg>
   <!-- /shell:icons -->
 
@@ -194,7 +196,7 @@
             <a href="/departments/dental/">Dental Clinic</a>
           <!-- /build:mobile-departments -->
           <!-- build:doctors-link -->
-
+            <a href="/doctors/">Find a doctor</a>
           <!-- /build:doctors-link -->
           <a href="/departments/"><strong>All departments</strong></a>
         </div>
@@ -239,7 +241,6 @@
         <div class="page-hero__grid">
           <div class="page-hero__content">
             <span class="page-hero__icon" style="color:var(--red)"><svg class="icon" aria-hidden="true"><use href="#i-ambulance" /></svg></span>
-            <p class="eyebrow">Accident &amp; Emergency</p>
             <h1>In an emergency, come straight to us</h1>
             <p class="lead">Our Accident &amp; Emergency unit is open 24 hours a day, every day, including weekends and public holidays. You do not need an appointment or a referral. Patients are seen in order of how sick they are, not in order of arrival.</p>
             <div class="page-hero__actions">
@@ -260,7 +261,6 @@
     <section class="section" aria-labelledby="signs-title">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">Danger signs</p>
           <h2 id="signs-title">Come immediately, day or night, if you notice any of these</h2>
           <p>Do not wait to see whether things get better. Early treatment saves lives.</p>
         </div>
@@ -312,7 +312,6 @@
     <section class="section section--tint" aria-labelledby="where-title">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">Where should I go?</p>
           <h2 id="where-title">Choosing the right place for your care</h2>
           <p>Coming to the right place gets you the right care faster, and keeps the emergency unit free for those who need it most.</p>
         </div>
@@ -338,7 +337,6 @@
     <section class="section" aria-labelledby="travel-title">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">On the way</p>
           <h2 id="travel-title">What to do while you get here</h2>
           <p>These general steps help while you travel. They do not replace care from a trained health worker.</p>
         </div>
@@ -369,7 +367,6 @@
     <section class="section section--surface" aria-labelledby="arrive-title">
       <div class="container split">
         <div>
-          <p class="eyebrow">When you arrive</p>
           <h2 id="arrive-title">What happens in Accident &amp; Emergency</h2>
           <p class="lead" style="margin-top:1rem">The emergency team works around the clock with the laboratory, imaging, theatre and wards, so treatment can start without delay.</p>
         </div>
@@ -442,7 +439,7 @@
           <a href="/about/">About us</a>
           <a href="/about/#values">Mission and values</a>
           <!-- build:doctors-link -->
-
+            <a href="/doctors/">Find a doctor</a>
           <!-- /build:doctors-link -->
           <a href="/about/#careers">Careers</a>
           <a href="/refer/">Refer a patient</a>
@@ -470,7 +467,6 @@
           <a href="/assets/lifecare-hospital.vcf" class="footer__save" download="Life Care Hospital.vcf"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg> Save our numbers to your phone</a>
         </div>
       </div>
-      <svg class="heartline" aria-hidden="true"><use href="#i-heartline" /></svg>
       <div class="footer__bottom">
         <span>&copy; <span data-fact="year">2026</span> Life Care Hospital, Arua. All rights reserved.</span>
         <nav aria-label="Legal">

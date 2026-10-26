@@ -1,16 +1,16 @@
 /* The "Find a doctor" directory at /doctors/, rendered by scripts/build.js from data/doctors.js.
    It is only built when data/doctors.js has at least one entry. */
 
-module.exports = function renderDoctors(doctors, { site, icon, escapeHtml: e, departments, categories }) {
+module.exports = function renderDoctors(doctors, { site, icon, escapeHtml: e, departments, categories, doctorId }) {
   const title = `Find a doctor | ${site.name}, Arua`;
   const deptOf = (slug) => departments.find((d) => d.slug === slug);
-  const initials = (name) => name.replace(/^(Dr|Mr|Mrs|Ms|Prof)\.?\s+/i, '').split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+  const initials = (name) => name.replace(/^(Dr|Sister|Mr|Mrs|Ms|Prof)\.?\s+/i, '').split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
 
   const card = (doc) => {
     const dept = deptOf(doc.department);
     const keywords = [doc.name, doc.role, dept && dept.name, doc.languages, doc.qualifications].filter(Boolean).join(' ').toLowerCase();
     const photo = doc.photo
-      ? `<img src="/assets/doctors/${e(doc.photo)}" alt="" width="160" height="160" loading="lazy" />`
+      ? `<img src="/assets/doctors/${e(doc.photo)}" alt="" width="400" height="400" loading="lazy" />`
       : `<span aria-hidden="true">${e(initials(doc.name))}</span>`;
     const facts = [
       doc.qualifications && ['Qualifications', doc.qualifications],
@@ -18,7 +18,7 @@ module.exports = function renderDoctors(doctors, { site, icon, escapeHtml: e, de
       doc.clinicDays && ['Clinic days', doc.clinicDays],
       doc.registration && ['Registration', doc.registration],
     ].filter(Boolean);
-    return `          <article class="doctor-card" data-search="${e(keywords)}">
+    return `          <article class="doctor-card" id="${doctorId(doc)}" data-search="${e(keywords)}">
             <div class="doctor-card__photo">${photo}</div>
             <div class="doctor-card__body">
               <h3 class="doctor-card__name">${e(doc.name)}</h3>
@@ -87,7 +87,6 @@ ${other.map(card).join('\n')}
             <li><span aria-current="page">Find a doctor</span></li>
           </ol>
         </nav>
-        <p class="eyebrow">Our clinicians</p>
         <h1>Find a doctor</h1>
         <p class="lead">Every clinician listed here is registered with their professional council in Uganda. Search by name, specialty or language.</p>
       </div>

@@ -173,7 +173,7 @@ const DEPARTMENTS = [
     category: 'family',
     icon: 'venus',
     hours: 'Outpatient clinic',
-    card: 'Women’s health at every age: period problems, fertility concerns, screening and contraception.',
+    card: 'Period problems, fertility concerns, cervical cancer screening and family planning.',
     summary: 'Private, respectful care for women’s health concerns, cervical cancer screening and a choice of family planning methods.',
     intro: [
       'From painful or irregular periods to fertility worries and the menopause, our team offers a private place to talk and get answers.',
@@ -216,8 +216,8 @@ const DEPARTMENTS = [
     category: 'family',
     icon: 'baby',
     hours: 'Outpatient clinic',
-    card: 'Care for newborns, children and teenagers, from fevers and coughs to immunisation and growth checks.',
-    summary: 'Careful, gentle care for babies, children and teenagers, including immunisation, growth checks and admission for sick children.',
+    card: 'Care for sick children, newborn checks, immunisation and growth checks.',
+    summary: 'Clinics and a ward for babies, children and teenagers, including immunisation and growth checks.',
     intro: [
       'Children’s illnesses can change quickly, and children need clinicians who know how to examine them and how to talk to them, and to you. Our children’s team sees sick children every day and admits those who need closer care.',
       'Malaria, pneumonia and diarrhoea remain the most common serious illnesses in young children in West Nile. Early testing and treatment save lives, so bring your child as soon as you are worried.',
@@ -268,7 +268,7 @@ const DEPARTMENTS = [
     category: 'surgical',
     icon: 'scalpel',
     hours: 'Outpatient clinic',
-    card: 'Planned and emergency operations in our own theatre, from hernia repairs to caesarean sections.',
+    card: 'Planned and emergency operations, including hernia repairs and caesarean sections.',
     summary: 'Assessment, operations and recovery care for general surgical conditions, planned or in an emergency.',
     intro: [
       'Our surgical team sees you in clinic, explains your options and what to expect, and plans your operation with you. Emergency operations, such as for appendicitis or a complicated delivery, are performed day and night.',
@@ -363,7 +363,7 @@ const DEPARTMENTS = [
     icon: 'microscope',
     hours: 'Laboratory',
     card: 'Blood, urine and stool tests for diagnosis and check-ups, with most routine results the same day.',
-    summary: 'On-site testing that helps your clinician find the cause of your illness quickly, with most routine results ready the same day.',
+    summary: 'Blood, urine and stool tests on site. Most routine results are ready the same day.',
     intro: [
       'Our laboratory supports every department in the hospital, from a malaria test in the outpatient clinic to blood grouping before an operation. Because it is on site, your clinician can usually see your results and start treatment on the same visit.',
       'You can also bring a request form from another clinic or doctor and have your tests done here.',
@@ -402,7 +402,7 @@ const DEPARTMENTS = [
     icon: 'scan',
     hours: 'Imaging (ultrasound and X-ray)',
     card: 'Ultrasound scans, including pregnancy scans, and X-rays, with a written report for your clinician.',
-    summary: 'Ultrasound scans and X-rays that show your clinician what is happening inside the body, without surgery.',
+    summary: 'Ultrasound scans, including pregnancy scans, and X-rays, with a written report for your clinician.',
     intro: [
       'Imaging helps your clinician find the cause of a problem quickly and safely. Ultrasound uses sound waves, not radiation, so it is safe in pregnancy. X-rays use a small, controlled dose of radiation and are the quickest way to check bones and the chest.',
       'Every examination is reviewed and a written report goes to the clinician who requested it.',
@@ -480,7 +480,7 @@ const DEPARTMENTS = [
     icon: 'tooth',
     hours: 'Dental clinic',
     card: 'Check-ups, cleaning, fillings, extractions and treatment of tooth pain for the whole family.',
-    summary: 'Care for teeth and gums for adults and children, from check-ups and cleaning to fillings and extractions.',
+    summary: 'Check-ups, cleaning, fillings and extractions for adults and children.',
     intro: [
       'Toothache, bleeding gums and broken teeth are painful, but most dental problems can be prevented, or treated simply when they are caught early. Our dental team treats the problem today and helps you keep your teeth healthy.',
     ],

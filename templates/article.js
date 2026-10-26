@@ -93,7 +93,6 @@ ${JSON.stringify(schema, null, 2).replace(/^/gm, '    ')}
             <li><span aria-current="page">${e(a.category)}</span></li>
           </ol>
         </nav>
-        <p class="eyebrow">${e(a.category)}</p>
         <h1>${e(a.title)}</h1>
         <p class="lead">${e(a.summary)}</p>
         <p class="article__meta">${icon('clock')} ${a.readMinutes} min read <span aria-hidden="true">·</span> ${review}</p>
