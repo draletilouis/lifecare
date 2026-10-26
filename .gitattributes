@@ -1,0 +1,2 @@
+# vCard files must use CRLF line endings (RFC 6350); the build writes them that way.
+*.vcf text eol=crlf

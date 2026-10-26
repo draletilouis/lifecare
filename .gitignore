@@ -1,0 +1,9 @@
+# Claude Code internal settings
+.claude/
+
+# Dependencies (none are installed, but keep them out if added)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db

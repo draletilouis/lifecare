@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://lifecare.example/</loc></url>
+  <url><loc>https://lifecare.example/departments/</loc></url>
+  <url><loc>https://lifecare.example/departments/outpatient/</loc></url>
+  <url><loc>https://lifecare.example/departments/internal-medicine/</loc></url>
+  <url><loc>https://lifecare.example/departments/maternity/</loc></url>
+  <url><loc>https://lifecare.example/departments/gynaecology/</loc></url>
+  <url><loc>https://lifecare.example/departments/paediatrics/</loc></url>
+  <url><loc>https://lifecare.example/departments/surgery/</loc></url>
+  <url><loc>https://lifecare.example/departments/inpatient/</loc></url>
+  <url><loc>https://lifecare.example/departments/laboratory/</loc></url>
+  <url><loc>https://lifecare.example/departments/imaging/</loc></url>
+  <url><loc>https://lifecare.example/departments/pharmacy/</loc></url>
+  <url><loc>https://lifecare.example/departments/dental/</loc></url>
+  <url><loc>https://lifecare.example/emergency/</loc></url>
+  <url><loc>https://lifecare.example/appointments/</loc></url>
+  <url><loc>https://lifecare.example/patients/</loc></url>
+  <url><loc>https://lifecare.example/patients/international/</loc></url>
+  <url><loc>https://lifecare.example/packages/</loc></url>
+  <url><loc>https://lifecare.example/health/</loc></url>
+  <url><loc>https://lifecare.example/health/malaria/</loc></url>
+  <url><loc>https://lifecare.example/health/antenatal-care/</loc></url>
+  <url><loc>https://lifecare.example/health/child-danger-signs/</loc></url>
+  <url><loc>https://lifecare.example/health/high-blood-pressure/</loc></url>
+  <url><loc>https://lifecare.example/health/cholera-and-safe-water/</loc></url>
+  <url><loc>https://lifecare.example/refer/</loc></url>
+  <url><loc>https://lifecare.example/about/</loc></url>
+  <url><loc>https://lifecare.example/contact/</loc></url>
+  <url><loc>https://lifecare.example/privacy/</loc></url>
+</urlset>

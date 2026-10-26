@@ -1,0 +1,15 @@
+{
+  "name": "lifecare-hospital-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website for Life Care Hospital, Arua, Uganda",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "check": "node scripts/build.js --check",
+    "dev": "node scripts/build.js && npx serve@14.2.6 . -l 8790",
+    "start": "node scripts/build.js --deploy && npx serve@14.2.6 . -l $PORT"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
