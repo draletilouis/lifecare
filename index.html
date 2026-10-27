@@ -116,7 +116,7 @@
       }
     </script>
   <!-- /build:hospital-schema -->
-  <link rel="preload" as="image" href="/assets/photos/nurse-comforting-child-1600.jpg" imagesrcset="/assets/photos/nurse-comforting-child-800.jpg 800w, /assets/photos/nurse-comforting-child-1600.jpg 1600w" imagesizes="(max-width: 1024px) 100vw, 48vw" />
+  <link rel="preload" as="image" href="/assets/photos/surgical-team-1600.jpg" imagesrcset="/assets/photos/surgical-team-800.jpg 800w, /assets/photos/surgical-team-1600.jpg 1600w" imagesizes="(max-width: 1024px) 100vw, 54vw" />
   <!-- shell:head -->
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
   <meta name="theme-color" content="#0b364c" />
@@ -125,8 +125,8 @@
   <!-- /build:robots-meta -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=4ae03ce3" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css?v=4600fbce" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -191,11 +191,16 @@
   <!-- /build:alert -->
   <div class="topbar">
     <div class="container topbar__inner">
-      <a class="topbar__urgent" href="tel:+2567XXXXXXXX" data-fact-href="tel:phones.emergency"><span class="pulse" aria-hidden="true"></span> 24-hour emergency line: <strong data-fact="phones.emergency">+256 7XX XXX XXX</strong></a>
-      <div class="topbar__info">
-        <span><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg> <span><span data-fact="address.city">Arua City</span>, Uganda</span></span>
-        <a href="mailto:info@lifecare.example" data-fact-href="mailto:email"><svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg> <span data-fact="email">info@lifecare.example</span></a>
-        <a href="https://wa.me/2567XXXXXXXX" data-fact-href="wa:phones.whatsapp" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp" /></svg> WhatsApp</a>
+      <div class="topbar__group">
+        <a class="topbar__urgent" href="tel:+2567XXXXXXXX" data-fact-href="tel:phones.emergency"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg> Emergency: <strong data-fact="phones.emergency">+256 7XX XXX XXX</strong></a>
+        <a href="/appointments/" class="topbar__extra"><svg class="icon" aria-hidden="true"><use href="#i-calendar" /></svg> Book an appointment</a>
+        <!-- build:topbar-doctors -->
+          <a href="/doctors/" class="topbar__extra"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg> Find a doctor</a>
+        <!-- /build:topbar-doctors -->
+      </div>
+      <div class="topbar__group topbar__info">
+        <a href="/contact/"><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg> Contact us</a>
+        <a href="/patients/#visiting"><svg class="icon" aria-hidden="true"><use href="#i-clock" /></svg> Visiting hours</a>
         <a href="/refer/" class="topbar__pro"><svg class="icon" aria-hidden="true"><use href="#i-stethoscope" /></svg> For health workers</a>
       </div>
     </div>
@@ -269,6 +274,7 @@
       </nav>
 
       <div class="nav__actions">
+        <a href="/departments/" class="nav__search" aria-label="Search departments and services"><svg class="icon" aria-hidden="true"><use href="#i-search" /></svg></a>
         <a href="/appointments/" class="btn btn--primary">Book an appointment</a>
       </div>
 
@@ -334,25 +340,24 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__panel">
-        <h1 id="hero-title">Life Care Hospital, Arua</h1>
-        <p class="lead">A private hospital in Arua City. Emergency and maternity care day and night, plus outpatient and children’s clinics, surgery, a laboratory, ultrasound, X-ray and a pharmacy in the same building.</p>
+      <!-- Placeholder photograph (Unsplash). Replace with the hospital's own: see assets/photos/CREDITS.md -->
+      <img class="hero__bg" src="/assets/photos/surgical-team-1600.jpg" srcset="/assets/photos/surgical-team-800.jpg 800w, /assets/photos/surgical-team-1600.jpg 1600w" sizes="100vw" alt="A surgical team at work in an operating theatre under bright lights." width="1600" height="1069" fetchpriority="high" />
+      <div class="container hero__inner">
+        <h1 id="hero-title">We care for your life</h1>
+        <p class="lead">Emergency and maternity care day and night, specialist clinics, surgery, a laboratory, scans and a pharmacy, at Life Care Hospital in Arua.</p>
         <div class="hero__actions">
-          <a href="/appointments/" class="btn btn--on-dark btn--lg">Book an appointment</a>
-          <a href="tel:+2567XXXXXXXX" data-fact-href="tel:phones.emergency" class="hero__urgent"><span class="pulse" aria-hidden="true"></span><span class="hero__urgent-text">Emergency: <span data-fact="phones.emergency">+256 7XX XXX XXX</span></span></a>
+          <a href="/appointments/" class="btn btn--primary btn--lg">Book an appointment</a>
+          <a href="/departments/" class="btn btn--ghost-light btn--lg">Our services <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
         </div>
-        <ul class="hero__chips" aria-label="At a glance">
-          <!-- build:credentials -->
-            <li>Emergency and maternity: 24 hours</li>
-            <li>Laboratory, ultrasound and X-ray on site</li>
-            <li>Cash, mobile money and insurance</li>
-          <!-- /build:credentials -->
-        </ul>
+        <!-- build:hero-stats -->
+          <dl class="hero__stats">
+            <div><dt>Caring for West Nile since</dt><dd>2009</dd></div>
+            <div><dt>Inpatient beds</dt><dd>64</dd></div>
+            <div><dt>Staff</dt><dd>120</dd></div>
+            <div><dt>Emergency and maternity</dt><dd>24 hours</dd></div>
+          </dl>
+        <!-- /build:hero-stats -->
       </div>
-      <figure class="hero__media">
-        <!-- Placeholder photograph (Unsplash). Replace with the hospital's own: see assets/photos/CREDITS.md -->
-        <img src="/assets/photos/nurse-comforting-child-1600.jpg" srcset="/assets/photos/nurse-comforting-child-800.jpg 800w, /assets/photos/nurse-comforting-child-1600.jpg 1600w" sizes="(max-width: 1024px) 100vw, 48vw" alt="A nurse in green scrubs sits beside a young girl on a sofa, holding her hand." width="1600" height="2400" fetchpriority="high" />
-      </figure>
     </section>
 
     <div class="finder">
@@ -376,23 +381,14 @@
             <svg class="icon" aria-hidden="true"><use href="#i-chevron" /></svg>
           </div>
           <button type="submit" class="btn btn--primary btn--lg">Show me <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></button>
-          <p class="finder__aside">
-            <span>Or go straight to</span>
-            <a href="/departments/">All departments</a>
-            <a href="/patients/#hours">Opening hours</a>
-            <a href="/patients/">What to bring</a>
-            <a href="tel:+2567XXXXXXXX" data-fact-href="tel:phones.main">Call reception</a>
-          </p>
         </form>
       </div>
     </div>
 
     <section class="section" aria-labelledby="routes-title">
       <div class="container">
-        <div class="section__head section__head--split">
-          <div>
-            <h2 id="routes-title">Where to go</h2>
-          </div>
+        <div class="section__head section__head--center">
+          <h2 id="routes-title">Where to go</h2>
           <p>You do not need an appointment for Accident &amp; Emergency or the outpatient clinic.</p>
         </div>
         <div class="routes">
@@ -418,161 +414,59 @@
       </div>
     </section>
 
-    <!-- build:trust -->
-      <section class="section section--tight trust" aria-labelledby="trust-title">
-        <div class="container">
-          <h2 class="sr-only" id="trust-title">Life Care Hospital in figures</h2>
-          <dl class="trust__stats">
-            <div><dt>Caring for West Nile since</dt><dd>2009</dd></div>
-            <div><dt>Inpatient beds</dt><dd>64</dd></div>
-            <div><dt>Staff</dt><dd>120</dd></div>
-            <div><dt>Emergency and maternity</dt><dd>24 hours</dd></div>
-          </dl>
-          <ul class="trust__marks">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Licensed by the Uganda Medical and Dental Practitioners Council</strong><small>Private hospital licence</small></span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Laboratory registered with the Allied Health Professionals Council</strong><small>Clinical laboratory</small></span></li>
-          </ul>
-        </div>
-      </section>
-    <!-- /build:trust -->
-
-    <section class="section section--paper" aria-labelledby="families-title">
+    <section class="services-band" aria-labelledby="services-title">
       <div class="container">
-        <div class="section__head">
-          <h2 id="families-title">Pregnancy, children and tests</h2>
+        <div class="section__head section__head--center">
+          <h2 id="services-title">Our services</h2>
+          <p>Specialist clinics, surgery, diagnostics and a 24-hour emergency unit in one hospital.</p>
         </div>
-        <div class="tasks">
-          <article class="task">
-            <div class="task__media"><img src="/assets/photos/mother-newborn-800.jpg" alt="A mother sits outdoors holding her newborn baby, wrapped in a patterned blanket." width="800" height="1200" loading="lazy" style="object-position: 60% 62%" /></div>
-            <div class="task__body">
-              <h3>I’m expecting a baby</h3>
-              <ul class="task__links">
-                <li><a href="/departments/maternity/">Antenatal care and delivery <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
-                <li><a href="/departments/maternity/#when">When to come in labour <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
-                <li><a href="/emergency/#signs-title">Danger signs in pregnancy <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
-              </ul>
-            </div>
-          </article>
-          <article class="task">
-            <div class="task__media"><img src="/assets/photos/baby-shoulder-800.jpg" alt="A baby asleep on her mother’s shoulder, wrapped in a bright cloth." width="800" height="450" loading="lazy" /></div>
-            <div class="task__body">
-              <h3>My child is unwell</h3>
-              <ul class="task__links">
-                <li><a href="/departments/paediatrics/">Children’s clinic <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
-                <li><a href="/departments/paediatrics/#services">Vaccines and growth checks <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
-                <li><a href="/emergency/#signs-title">When to come immediately <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
-              </ul>
-            </div>
-          </article>
-          <article class="task">
-            <div class="task__media"><img src="/assets/photos/laboratory-800.jpg" alt="A laboratory scientist in a white coat looks through a microscope." width="800" height="1067" loading="lazy" style="object-position: 50% 40%" /></div>
-            <div class="task__body">
-              <h3>I need a test or a scan</h3>
-              <ul class="task__links">
-                <li><a href="/departments/laboratory/">Laboratory tests <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
-                <li><a href="/departments/imaging/">Ultrasound and X-ray <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
-                <li><a href="/departments/laboratory/#bring">Preparing for your test <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
-              </ul>
-            </div>
-          </article>
+        <div class="services">
+          <!-- build:service-highlights -->
+            <a href="/departments/maternity/" class="service-tile">
+              <span class="service-tile__media"><img src="/assets/photos/midwife-ward-800.jpg" alt="" width="800" height="600" loading="lazy" style="object-position: 50% 50%" /></span>
+              <span class="service-tile__name">Maternity</span>
+              <span class="service-tile__text">Antenatal visits, safe delivery and care for mother and baby after birth, day and night.</span>
+              <span class="service-tile__more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
+            </a>
+            <a href="/departments/paediatrics/" class="service-tile">
+              <span class="service-tile__media"><img src="/assets/photos/clinic-child-800.jpg" alt="" width="800" height="600" loading="lazy" style="object-position: 50% 50%" /></span>
+              <span class="service-tile__name">Children’s Clinic</span>
+              <span class="service-tile__text">Care for sick children, newborn checks, immunisation and growth checks.</span>
+              <span class="service-tile__more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
+            </a>
+            <a href="/departments/surgery/" class="service-tile">
+              <span class="service-tile__media"><img src="/assets/photos/operating-theatre-800.jpg" alt="" width="800" height="600" loading="lazy" style="object-position: 60% 50%" /></span>
+              <span class="service-tile__name">Surgery &amp; Theatre</span>
+              <span class="service-tile__text">Planned and emergency operations, including hernia repairs and caesarean sections.</span>
+              <span class="service-tile__more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
+            </a>
+            <a href="/departments/internal-medicine/" class="service-tile">
+              <span class="service-tile__media"><img src="/assets/photos/blood-pressure-800.jpg" alt="" width="800" height="600" loading="lazy" style="object-position: 50% 40%" /></span>
+              <span class="service-tile__name">Internal Medicine</span>
+              <span class="service-tile__text">Care for adults with high blood pressure, diabetes, asthma and other long-term or serious medical conditions.</span>
+              <span class="service-tile__more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
+            </a>
+            <a href="/departments/laboratory/" class="service-tile">
+              <span class="service-tile__media"><img src="/assets/photos/laboratory-800.jpg" alt="" width="800" height="600" loading="lazy" style="object-position: 50% 40%" /></span>
+              <span class="service-tile__name">Laboratory</span>
+              <span class="service-tile__text">Blood, urine and stool tests for diagnosis and check-ups, with most routine results the same day.</span>
+              <span class="service-tile__more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
+            </a>
+            <a href="/departments/outpatient/" class="service-tile">
+              <span class="service-tile__media"><img src="/assets/photos/consultation-800.jpg" alt="" width="800" height="600" loading="lazy" style="object-position: 35% 50%" /></span>
+              <span class="service-tile__name">Outpatient Clinic</span>
+              <span class="service-tile__text">See a doctor for illness, check-ups and referrals, with tests and medicines in the same building.</span>
+              <span class="service-tile__more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></span>
+            </a>
+          <!-- /build:service-highlights -->
         </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="departments-title">
-      <div class="container dept-index">
-        <div class="dept-index__head">
-          <h2 id="departments-title">Our departments</h2>
-          <a href="/departments/" class="text-link">Search the departments <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+        <div class="services-band__more">
+          <div>
+            <h3>All departments</h3>
+            <p>Search our departments and the services each one offers.</p>
+          </div>
+          <a href="/departments/" class="btn btn--accent btn--lg">View all departments <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
         </div>
-        <ul class="dept-list">
-          <!-- build:department-list -->
-            <li class="dept-list--urgent">
-              <a href="/emergency/">
-                <span class="dept-list__name">Accident &amp; Emergency</span>
-                <span class="dept-list__text">Day and night care for injuries, sudden illness and emergencies in pregnancy.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/outpatient/">
-                <span class="dept-list__name">Outpatient Clinic</span>
-                <span class="dept-list__text">See a doctor for illness, check-ups and referrals, with tests and medicines in the same building.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/internal-medicine/">
-                <span class="dept-list__name">Internal Medicine</span>
-                <span class="dept-list__text">Care for adults with high blood pressure, diabetes, asthma and other long-term or serious medical conditions.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/maternity/">
-                <span class="dept-list__name">Maternity</span>
-                <span class="dept-list__text">Antenatal visits, safe delivery and care for mother and baby after birth, day and night.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/gynaecology/">
-                <span class="dept-list__name">Gynaecology &amp; Family Planning</span>
-                <span class="dept-list__text">Period problems, fertility concerns, cervical cancer screening and family planning.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/paediatrics/">
-                <span class="dept-list__name">Children’s Clinic</span>
-                <span class="dept-list__text">Care for sick children, newborn checks, immunisation and growth checks.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/surgery/">
-                <span class="dept-list__name">Surgery &amp; Theatre</span>
-                <span class="dept-list__text">Planned and emergency operations, including hernia repairs and caesarean sections.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/inpatient/">
-                <span class="dept-list__name">Inpatient Wards</span>
-                <span class="dept-list__text">Round-the-clock nursing and daily doctor reviews for patients who need to stay in hospital.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/laboratory/">
-                <span class="dept-list__name">Laboratory</span>
-                <span class="dept-list__text">Blood, urine and stool tests for diagnosis and check-ups, with most routine results the same day.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/imaging/">
-                <span class="dept-list__name">Ultrasound &amp; X-ray</span>
-                <span class="dept-list__text">Ultrasound scans, including pregnancy scans, and X-rays, with a written report for your clinician.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/pharmacy/">
-                <span class="dept-list__name">Pharmacy</span>
-                <span class="dept-list__text">Prescriptions dispensed in the same building, with clear advice on how to take each medicine.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="/departments/dental/">
-                <span class="dept-list__name">Dental Clinic</span>
-                <span class="dept-list__text">Check-ups, cleaning, fillings, extractions and treatment of tooth pain for the whole family.</span>
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-          <!-- /build:department-list -->
-        </ul>
       </div>
     </section>
 
@@ -609,52 +503,6 @@
       </section>
     <!-- /build:doctor-highlights -->
 
-    <section class="section section--paper" aria-labelledby="visit-title">
-      <div class="container feature">
-        <figure class="feature__media">
-          <img src="/assets/photos/consultation-1600.jpg" srcset="/assets/photos/consultation-800.jpg 800w, /assets/photos/consultation-1600.jpg 1600w" sizes="(max-width: 1024px) 100vw, 50vw" alt="A doctor talks with a patient across a desk, a blood pressure monitor beside them." width="1600" height="1067" loading="lazy" style="object-position: 40% 50%" />
-        </figure>
-        <div>
-          <h2 id="visit-title">Your first visit</h2>
-          <p class="lead">You do not need an appointment for the outpatient clinic. A visit usually goes like this.</p>
-          <ol class="steps">
-            <li class="step">
-              <h3>Register at reception</h3>
-              <p>New patients are registered and given a patient number. Returning patients give their name or number.</p>
-            </li>
-            <li class="step">
-              <h3>See a nurse</h3>
-              <p>A nurse checks your temperature, blood pressure and weight, and makes sure the sickest patients are seen first.</p>
-            </li>
-            <li class="step">
-              <h3>See a clinician</h3>
-              <p>A doctor or clinical officer listens, examines you and explains what they find. Any tests are done here.</p>
-            </li>
-            <li class="step">
-              <h3>Treatment and follow-up</h3>
-              <p>Collect your medicines at the pharmacy, pay at the cashier or through your insurer, and book a review if you need one.</p>
-            </li>
-          </ol>
-          <div class="bring" data-checklist="visit">
-            <h3>Please bring</h3>
-            <p class="bring__hint">Tick each item as you pack it, or send the list to the person bringing you.</p>
-            <ul class="checklist">
-              <li><label><input type="checkbox" /><span>National ID, refugee ID or passport</span></label></li>
-              <li><label><input type="checkbox" /><span>Insurance card or employer letter</span></label></li>
-              <li><label><input type="checkbox" /><span>The medicines you take, in their packets</span></label></li>
-              <li><label><input type="checkbox" /><span>Previous results or a referral letter</span></label></li>
-              <li><label><input type="checkbox" /><span>For children: the child health card</span></label></li>
-              <li><label><input type="checkbox" /><span>Cash or mobile money for payment</span></label></li>
-            </ul>
-            <p class="checklist__actions">
-              <a href="https://wa.me/" class="text-link" data-checklist-share target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp" /></svg> Send this list on WhatsApp</a>
-              <span class="checklist__count" data-checklist-count aria-live="polite"></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" aria-labelledby="health-title">
       <div class="container">
         <div class="section__head section__head--split">
@@ -688,45 +536,33 @@
       </div>
     </section>
 
-    <section class="section section--paper" aria-labelledby="pay-title">
-      <div class="container pay">
-        <div>
-          <h2 id="pay-title">Paying for treatment</h2>
-          <p class="pay__note">If you are insured or covered by your employer, bring your card or letter and our billing office will check your cover. For tests or a planned operation, ask for an estimate first.</p>
-          <p class="pay__links">
+    <!-- build:insurance-partners -->
+      <section class="section section--paper" aria-labelledby="partners-title">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <h2 id="partners-title">Insurance partners</h2>
+            <p>Members of these insurers and medical schemes can be treated on cover. You can also pay by cash, MTN Mobile Money or Airtel Money.</p>
+          </div>
+          <ul class="partners">
+            <li>AAR Healthcare</li>
+            <li>Jubilee Health Insurance</li>
+            <li>UAP Old Mutual</li>
+            <li>Prudential Assurance</li>
+            <li>Sanlam</li>
+            <li>ICEA LION</li>
+            <li>Liberty Health</li>
+            <li>GA Insurance</li>
+            <li>Britam</li>
+            <li>IAA Healthcare</li>
+            <li>CIC Africa</li>
+          </ul>
+          <p class="partners__links">
             <a href="/patients/#paying" class="text-link">Payment and insurance details <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
             <a href="/packages/" class="text-link">Health check packages <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
           </p>
         </div>
-        <div class="pay__methods">
-          <div class="pay__method"><strong>Cash</strong><span>At the cashier, always with a receipt</span></div>
-          <div class="pay__method"><strong>MTN Mobile Money</strong><span>Pay from your phone</span></div>
-          <div class="pay__method"><strong>Airtel Money</strong><span>Pay from your phone</span></div>
-          <div class="pay__method"><strong>Insurance and employer schemes</strong><span>Bring your card or letter</span></div>
-        </div>
-      </div>
-      <div class="container">
-        <!-- build:insurers -->
-          <div class="insurers">
-            <h3>Insurers and schemes we work with</h3>
-            <ul class="insurers__list">
-              <li>AAR Healthcare</li>
-              <li>Jubilee Health Insurance</li>
-              <li>UAP Old Mutual</li>
-              <li>Prudential Assurance</li>
-              <li>Sanlam</li>
-              <li>ICEA LION</li>
-              <li>Liberty Health</li>
-              <li>GA Insurance</li>
-              <li>Britam</li>
-              <li>IAA Healthcare</li>
-              <li>CIC Africa</li>
-            </ul>
-            <p class="insurers__note">Not on the list? Call reception before your visit and we will check your cover.</p>
-          </div>
-        <!-- /build:insurers -->
-      </div>
-    </section>
+      </section>
+    <!-- /build:insurance-partners -->
 
     <section class="section" id="visit" aria-labelledby="find-title">
       <div class="container">
@@ -837,18 +673,6 @@
       </div>
     </section>
 
-    <section class="cta-band" aria-labelledby="cta-title">
-      <div class="container cta-band__inner">
-        <div>
-          <h2 id="cta-title">Need to see a doctor?</h2>
-          <p>Send an appointment request or a WhatsApp message. In an emergency, come straight in.</p>
-        </div>
-        <div class="cta-band__actions">
-          <a href="/appointments/" class="btn btn--on-dark btn--lg">Book an appointment</a>
-          <a href="https://wa.me/2567XXXXXXXX" data-fact-href="wa:phones.whatsapp" class="btn btn--ghost-light btn--lg" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp" /></svg> WhatsApp us</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- shell:footer -->
@@ -925,6 +749,12 @@
           <a href="/assets/lifecare-hospital.vcf" class="footer__save" download="Life Care Hospital.vcf"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg> Save our numbers to your phone</a>
         </div>
       </div>
+      <!-- build:footer-accreditations -->
+        <ul class="footer__marks" aria-label="Licences and accreditations">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Licensed by the Uganda Medical and Dental Practitioners Council</strong><small>Private hospital licence</small></span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Laboratory registered with the Allied Health Professionals Council</strong><small>Clinical laboratory</small></span></li>
+        </ul>
+      <!-- /build:footer-accreditations -->
       <div class="footer__bottom">
         <span>&copy; <span data-fact="year">2026</span> Life Care Hospital, Arua. All rights reserved.</span>
         <nav aria-label="Legal">

@@ -99,6 +99,9 @@ function resolve(spec, file) {
 const departmentPages = DEPARTMENTS.filter((d) => !d.href);
 const deptUrl = (d) => d.href || `/departments/${d.slug}/`;
 
+// Departments shown with a photograph in the homepage services band, in this order.
+const HOME_SERVICES = ['maternity', 'paediatrics', 'surgery', 'internal-medicine', 'laboratory', 'outpatient'];
+
 // Pages with "render" are generated from data/; the others are written by hand.
 const PAGES = [
   { file: 'index.html', url: '/', section: '/' },
@@ -181,28 +184,40 @@ const BLOCKS = {
 
   'mobile-departments': () => DEPARTMENTS.map((d) => `<a href="${deptUrl(d)}">${escapeHtml(d.name)}</a>`),
 
-  'department-list': () =>
-    DEPARTMENTS.map((d) => [
-      `<li${d.slug === 'emergency' ? ' class="dept-list--urgent"' : ''}>`,
-      `  <a href="${deptUrl(d)}">`,
-      `    <span class="dept-list__name">${escapeHtml(d.name)}</span>`,
-      `    <span class="dept-list__text">${escapeHtml(d.card)}</span>`,
-      `    ${icon('arrow')}`,
-      '  </a>',
-      '</li>',
-    ]).flat(),
-
   'footer-departments': () => DEPARTMENTS.map((d) => `<a href="${deptUrl(d)}">${escapeHtml(d.name)}</a>`),
 
-  'department-tiles': () =>
-    DEPARTMENTS.map((d) => [
-      `<a href="${deptUrl(d)}" class="dept-tile${d.slug === 'emergency' ? ' dept-tile--urgent' : ''}">`,
-      `  <span class="dept-tile__icon">${icon(d.icon)}</span>`,
-      `  <span class="dept-tile__name">${escapeHtml(d.name)}</span>`,
-      `  <span class="dept-tile__text">${escapeHtml(d.card)}</span>`,
-      `  <span class="dept-tile__more">${d.slug === 'emergency' ? 'Open 24 hours' : 'Learn more'} ${icon('arrow')}</span>`,
-      '</a>',
-    ]).flat(),
+  // Homepage services band: a photograph and short description for each department in HOME_SERVICES.
+  'service-highlights': () =>
+    HOME_SERVICES.map((slug) => DEPARTMENTS.find((d) => d.slug === slug))
+      .filter((d) => d && d.photo)
+      .map((d) => [
+        `<a href="${deptUrl(d)}" class="service-tile">`,
+        `  <span class="service-tile__media"><img src="/assets/photos/${d.photo.file}-800.jpg" alt="" width="800" height="600" loading="lazy"${d.photo.position ? ` style="object-position: ${d.photo.position}"` : ''} /></span>`,
+        `  <span class="service-tile__name">${escapeHtml(d.name)}</span>`,
+        `  <span class="service-tile__text">${escapeHtml(d.card)}</span>`,
+        `  <span class="service-tile__more">Learn more ${icon('arrow')}</span>`,
+        '</a>',
+      ]).flat(),
+
+  // Footer: licences and accreditations, left out while there are none.
+  'footer-accreditations': () =>
+    site.accreditations.length
+      ? [
+          '<ul class="footer__marks" aria-label="Licences and accreditations">',
+          ...site.accreditations.map((a) => `  <li>${icon('shield')}<span><strong>${escapeHtml(a.name)}</strong>${a.detail ? `<small>${escapeHtml(a.detail)}</small>` : ''}</span></li>`),
+          '</ul>',
+        ]
+      : [],
+
+  // Hero figures, from site.stats.
+  'hero-stats': () =>
+    site.stats.length
+      ? [
+          '<dl class="hero__stats">',
+          ...site.stats.map((s) => `  <div><dt>${escapeHtml(s.label)}</dt><dd>${escapeHtml(s.value)}</dd></div>`),
+          '</dl>',
+        ]
+      : [],
 
   'department-directory': () =>
     byCategory().map((c) => [
@@ -264,8 +279,6 @@ const BLOCKS = {
           '</div>',
         ].filter(Boolean)
       : [],
-
-  credentials: () => site.credentials.map((c) => `<li>${escapeHtml(c)}</li>`),
 
   // Confirmed figures and registrations. The whole section is left out while both lists are empty.
   trust: () => {
@@ -353,6 +366,7 @@ const BLOCKS = {
 
   // "Find a doctor" link, only once data/doctors.js has entries.
   'doctors-link': () => (DOCTORS.length ? ['<a href="/doctors/">Find a doctor</a>'] : []),
+  'topbar-doctors': () => (DOCTORS.length ? [`<a href="/doctors/" class="topbar__extra">${icon('users')} Find a doctor</a>`] : []),
 
   // Homepage: the doctors marked "featured", left out while there are none.
   'doctor-highlights': () => {
@@ -390,6 +404,28 @@ const BLOCKS = {
       '</section>',
     ];
   },
+
+  // Homepage: insurers as a row of names, and how else to pay. Left out while site.insurers is empty.
+  'insurance-partners': () =>
+    site.insurers && site.insurers.length
+      ? [
+          '<section class="section section--paper" aria-labelledby="partners-title">',
+          '  <div class="container">',
+          '    <div class="section__head section__head--center">',
+          '      <h2 id="partners-title">Insurance partners</h2>',
+          '      <p>Members of these insurers and medical schemes can be treated on cover. You can also pay by cash, MTN Mobile Money or Airtel Money.</p>',
+          '    </div>',
+          '    <ul class="partners">',
+          ...site.insurers.map((name) => `      <li>${escapeHtml(name)}</li>`),
+          '    </ul>',
+          '    <p class="partners__links">',
+          `      <a href="/patients/#paying" class="text-link">Payment and insurance details ${icon('arrow')}</a>`,
+          `      <a href="/packages/" class="text-link">Health check packages ${icon('arrow')}</a>`,
+          '    </p>',
+          '  </div>',
+          '</section>',
+        ]
+      : [],
 
   // Insurers whose members can be treated on cover, left out while site.insurers is empty.
   insurers: () =>

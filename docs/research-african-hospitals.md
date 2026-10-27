@@ -52,5 +52,5 @@ We also studied seven leading private sites: Mediclinic, Life Healthcare, Everca
 - An interactive "What to bring" checklist that can be sent to a relative on WhatsApp.
 - A "Save our numbers" contact card for phones.
 - A public-health alert band, switched off until it is needed.
-- Credential chips under the hero, plus space for stats, accreditations and doctors, filled only from confirmed data.
+- Space for stats, accreditations and doctors, filled only from confirmed data.
 - On phones, a first screen that shows the headline and main actions.

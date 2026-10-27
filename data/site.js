@@ -70,9 +70,6 @@ module.exports = {
   payment: 'Cash, MTN Mobile Money, Airtel Money and approved insurance or employer schemes',
   foreignCurrency: 'Payment is in Uganda shillings (UGX). Ask reception whether other currencies can be accepted.',
 
-  // Short facts shown as chips under the homepage headline. Keep to confirmed facts.
-  credentials: ['Emergency and maternity: 24 hours', 'Laboratory, ultrasound and X-ray on site', 'Cash, mobile money and insurance'],
-
   // True while the site holds invented sample content (doctors, clinic days, insurers, figures, history)
   // for the internal preview. While it is true, every page tells search engines not to index the site.
   // Replace the sample content with confirmed facts, then set this to false before launch.
@@ -143,7 +140,6 @@ module.exports = {
     'interpreterLanguages',
     'payment',
     'foreignCurrency',
-    'credentials',
     'data/articles.js: each article needs review and sign-off by a Life Care clinician',
     'data/packages.js: confirm package contents and add prices',
     'refer/index.html: confirm the referral process (referral line, reply to the referring clinician)',

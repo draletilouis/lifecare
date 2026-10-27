@@ -10,7 +10,9 @@ need their written consent.
 
 | File | Used for | Photographer | Source |
 | --- | --- | --- | --- |
-| nurse-comforting-child | Homepage hero | Lisa Marie Theck | https://unsplash.com/photos/nurse-comforting-a-young-child-on-a-sofa-5PMciQ-z8Xs |
+| operating-theatre | Surgery, homepage services | Ezebunwo Omachi | https://unsplash.com/photos/a-nurse-prepares-instruments-in-an-operating-room-4DYgu3mSjGA |
+| surgical-team | Homepage hero | yaser mobarakabadi | https://unsplash.com/photos/surgeons-performing-an-operation-in-a-brightly-lit-operating-room-b3y2aiqfbE4 |
+| nurse-comforting-child | Not currently used | Lisa Marie Theck | https://unsplash.com/photos/nurse-comforting-a-young-child-on-a-sofa-5PMciQ-z8Xs |
 | nurse-green-scrubs | Not currently used | Lisa Marie Theck | https://unsplash.com/photos/a-woman-in-green-scrubs-with-a-stethoscope-O8ekTIhHBRY |
 | midwife-ward | Maternity | Iwaria Inc. | https://unsplash.com/photos/a-woman-holding-a-baby-in-a-hospital-bed-q7PY6bXbmzk |
 | nurse-ward | Inpatient wards, patient guide | Iwaria Inc. | https://unsplash.com/photos/a-woman-in-a-pink-shirt-and-a-woman-in-a-green-and-yellow-dress-e_4u1tobpbg |

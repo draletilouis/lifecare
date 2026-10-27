@@ -267,6 +267,7 @@ const DEPARTMENTS = [
     name: 'Surgery & Theatre',
     category: 'surgical',
     icon: 'scalpel',
+    photo: { file: 'operating-theatre', alt: 'A theatre nurse prepares instruments in a modern operating theatre.', position: '60% 50%' },
     hours: 'Outpatient clinic',
     card: 'Planned and emergency operations, including hernia repairs and caesarean sections.',
     summary: 'Assessment, operations and recovery care for general surgical conditions, planned or in an emergency.',

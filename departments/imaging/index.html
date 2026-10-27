@@ -61,8 +61,8 @@
   <!-- /build:robots-meta -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=4ae03ce3" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css?v=4600fbce" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -127,11 +127,16 @@
   <!-- /build:alert -->
   <div class="topbar">
     <div class="container topbar__inner">
-      <a class="topbar__urgent" href="tel:+2567XXXXXXXX" data-fact-href="tel:phones.emergency"><span class="pulse" aria-hidden="true"></span> 24-hour emergency line: <strong data-fact="phones.emergency">+256 7XX XXX XXX</strong></a>
-      <div class="topbar__info">
-        <span><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg> <span><span data-fact="address.city">Arua City</span>, Uganda</span></span>
-        <a href="mailto:info@lifecare.example" data-fact-href="mailto:email"><svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg> <span data-fact="email">info@lifecare.example</span></a>
-        <a href="https://wa.me/2567XXXXXXXX" data-fact-href="wa:phones.whatsapp" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp" /></svg> WhatsApp</a>
+      <div class="topbar__group">
+        <a class="topbar__urgent" href="tel:+2567XXXXXXXX" data-fact-href="tel:phones.emergency"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg> Emergency: <strong data-fact="phones.emergency">+256 7XX XXX XXX</strong></a>
+        <a href="/appointments/" class="topbar__extra"><svg class="icon" aria-hidden="true"><use href="#i-calendar" /></svg> Book an appointment</a>
+        <!-- build:topbar-doctors -->
+          <a href="/doctors/" class="topbar__extra"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg> Find a doctor</a>
+        <!-- /build:topbar-doctors -->
+      </div>
+      <div class="topbar__group topbar__info">
+        <a href="/contact/"><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg> Contact us</a>
+        <a href="/patients/#visiting"><svg class="icon" aria-hidden="true"><use href="#i-clock" /></svg> Visiting hours</a>
         <a href="/refer/" class="topbar__pro"><svg class="icon" aria-hidden="true"><use href="#i-stethoscope" /></svg> For health workers</a>
       </div>
     </div>
@@ -205,6 +210,7 @@
       </nav>
 
       <div class="nav__actions">
+        <a href="/departments/" class="nav__search" aria-label="Search departments and services"><svg class="icon" aria-hidden="true"><use href="#i-search" /></svg></a>
         <a href="/appointments/" class="btn btn--primary">Book an appointment</a>
       </div>
 
@@ -524,6 +530,12 @@
           <a href="/assets/lifecare-hospital.vcf" class="footer__save" download="Life Care Hospital.vcf"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg> Save our numbers to your phone</a>
         </div>
       </div>
+      <!-- build:footer-accreditations -->
+        <ul class="footer__marks" aria-label="Licences and accreditations">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Licensed by the Uganda Medical and Dental Practitioners Council</strong><small>Private hospital licence</small></span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Laboratory registered with the Allied Health Professionals Council</strong><small>Clinical laboratory</small></span></li>
+        </ul>
+      <!-- /build:footer-accreditations -->
       <div class="footer__bottom">
         <span>&copy; <span data-fact="year">2026</span> Life Care Hospital, Arua. All rights reserved.</span>
         <nav aria-label="Legal">
