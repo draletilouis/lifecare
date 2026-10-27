@@ -4,14 +4,12 @@
 module.exports = function renderDoctors(doctors, { site, icon, escapeHtml: e, departments, categories, doctorId }) {
   const title = `Find a doctor | ${site.name}, Arua`;
   const deptOf = (slug) => departments.find((d) => d.slug === slug);
-  const initials = (name) => name.replace(/^(Dr|Sister|Mr|Mrs|Ms|Prof)\.?\s+/i, '').split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
-
   const card = (doc) => {
     const dept = deptOf(doc.department);
     const keywords = [doc.name, doc.role, dept && dept.name, doc.languages, doc.qualifications].filter(Boolean).join(' ').toLowerCase();
     const photo = doc.photo
       ? `<img src="/assets/doctors/${e(doc.photo)}" alt="" width="400" height="400" loading="lazy" />`
-      : `<span aria-hidden="true">${e(initials(doc.name))}</span>`;
+      : icon('avatar');
     const facts = [
       doc.qualifications && ['Qualifications', doc.qualifications],
       doc.languages && ['Languages', doc.languages],

@@ -25,5 +25,3 @@ need their written consent.
 | hospital-exterior | About (stands in for the hospital building) | Kame BGCREATIONS | https://unsplash.com/photos/modern-brick-architecture-with-multiple-levels-and-a-cloudy-sky-XqgRJKiEf1o |
 | corridor | About, inside the hospital | Richard Stachmann | https://unsplash.com/photos/a-long-hallway-with-a-bunch-of-chairs-in-it-R4SQwqYq0XI |
 | waiting-area | About, inside the hospital | Adhitya Sibikumar | https://unsplash.com/photos/three-red-chairs-in-a-waiting-room-by-window-2d3cHa8RMSY |
-
-Portraits of the sample doctors are in `assets/doctors/` and credited in `assets/doctors/CREDITS.md`.

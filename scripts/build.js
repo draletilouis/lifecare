@@ -29,6 +29,15 @@ const fresh = (file) => {
   return require(file);
 };
 const site = fresh('../data/site.js');
+
+// The address used for canonical links, sharing previews, the sitemap and the contact card.
+// SITE_URL, if set, always wins. On Railway, while data/site.js still has the placeholder .example
+// address, the deployment's own public domain is used instead, so shared links and previews work.
+if (process.env.SITE_URL) {
+  site.url = process.env.SITE_URL.replace(/\/+$/, '');
+} else if (process.env.RAILWAY_PUBLIC_DOMAIN && new URL(site.url).hostname.endsWith('.example')) {
+  site.url = `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`;
+}
 const { CATEGORIES, DEPARTMENTS } = fresh('../data/departments.js');
 const { ARTICLES } = fresh('../data/articles.js');
 const { PACKAGES } = fresh('../data/packages.js');
@@ -128,14 +137,15 @@ function renderDepartmentPage(d, ctx) {
   });
 }
 
-// The anchor for a clinician's card in the /doctors/ directory, e.g. "dr-grace-ayikoru".
+// The anchor for a clinician's card in the /doctors/ directory, e.g. "dr-demo-surgeon".
 const doctorId = (doc) => slug(doc.name);
 
-// A small card for one clinician: photo, name and role (or a leadership title), linking to the directory.
+// A small card for one clinician: photo (or a plain avatar), name and role (or a leadership title),
+// linking to the directory.
 function personCard(doc, title) {
   const photo = doc.photo
     ? `<img src="/assets/doctors/${escapeHtml(doc.photo)}" alt="" width="400" height="400" loading="lazy" />`
-    : `<span class="person__initials" aria-hidden="true">${escapeHtml(doc.name.replace(/^(Dr|Sister|Mr|Mrs|Ms|Prof)\.?\s+/i, '').split(/\s+/).map((w) => w[0]).slice(0, 2).join(''))}</span>`;
+    : icon('avatar');
   return [
     `      <a href="/doctors/#${doctorId(doc)}" class="person">`,
     `        <span class="person__photo">${photo}</span>`,

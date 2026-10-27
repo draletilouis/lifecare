@@ -128,7 +128,8 @@ To receive requests by email instead, create a form on a form-delivery service s
 
 So the preview looks like a finished site, it currently holds **invented** content:
 
-- nine clinicians in `data/doctors.js`, with stock portraits in `assets/doctors/`
+- nine demo clinicians in `data/doctors.js`, named after their roles (for example "Dr Demo Surgeon") and shown
+  with plain avatars instead of photographs. Real portraits go in `assets/doctors/` once the hospital supplies them.
 - a weekly timetable in `data/clinics.js`
 - a list of insurers, figures (year opened, beds, staff) and two licences in `data/site.js`
 - a short history on the About page

@@ -3464,10 +3464,17 @@ a.contact-card:hover .contact-card__value {
   height: 112px;
   overflow: hidden;
   border-radius: var(--radius);
-  background: var(--leaf);
-  color: var(--navy);
-  font-size: 1.98rem;
-  font-weight: 700;
+  background: var(--sand);
+  color: #b3c2cc;
+}
+
+/* Plain avatar for clinicians without a photograph */
+.doctor-card__photo .icon,
+.person__photo .icon {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  stroke: none;
 }
 
 .doctor-card__photo img {
@@ -3549,10 +3556,8 @@ a.contact-card:hover .contact-card__value {
   margin-bottom: 0.9rem;
   overflow: hidden;
   border-radius: var(--radius);
-  background: var(--leaf);
-  color: var(--navy);
-  font-size: 2rem;
-  font-weight: 700;
+  background: var(--sand);
+  color: #b3c2cc;
 }
 
 .person__photo img {

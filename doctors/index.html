@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=97bfa98a" />
+  <link rel="stylesheet" href="/css/site.css?v=4ae03ce3" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -56,6 +56,7 @@
     <symbol id="i-navigation" viewBox="0 0 24 24"><path d="M3 11 22 2l-9 19-2-8-8-2z" /></symbol>
     <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h4" /></symbol>
     <symbol id="i-id" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" /><circle cx="8" cy="11" r="2" /><path d="M14 10h4M14 14h4M5 16c.6-1.2 1.7-1.8 3-1.8s2.4.6 3 1.8" /></symbol>
+    <symbol id="i-avatar" viewBox="0 0 100 100"><circle cx="50" cy="39" r="19" /><path d="M13 100c0-23 16.5-37 37-37s37 14 37 37z" /></symbol>
     <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" /></symbol>
     <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></symbol>
     <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></symbol>
@@ -256,42 +257,42 @@
       <section class="directory__group" aria-labelledby="doc-urgent">
         <h2 class="directory__heading" id="doc-urgent">Emergency and everyday care</h2>
         <div class="doctor-grid">
-          <article class="doctor-card" id="dr-emmanuel-anguyo" data-search="dr emmanuel anguyo consultant physician internal medicine english, lugbara, swahili mbchb (mak), mmed internal medicine (mak)">
-            <div class="doctor-card__photo"><img src="/assets/doctors/emmanuel-anguyo.jpg" alt="" width="400" height="400" loading="lazy" /></div>
+          <article class="doctor-card" id="dr-demo-physician" data-search="dr demo physician consultant physician internal medicine english, lugbara, swahili mbchb, mmed internal medicine">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Emmanuel Anguyo</h3>
+              <h3 class="doctor-card__name">Dr Demo Physician</h3>
               <p class="doctor-card__role">Consultant Physician · <a href="/departments/internal-medicine/">Internal Medicine</a></p>
-              <p class="doctor-card__bio">Dr Anguyo founded Life Care Hospital and leads its medical team. He sees adults with high blood pressure, diabetes, and heart and kidney disease.</p>
+              <p class="doctor-card__bio">Founded the hospital and leads its medical team. Sees adults with high blood pressure, diabetes, and heart and kidney disease.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB (Mak), MMed Internal Medicine (Mak)</dd></div>
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Internal Medicine</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
                 <div><dt>Clinic days</dt><dd>Monday, Wednesday and Friday mornings</dd></div>
               </dl>
               <a href="/appointments/?department=internal-medicine" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-          <article class="doctor-card" id="dr-moses-afedra" data-search="dr moses afedra medical officer, accident &amp; emergency accident &amp; emergency english, lugbara, madi mbchb (gulu)">
-            <div class="doctor-card__photo"><img src="/assets/doctors/moses-afedra.jpg" alt="" width="400" height="400" loading="lazy" /></div>
+          <article class="doctor-card" id="dr-demo-emergency-doctor" data-search="dr demo emergency doctor medical officer, accident &amp; emergency accident &amp; emergency english, lugbara, madi mbchb">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Moses Afedra</h3>
+              <h3 class="doctor-card__name">Dr Demo Emergency Doctor</h3>
               <p class="doctor-card__role">Medical Officer, Accident &amp; Emergency · <a href="/emergency/">Accident &amp; Emergency</a></p>
-              <p class="doctor-card__bio">Dr Afedra leads the emergency team, which assesses and treats injuries, severe illness and emergencies in pregnancy at any hour.</p>
+              <p class="doctor-card__bio">Leads the emergency team, which assesses and treats injuries, severe illness and emergencies in pregnancy at any hour.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB (Gulu)</dd></div>
+                <div><dt>Qualifications</dt><dd>MBChB</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara, Madi</dd></div>
                 <div><dt>Clinic days</dt><dd>Accident &amp; Emergency, on the duty rota</dd></div>
               </dl>
               <a href="/appointments/?department=emergency" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-          <article class="doctor-card" id="dr-brenda-adiru" data-search="dr brenda adiru medical officer, outpatient clinic outpatient clinic english, lugbara, arabic mbchb (kiu)">
-            <div class="doctor-card__photo"><img src="/assets/doctors/brenda-adiru.jpg" alt="" width="400" height="400" loading="lazy" /></div>
+          <article class="doctor-card" id="dr-demo-medical-officer" data-search="dr demo medical officer medical officer, outpatient clinic outpatient clinic english, lugbara, arabic mbchb">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Brenda Adiru</h3>
+              <h3 class="doctor-card__name">Dr Demo Medical Officer</h3>
               <p class="doctor-card__role">Medical Officer, Outpatient Clinic · <a href="/departments/outpatient/">Outpatient Clinic</a></p>
-              <p class="doctor-card__bio">Dr Adiru sees adults and children in the outpatient clinic, and helps patients from South Sudan who speak Arabic.</p>
+              <p class="doctor-card__bio">Sees adults and children in the outpatient clinic, and helps patients from South Sudan who speak Arabic.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB (KIU)</dd></div>
+                <div><dt>Qualifications</dt><dd>MBChB</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara, Arabic</dd></div>
                 <div><dt>Clinic days</dt><dd>Monday to Saturday</dd></div>
               </dl>
@@ -304,42 +305,42 @@
       <section class="directory__group" aria-labelledby="doc-family">
         <h2 class="directory__heading" id="doc-family">Women and children</h2>
         <div class="doctor-grid">
-          <article class="doctor-card" id="dr-grace-ayikoru" data-search="dr grace ayikoru consultant obstetrician and gynaecologist maternity english, lugbara mbchb (must), mmed obstetrics and gynaecology (mak)">
-            <div class="doctor-card__photo"><img src="/assets/doctors/grace-ayikoru.jpg" alt="" width="400" height="400" loading="lazy" /></div>
+          <article class="doctor-card" id="dr-demo-obstetrician" data-search="dr demo obstetrician consultant obstetrician and gynaecologist maternity english, lugbara mbchb, mmed obstetrics and gynaecology">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Grace Ayikoru</h3>
+              <h3 class="doctor-card__name">Dr Demo Obstetrician</h3>
               <p class="doctor-card__role">Consultant Obstetrician and Gynaecologist · <a href="/departments/maternity/">Maternity</a></p>
-              <p class="doctor-card__bio">Dr Ayikoru leads the maternity unit. She looks after women with higher-risk pregnancies and performs caesarean sections and gynaecological operations.</p>
+              <p class="doctor-card__bio">Leads the maternity unit. Looks after women with higher-risk pregnancies and performs caesarean sections and gynaecological operations.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB (MUST), MMed Obstetrics and Gynaecology (Mak)</dd></div>
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Obstetrics and Gynaecology</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara</dd></div>
                 <div><dt>Clinic days</dt><dd>Antenatal clinic Tuesday and Thursday; gynaecology clinic Wednesday</dd></div>
               </dl>
               <a href="/appointments/?department=maternity" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-          <article class="doctor-card" id="dr-sarah-nakato" data-search="dr sarah nakato paediatrician children’s clinic english, luganda, swahili mbchb (mak), mmed paediatrics and child health (mak)">
-            <div class="doctor-card__photo"><img src="/assets/doctors/sarah-nakato.jpg" alt="" width="400" height="400" loading="lazy" /></div>
+          <article class="doctor-card" id="dr-demo-paediatrician" data-search="dr demo paediatrician paediatrician children’s clinic english, luganda, swahili mbchb, mmed paediatrics and child health">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Sarah Nakato</h3>
+              <h3 class="doctor-card__name">Dr Demo Paediatrician</h3>
               <p class="doctor-card__role">Paediatrician · <a href="/departments/paediatrics/">Children’s Clinic</a></p>
-              <p class="doctor-card__bio">Dr Nakato cares for newborns and sick children on the children’s ward and in clinic, and runs the newborn care unit.</p>
+              <p class="doctor-card__bio">Cares for newborns and sick children on the children’s ward and in clinic, and runs the newborn care unit.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB (Mak), MMed Paediatrics and Child Health (Mak)</dd></div>
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Paediatrics and Child Health</dd></div>
                 <div><dt>Languages</dt><dd>English, Luganda, Swahili</dd></div>
                 <div><dt>Clinic days</dt><dd>Children’s clinic Monday to Friday; Saturday mornings</dd></div>
               </dl>
               <a href="/appointments/?department=paediatrics" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-          <article class="doctor-card" id="sister-rose-maturu" data-search="sister rose maturu senior midwife maternity english, lugbara, swahili diploma in midwifery (lacor), registered with unmc">
-            <div class="doctor-card__photo"><img src="/assets/doctors/rose-maturu.jpg" alt="" width="400" height="400" loading="lazy" /></div>
+          <article class="doctor-card" id="sister-demo-midwife" data-search="sister demo midwife senior midwife maternity english, lugbara, swahili diploma in midwifery">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Sister Rose Maturu</h3>
+              <h3 class="doctor-card__name">Sister Demo Midwife</h3>
               <p class="doctor-card__role">Senior Midwife · <a href="/departments/maternity/">Maternity</a></p>
-              <p class="doctor-card__bio">Sister Maturu leads the midwives on the labour ward and runs the antenatal and postnatal clinics.</p>
+              <p class="doctor-card__bio">Leads the midwives on the labour ward and runs the antenatal and postnatal clinics.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>Diploma in Midwifery (Lacor), registered with UNMC</dd></div>
+                <div><dt>Qualifications</dt><dd>Diploma in Midwifery</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
                 <div><dt>Clinic days</dt><dd>Antenatal clinic Tuesday and Thursday; labour ward</dd></div>
               </dl>
@@ -352,14 +353,14 @@
       <section class="directory__group" aria-labelledby="doc-surgical">
         <h2 class="directory__heading" id="doc-surgical">Surgery and hospital stays</h2>
         <div class="doctor-grid">
-          <article class="doctor-card" id="dr-patrick-ochaya" data-search="dr patrick ochaya general surgeon surgery &amp; theatre english, alur, swahili mbchb (gulu), mmed surgery (mak)">
-            <div class="doctor-card__photo"><img src="/assets/doctors/patrick-ochaya.jpg" alt="" width="400" height="400" loading="lazy" /></div>
+          <article class="doctor-card" id="dr-demo-surgeon" data-search="dr demo surgeon general surgeon surgery &amp; theatre english, alur, swahili mbchb, mmed surgery">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Patrick Ochaya</h3>
+              <h3 class="doctor-card__name">Dr Demo Surgeon</h3>
               <p class="doctor-card__role">General Surgeon · <a href="/departments/surgery/">Surgery &amp; Theatre</a></p>
-              <p class="doctor-card__bio">Dr Ochaya carries out planned and emergency operations, including hernia repairs, appendix and gallbladder surgery, and the care of wounds and fractures.</p>
+              <p class="doctor-card__bio">Carries out planned and emergency operations, including hernia repairs, appendix and gallbladder surgery, and the care of wounds and fractures.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB (Gulu), MMed Surgery (Mak)</dd></div>
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Surgery</dd></div>
                 <div><dt>Languages</dt><dd>English, Alur, Swahili</dd></div>
                 <div><dt>Clinic days</dt><dd>Surgical clinic Monday and Thursday</dd></div>
               </dl>
@@ -372,28 +373,28 @@
       <section class="directory__group" aria-labelledby="doc-support">
         <h2 class="directory__heading" id="doc-support">Tests, medicines and dental care</h2>
         <div class="doctor-grid">
-          <article class="doctor-card" id="dr-isaac-onzima" data-search="dr isaac onzima consultant radiologist ultrasound &amp; x-ray english, lugbara mbchb (mak), mmed radiology (mak)">
-            <div class="doctor-card__photo"><img src="/assets/doctors/isaac-onzima.jpg" alt="" width="400" height="400" loading="lazy" /></div>
+          <article class="doctor-card" id="dr-demo-radiologist" data-search="dr demo radiologist consultant radiologist ultrasound &amp; x-ray english, lugbara mbchb, mmed radiology">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Isaac Onzima</h3>
+              <h3 class="doctor-card__name">Dr Demo Radiologist</h3>
               <p class="doctor-card__role">Consultant Radiologist · <a href="/departments/imaging/">Ultrasound &amp; X-ray</a></p>
-              <p class="doctor-card__bio">Dr Onzima performs specialist ultrasound scans and reports every X-ray and scan done at the hospital.</p>
+              <p class="doctor-card__bio">Performs specialist ultrasound scans and reports every X-ray and scan done at the hospital.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB (Mak), MMed Radiology (Mak)</dd></div>
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Radiology</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara</dd></div>
                 <div><dt>Clinic days</dt><dd>Ultrasound lists Tuesday and Thursday; reports X-rays daily</dd></div>
               </dl>
               <a href="/appointments/?department=imaging" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-          <article class="doctor-card" id="dr-esther-driciru" data-search="dr esther driciru dental surgeon dental clinic english, lugbara, swahili bds (mak)">
-            <div class="doctor-card__photo"><img src="/assets/doctors/esther-driciru.jpg" alt="" width="400" height="400" loading="lazy" /></div>
+          <article class="doctor-card" id="dr-demo-dentist" data-search="dr demo dentist dental surgeon dental clinic english, lugbara, swahili bds">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Esther Driciru</h3>
+              <h3 class="doctor-card__name">Dr Demo Dentist</h3>
               <p class="doctor-card__role">Dental Surgeon · <a href="/departments/dental/">Dental Clinic</a></p>
-              <p class="doctor-card__bio">Dr Driciru runs the dental clinic: check-ups, fillings, extractions and treatment for tooth pain, for adults and children.</p>
+              <p class="doctor-card__bio">Runs the dental clinic: check-ups, fillings, extractions and treatment for tooth pain, for adults and children.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>BDS (Mak)</dd></div>
+                <div><dt>Qualifications</dt><dd>BDS</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
                 <div><dt>Clinic days</dt><dd>Monday to Friday</dd></div>
               </dl>
