@@ -62,7 +62,8 @@ Street, Aga Khan and others. What it borrows from them:
 
 - **Colour:** the logo's own blue (deepened to navy for the header bar, hero and footer) and its green
   (buttons and small marks), on white pages with light grey bands. Red is reserved for emergencies.
-- **Type:** one plain sans throughout (Source Sans 3), bold for headings.
+- **Type:** one geometric sans throughout (Manrope, weights 400 to 800), extra-bold for headings, as on
+  The Nairobi Hospital's site. Manrope has no italic, so the site uses none.
 - **Photographs and lines:** real photographs, with thin rules and lists instead of icon tiles and boxes.
 - **Task-led entry:** the homepage "I need …" finder, the "Where to go" routes and the family task cards.
 - **Plain wording:** headings say what the section is ("Opening hours", "How to find us"), not slogans.

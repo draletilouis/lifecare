@@ -1869,7 +1869,6 @@ h3 {
 
 .search input::placeholder {
   color: var(--muted);
-  font-style: italic;
 }
 
 .search input:focus {
@@ -2725,12 +2724,12 @@ a.contact-card:hover .contact-card__value {
   font-weight: 700;
 }
 
+/* Upright: Manrope has no italic, and a browser-slanted version looks distorted */
 .footer__tagline {
   margin: 0.2rem 0 1rem;
   color: var(--mint);
   font-size: 1.035rem;
-  font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .footer__brand address {
