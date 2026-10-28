@@ -1,11 +1,15 @@
 /* ==========================================================================
    Life Care Hospital, Arua
    Modelled on The Nairobi Hospital's site: a brand-colour utility bar, a
-   full-width photographic hero, a brand-colour services band, one geometric
-   sans (Manrope) with heavy headings, and a navy footer. Unlike that site,
-   content is laid out on thin rules rather than in boxed cards.
-   The colours are the logo's: its green (brand) and its blue (accent, and
-   deepened to navy). Red is used only for emergencies.
+   full-width photographic hero, a brand-colour services band and a navy
+   footer. Unlike that site, content is laid out on thin rules rather than in
+   boxed cards.
+   Type: two faces made for health and accessibility. Parkinsans (made for
+   Parkinson's UK) for headings, Atkinson Hyperlegible Next (made by the
+   Braille Institute for low-vision readers) for reading.
+   The colours are the logo's: its green (brand) and its blue (deepened to
+   navy), with one sharp marigold accent on dark bands. The dark bands carry
+   a faint woven chevron, after Ugandan basketwork. Red is only for emergencies.
    ========================================================================== */
 
 *,
@@ -28,6 +32,10 @@
   --leaf: #e7f4ed;
   --mint: #b9e8cf; /* small text on navy */
   --sky: #e6f4f9; /* light blue tint for chips and icon tiles */
+  --sun: #ffc845; /* the one sharp accent: small marks and links on dark bands only */
+
+  /* A faint woven chevron, after Ugandan basketwork, laid over the dark bands */
+  --weave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='18' viewBox='0 0 36 18'%3E%3Cpath d='M0 18 9 4.5 18 18 27 4.5 36 18M0 9 9-4.5 18 9 27-4.5 36 9' fill='none' stroke='%23ffffff' stroke-opacity='.055' stroke-width='1.4'/%3E%3C/svg%3E");
 
   /* Surfaces and text */
   --paper: #f5f7fa; /* light grey band */
@@ -44,7 +52,8 @@
   --red-ink: #8f1d14;
   --red-50: #fcefed;
 
-  --sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sans: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: "Parkinsans", "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --radius: 8px;
   --radius-sm: 6px;
@@ -66,8 +75,8 @@ body {
   background: var(--white);
   color: var(--text);
   font-family: var(--sans);
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 1.0625rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -179,15 +188,34 @@ h2,
 h3,
 h4 {
   color: var(--ink);
-  font-weight: 700;
+  font-family: var(--display);
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
 
 h1,
 h2 {
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.025em;
+}
+
+/* Names and figures set as headings, though they are not heading elements */
+.brand__text strong,
+.hero__stats dd,
+.service-tile__name,
+.services-band__more h3,
+.finder__label,
+.partners li,
+.footer__name,
+.person__name,
+.dept-card__name,
+.dept-tile__name,
+.article-card__title,
+.article-row__title,
+.mv__item p:first-child,
+.trust__stats dd {
+  font-family: var(--display);
 }
 
 h1 {
@@ -443,7 +471,7 @@ h3 {
 .topbar__group .icon {
   width: 15px;
   height: 15px;
-  color: #ffd27a;
+  color: var(--sun);
 }
 
 .topbar__group a:hover {
@@ -454,7 +482,7 @@ h3 {
 
 .topbar__urgent strong {
   color: #fff;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .nav {
@@ -497,7 +525,7 @@ h3 {
 .brand__text strong {
   color: var(--navy);
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
@@ -802,6 +830,70 @@ h3 {
   height: 100%;
   object-fit: cover;
   object-position: 50% 50%;
+  animation: hero-settle 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* The first screen arrives in order: headline, text, buttons, then the figures one by one.
+   This runs once on page load; nothing waits for scrolling, and it is off for reduced motion. */
+@keyframes hero-settle {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero h1,
+.hero .lead,
+.hero__actions,
+.hero__stats > div {
+  animation: hero-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero .lead {
+  animation-delay: 0.12s;
+}
+
+.hero__actions {
+  animation-delay: 0.24s;
+}
+
+.hero__stats > div:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.hero__stats > div:nth-child(2) {
+  animation-delay: 0.48s;
+}
+
+.hero__stats > div:nth-child(3) {
+  animation-delay: 0.56s;
+}
+
+.hero__stats > div:nth-child(n + 4) {
+  animation-delay: 0.64s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg,
+  .hero h1,
+  .hero .lead,
+  .hero__actions,
+  .hero__stats > div {
+    animation: none;
+  }
 }
 
 /* Darkens the photograph behind the text, most on the left */
@@ -862,9 +954,9 @@ h3 {
 }
 
 .hero__stats dd {
-  color: #fff;
+  color: var(--sun);
   font-size: clamp(1.5rem, 2.4vw, 2rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -893,7 +985,7 @@ h3 {
   color: var(--ink);
   font-size: clamp(1.2rem, 1.8vw, 1.5rem);
   line-height: 1.1;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
@@ -952,7 +1044,7 @@ h3 {
 
 .route h3 {
   font-size: clamp(1.35rem, 2vw, 1.6rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
@@ -973,7 +1065,7 @@ h3 {
   color: var(--ink);
   font-size: 1.4rem;
   line-height: 1.2;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .route--urgent .route__number {
@@ -981,9 +1073,14 @@ h3 {
 }
 
 /* Services: a full-width band in the brand colour, with photographs (no boxed cards) */
+/* Layered: the woven chevron, a green glow from the top left, a blue glow from the bottom right */
 .services-band {
   padding: clamp(64px, 8vw, 104px) 0;
-  background: var(--green-deep);
+  background:
+    var(--weave),
+    radial-gradient(ellipse 60% 55% at 12% 0%, rgba(0, 185, 100, 0.24), transparent 70%),
+    radial-gradient(ellipse 55% 60% at 100% 100%, rgba(0, 168, 212, 0.18), transparent 70%),
+    var(--green-deep);
   color: rgba(255, 255, 255, 0.78);
 }
 
@@ -1029,7 +1126,7 @@ h3 {
 .service-tile__name {
   color: #fff;
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.015em;
 }
 
@@ -1042,7 +1139,7 @@ h3 {
   align-items: center;
   gap: 0.4rem;
   margin-top: 0.2rem;
-  color: #9fe3bd;
+  color: var(--sun);
   font-size: 0.95rem;
   font-weight: 700;
 }
@@ -1075,7 +1172,7 @@ h3 {
 .services-band__more h3 {
   color: #fff;
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .services-band__more p {
@@ -1095,7 +1192,7 @@ h3 {
 .partners li {
   color: #7b8898;
   font-size: clamp(1.05rem, 1.6vw, 1.3rem);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
   white-space: nowrap;
 }
@@ -2651,7 +2748,10 @@ a.contact-card:hover .contact-card__value {
 
 .footer {
   padding: clamp(64px, 8vw, 96px) 0 0;
-  background: var(--navy);
+  background:
+    var(--weave),
+    radial-gradient(ellipse 50% 60% at 0% 0%, rgba(0, 185, 100, 0.12), transparent 70%),
+    var(--navy);
   color: rgba(255, 255, 255, 0.72);
 }
 
