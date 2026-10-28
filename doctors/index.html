@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=a69ed66c" />
+  <link rel="stylesheet" href="/css/site.css?v=25418930" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -56,6 +56,10 @@
     <symbol id="i-navigation" viewBox="0 0 24 24"><path d="M3 11 22 2l-9 19-2-8-8-2z" /></symbol>
     <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h4" /></symbol>
     <symbol id="i-id" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" /><circle cx="8" cy="11" r="2" /><path d="M14 10h4M14 14h4M5 16c.6-1.2 1.7-1.8 3-1.8s2.4.6 3 1.8" /></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0" /><circle cx="12" cy="12" r="3" /></symbol>
+    <symbol id="i-ear" viewBox="0 0 24 24"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0" /><path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4" /></symbol>
+    <symbol id="i-bone" viewBox="0 0 24 24"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z" /></symbol>
+    <symbol id="i-syringe" viewBox="0 0 24 24"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6" /></symbol>
     <symbol id="i-avatar" viewBox="0 0 100 100"><circle cx="50" cy="39" r="19" /><path d="M13 100c0-23 16.5-37 37-37s37 14 37 37z" /></symbol>
     <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" /></symbol>
     <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></symbol>
@@ -120,25 +124,35 @@
                     <p class="mega__heading">Emergency and everyday care</p>
                     <a href="/emergency/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-ambulance" /></svg><span>Accident &amp; Emergency</span></a>
                     <a href="/departments/outpatient/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-stethoscope" /></svg><span>Outpatient Clinic</span></a>
-                    <a href="/departments/internal-medicine/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-heart-pulse" /></svg><span>Internal Medicine</span></a>
+                    <a href="/departments/inpatient/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-bed" /></svg><span>Inpatient Wards</span></a>
                   </div>
                   <div class="mega__col">
                     <p class="mega__heading">Women and children</p>
                     <a href="/departments/maternity/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-hand-heart" /></svg><span>Maternity</span></a>
-                    <a href="/departments/gynaecology/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-venus" /></svg><span>Gynaecology &amp; Family Planning</span></a>
-                    <a href="/departments/paediatrics/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-baby" /></svg><span>Children’s Clinic</span></a>
+                    <a href="/departments/antenatal/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-heart" /></svg><span>Antenatal Care</span></a>
+                    <a href="/departments/immunisation/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-syringe" /></svg><span>Immunisation</span></a>
+                    <a href="/departments/neonatal-icu/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-baby" /></svg><span>Neonatal ICU</span></a>
                   </div>
                   <div class="mega__col">
-                    <p class="mega__heading">Surgery and hospital stays</p>
-                    <a href="/departments/surgery/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-scalpel" /></svg><span>Surgery &amp; Theatre</span></a>
-                    <a href="/departments/inpatient/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-bed" /></svg><span>Inpatient Wards</span></a>
+                    <p class="mega__heading">Specialist services</p>
+                    <a href="/departments/paediatrics/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-baby" /></svg><span>Paediatrics</span></a>
+                    <a href="/departments/surgery/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-scalpel" /></svg><span>General Surgery</span></a>
+                    <a href="/departments/obstetrics-gynaecology/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-venus" /></svg><span>Obstetrics &amp; Gynaecology</span></a>
+                    <a href="/departments/ent/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-ear" /></svg><span>ENT (Ear, Nose &amp; Throat)</span></a>
+                    <a href="/departments/physician/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-heart-pulse" /></svg><span>In-house Physician</span></a>
+                    <a href="/departments/dental/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-tooth" /></svg><span>Dental Services</span></a>
+                    <a href="/departments/ophthalmology/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-eye" /></svg><span>Ophthalmology (Eye Care)</span></a>
+                    <a href="/departments/orthopaedics/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-bone" /></svg><span>Orthopaedics</span></a>
                   </div>
                   <div class="mega__col">
-                    <p class="mega__heading">Tests, medicines and dental care</p>
+                    <p class="mega__heading">Tests and medicines</p>
                     <a href="/departments/laboratory/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-microscope" /></svg><span>Laboratory</span></a>
                     <a href="/departments/imaging/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-scan" /></svg><span>Ultrasound &amp; X-ray</span></a>
                     <a href="/departments/pharmacy/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-pill" /></svg><span>Pharmacy</span></a>
-                    <a href="/departments/dental/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-tooth" /></svg><span>Dental Clinic</span></a>
+                  </div>
+                  <div class="mega__col">
+                    <p class="mega__heading">Ambulance</p>
+                    <a href="/departments/ambulance/" class="mega__link"><svg class="icon" aria-hidden="true"><use href="#i-ambulance" /></svg><span>Ambulance Services</span></a>
                   </div>
                 <!-- /build:nav-departments -->
               </div>
@@ -191,16 +205,23 @@
           <!-- build:mobile-departments -->
             <a href="/emergency/">Accident &amp; Emergency</a>
             <a href="/departments/outpatient/">Outpatient Clinic</a>
-            <a href="/departments/internal-medicine/">Internal Medicine</a>
-            <a href="/departments/maternity/">Maternity</a>
-            <a href="/departments/gynaecology/">Gynaecology &amp; Family Planning</a>
-            <a href="/departments/paediatrics/">Children’s Clinic</a>
-            <a href="/departments/surgery/">Surgery &amp; Theatre</a>
             <a href="/departments/inpatient/">Inpatient Wards</a>
+            <a href="/departments/maternity/">Maternity</a>
+            <a href="/departments/antenatal/">Antenatal Care</a>
+            <a href="/departments/immunisation/">Immunisation</a>
+            <a href="/departments/neonatal-icu/">Neonatal ICU</a>
+            <a href="/departments/paediatrics/">Paediatrics</a>
+            <a href="/departments/surgery/">General Surgery</a>
+            <a href="/departments/obstetrics-gynaecology/">Obstetrics &amp; Gynaecology</a>
+            <a href="/departments/ent/">ENT (Ear, Nose &amp; Throat)</a>
+            <a href="/departments/physician/">In-house Physician</a>
+            <a href="/departments/dental/">Dental Services</a>
+            <a href="/departments/ophthalmology/">Ophthalmology (Eye Care)</a>
+            <a href="/departments/orthopaedics/">Orthopaedics</a>
             <a href="/departments/laboratory/">Laboratory</a>
             <a href="/departments/imaging/">Ultrasound &amp; X-ray</a>
             <a href="/departments/pharmacy/">Pharmacy</a>
-            <a href="/departments/dental/">Dental Clinic</a>
+            <a href="/departments/ambulance/">Ambulance Services</a>
           <!-- /build:mobile-departments -->
           <!-- build:doctors-link -->
             <a aria-current="page" href="/doctors/">Find a doctor</a>
@@ -245,7 +266,7 @@
           </ol>
         </nav>
         <h1>Find a doctor</h1>
-        <p class="lead">Every clinician listed here is registered with their professional council in Uganda. Search by name, specialty or language.</p>
+        <p class="lead">Our specialist doctors, medical officers and heads of departments. Search by name, specialty, department or language.</p>
       </div>
     </section>
 
@@ -260,27 +281,131 @@
           <p class="directory__status" id="deptStatus" aria-live="polite"></p>
         </div>
 
-      <section class="directory__group" aria-labelledby="doc-urgent">
-        <h2 class="directory__heading" id="doc-urgent">Emergency and everyday care</h2>
+      <section class="directory__group" aria-labelledby="doc-specialist">
+        <h2 class="directory__heading" id="doc-specialist">Specialist doctors</h2>
         <div class="doctor-grid">
-          <article class="doctor-card" id="dr-demo-physician" data-search="dr demo physician consultant physician internal medicine english, lugbara, swahili mbchb, mmed internal medicine">
+          <article class="doctor-card" id="dr-demo-paediatrician" data-search="dr demo paediatrician paediatrician paediatrics paediatrics pediatrics paediatrician child children baby teenager growth english, lugbara, swahili mbchb, mmed paediatrics and child health">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
+            <div class="doctor-card__body">
+              <h3 class="doctor-card__name">Dr Demo Paediatrician</h3>
+              <p class="doctor-card__role">Paediatrician · <a href="/departments/paediatrics/">Paediatrics</a></p>
+              <p class="doctor-card__bio">Cares for babies, children and teenagers in the paediatric clinic and on the children’s ward, and oversees the Neonatal ICU.</p>
+              <dl class="doctor-card__facts">
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Paediatrics and Child Health</dd></div>
+                <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
+                <div><dt>Clinic days</dt><dd>Paediatric clinic on Fridays, Saturdays and Sundays, 24 hours</dd></div>
+              </dl>
+              <a href="/appointments/?department=paediatrics" class="btn btn--primary btn--sm">Request an appointment</a>
+            </div>
+          </article>
+          <article class="doctor-card" id="dr-demo-surgeon" data-search="dr demo surgeon general surgeon general surgery surgeon general surgery operation theatre hernia appendix circumcision lump wound english, alur, swahili mbchb, mmed surgery">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
+            <div class="doctor-card__body">
+              <h3 class="doctor-card__name">Dr Demo Surgeon</h3>
+              <p class="doctor-card__role">General Surgeon · <a href="/departments/surgery/">General Surgery</a></p>
+              <p class="doctor-card__bio">Carries out planned and emergency operations, including hernia repairs and appendix and gallbladder surgery.</p>
+              <dl class="doctor-card__facts">
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Surgery</dd></div>
+                <div><dt>Languages</dt><dd>English, Alur, Swahili</dd></div>
+                <div><dt>Clinic days</dt><dd>Surgical clinic on Tuesdays, 24 hours</dd></div>
+              </dl>
+              <a href="/appointments/?department=surgery" class="btn btn--primary btn--sm">Request an appointment</a>
+            </div>
+          </article>
+          <article class="doctor-card" id="dr-demo-obstetrician" data-search="dr demo obstetrician obstetrician and gynaecologist obstetrics &amp; gynaecology obstetrics gynaecology gynecology obstetrician gynaecologist women period fertility infertility family planning contraception cervical screening fibroids caesarean high-risk pregnancy english, lugbara mbchb, mmed obstetrics and gynaecology">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
+            <div class="doctor-card__body">
+              <h3 class="doctor-card__name">Dr Demo Obstetrician</h3>
+              <p class="doctor-card__role">Obstetrician and Gynaecologist · <a href="/departments/obstetrics-gynaecology/">Obstetrics &amp; Gynaecology</a></p>
+              <p class="doctor-card__bio">Looks after women with higher-risk pregnancies, performs caesarean sections and gynaecological operations, and runs the gynaecology clinic.</p>
+              <dl class="doctor-card__facts">
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Obstetrics and Gynaecology</dd></div>
+                <div><dt>Languages</dt><dd>English, Lugbara</dd></div>
+                <div><dt>Clinic days</dt><dd>Gynaecology clinic every day, 24 hours</dd></div>
+              </dl>
+              <a href="/appointments/?department=obstetrics-gynaecology" class="btn btn--primary btn--sm">Request an appointment</a>
+            </div>
+          </article>
+          <article class="doctor-card" id="dr-demo-ent-surgeon" data-search="dr demo ent surgeon ent surgeon ent (ear, nose &amp; throat) ent ear nose throat tonsils adenoids sinus hearing nosebleed hoarse english, swahili mbchb, mmed otorhinolaryngology">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
+            <div class="doctor-card__body">
+              <h3 class="doctor-card__name">Dr Demo ENT Surgeon</h3>
+              <p class="doctor-card__role">ENT Surgeon · <a href="/departments/ent/">ENT (Ear, Nose &amp; Throat)</a></p>
+              <p class="doctor-card__bio">Treats ear, nose and throat problems in adults and children, in clinic and in theatre.</p>
+              <dl class="doctor-card__facts">
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Otorhinolaryngology</dd></div>
+                <div><dt>Languages</dt><dd>English, Swahili</dd></div>
+                <div><dt>Clinic days</dt><dd>24 hours, every day</dd></div>
+              </dl>
+              <a href="/appointments/?department=ent" class="btn btn--primary btn--sm">Request an appointment</a>
+            </div>
+          </article>
+          <article class="doctor-card" id="dr-demo-physician" data-search="dr demo physician physician in-house physician physician internal medicine blood pressure hypertension sugar diabetes asthma heart kidney chronic adult english, lugbara, swahili mbchb, mmed internal medicine">
             <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
               <h3 class="doctor-card__name">Dr Demo Physician</h3>
-              <p class="doctor-card__role">Consultant Physician · <a href="/departments/internal-medicine/">Internal Medicine</a></p>
-              <p class="doctor-card__bio">Founded the hospital and leads its medical team. Sees adults with high blood pressure, diabetes, and heart and kidney disease.</p>
+              <p class="doctor-card__role">Physician · <a href="/departments/physician/">In-house Physician</a></p>
+              <p class="doctor-card__bio">Founded the hospital and leads its medical team. Sees adults with high blood pressure, diabetes, and heart, lung and kidney disease.</p>
               <dl class="doctor-card__facts">
                 <div><dt>Qualifications</dt><dd>MBChB, MMed Internal Medicine</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
-                <div><dt>Clinic days</dt><dd>Monday, Wednesday and Friday mornings</dd></div>
+                <div><dt>Clinic days</dt><dd>24 hours, every day</dd></div>
               </dl>
-              <a href="/appointments/?department=internal-medicine" class="btn btn--primary btn--sm">Request an appointment</a>
+              <a href="/appointments/?department=physician" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-          <article class="doctor-card" id="dr-demo-emergency-doctor" data-search="dr demo emergency doctor medical officer, accident &amp; emergency accident &amp; emergency english, lugbara, madi mbchb">
+          <article class="doctor-card" id="dr-demo-dentist" data-search="dr demo dentist dental surgeon dental services dentist dental teeth tooth toothache gum filling extraction english, lugbara, swahili bds">
             <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Demo Emergency Doctor</h3>
+              <h3 class="doctor-card__name">Dr Demo Dentist</h3>
+              <p class="doctor-card__role">Dental Surgeon · <a href="/departments/dental/">Dental Services</a></p>
+              <p class="doctor-card__bio">Runs the dental clinic: check-ups, fillings, extractions and treatment for tooth pain, for adults and children.</p>
+              <dl class="doctor-card__facts">
+                <div><dt>Qualifications</dt><dd>BDS</dd></div>
+                <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
+                <div><dt>Clinic days</dt><dd>24 hours, Monday to Saturday</dd></div>
+              </dl>
+              <a href="/appointments/?department=dental" class="btn btn--primary btn--sm">Request an appointment</a>
+            </div>
+          </article>
+          <article class="doctor-card" id="dr-demo-ophthalmologist" data-search="dr demo ophthalmologist ophthalmologist ophthalmology (eye care) ophthalmology eye eyes vision sight cataract glaucoma red eye glasses squint english, lugbara mbchb, mmed ophthalmology">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
+            <div class="doctor-card__body">
+              <h3 class="doctor-card__name">Dr Demo Ophthalmologist</h3>
+              <p class="doctor-card__role">Ophthalmologist · <a href="/departments/ophthalmology/">Ophthalmology (Eye Care)</a></p>
+              <p class="doctor-card__bio">Examines and treats eye conditions, from infections and injuries to cataract and glaucoma.</p>
+              <dl class="doctor-card__facts">
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Ophthalmology</dd></div>
+                <div><dt>Languages</dt><dd>English, Lugbara</dd></div>
+                <div><dt>Clinic days</dt><dd>24 hours, every day</dd></div>
+              </dl>
+              <a href="/appointments/?department=ophthalmology" class="btn btn--primary btn--sm">Request an appointment</a>
+            </div>
+          </article>
+          <article class="doctor-card" id="dr-demo-orthopaedic-surgeon" data-search="dr demo orthopaedic surgeon orthopaedic surgeon orthopaedics orthopaedics orthopedics bone fracture broken joint knee hip back pain sprain cast plaster english, swahili mbchb, mmed orthopaedic surgery">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
+            <div class="doctor-card__body">
+              <h3 class="doctor-card__name">Dr Demo Orthopaedic Surgeon</h3>
+              <p class="doctor-card__role">Orthopaedic Surgeon · <a href="/departments/orthopaedics/">Orthopaedics</a></p>
+              <p class="doctor-card__bio">Treats broken bones, joint and back pain, and injuries to muscles and ligaments.</p>
+              <dl class="doctor-card__facts">
+                <div><dt>Qualifications</dt><dd>MBChB, MMed Orthopaedic Surgery</dd></div>
+                <div><dt>Languages</dt><dd>English, Swahili</dd></div>
+                <div><dt>Clinic days</dt><dd>24 hours, every day</dd></div>
+              </dl>
+              <a href="/appointments/?department=orthopaedics" class="btn btn--primary btn--sm">Request an appointment</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="directory__group" aria-labelledby="doc-medical-officer">
+        <h2 class="directory__heading" id="doc-medical-officer">Medical officers</h2>
+        <div class="doctor-grid">
+          <article class="doctor-card" id="dr-demo-emergency-medical-officer" data-search="dr demo emergency medical officer medical officer, accident &amp; emergency accident &amp; emergency accident emergency casualty injury urgent trauma night english, lugbara, madi mbchb">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
+            <div class="doctor-card__body">
+              <h3 class="doctor-card__name">Dr Demo Emergency Medical Officer</h3>
               <p class="doctor-card__role">Medical Officer, Accident &amp; Emergency · <a href="/emergency/">Accident &amp; Emergency</a></p>
               <p class="doctor-card__bio">Leads the emergency team, which assesses and treats injuries, severe illness and emergencies in pregnancy at any hour.</p>
               <dl class="doctor-card__facts">
@@ -291,120 +416,136 @@
               <a href="/appointments/?department=emergency" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-          <article class="doctor-card" id="dr-demo-medical-officer" data-search="dr demo medical officer medical officer, outpatient clinic outpatient clinic english, lugbara, arabic mbchb">
+          <article class="doctor-card" id="dr-demo-outpatient-medical-officer" data-search="dr demo outpatient medical officer medical officer, outpatient clinic outpatient clinic opd doctor consultation fever malaria cough general check-up medical form walk-in english, lugbara, arabic mbchb">
             <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Demo Medical Officer</h3>
+              <h3 class="doctor-card__name">Dr Demo Outpatient Medical Officer</h3>
               <p class="doctor-card__role">Medical Officer, Outpatient Clinic · <a href="/departments/outpatient/">Outpatient Clinic</a></p>
               <p class="doctor-card__bio">Sees adults and children in the outpatient clinic, and helps patients from South Sudan who speak Arabic.</p>
               <dl class="doctor-card__facts">
                 <div><dt>Qualifications</dt><dd>MBChB</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara, Arabic</dd></div>
-                <div><dt>Clinic days</dt><dd>Monday to Saturday</dd></div>
+                <div><dt>Clinic days</dt><dd>Outpatient clinic, on the duty rota</dd></div>
               </dl>
               <a href="/appointments/?department=outpatient" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-        </div>
-      </section>
-
-      <section class="directory__group" aria-labelledby="doc-family">
-        <h2 class="directory__heading" id="doc-family">Women and children</h2>
-        <div class="doctor-grid">
-          <article class="doctor-card" id="dr-demo-obstetrician" data-search="dr demo obstetrician consultant obstetrician and gynaecologist maternity english, lugbara mbchb, mmed obstetrics and gynaecology">
+          <article class="doctor-card" id="dr-demo-ward-medical-officer" data-search="dr demo ward medical officer medical officer, inpatient wards inpatient wards admission ward stay visiting attendant nursing english, lugbara, swahili mbchb">
             <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Demo Obstetrician</h3>
-              <p class="doctor-card__role">Consultant Obstetrician and Gynaecologist · <a href="/departments/maternity/">Maternity</a></p>
-              <p class="doctor-card__bio">Leads the maternity unit. Looks after women with higher-risk pregnancies and performs caesarean sections and gynaecological operations.</p>
+              <h3 class="doctor-card__name">Dr Demo Ward Medical Officer</h3>
+              <p class="doctor-card__role">Medical Officer, Inpatient Wards · <a href="/departments/inpatient/">Inpatient Wards</a></p>
+              <p class="doctor-card__bio">Reviews patients on the wards every day and keeps families informed of their progress.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB, MMed Obstetrics and Gynaecology</dd></div>
+                <div><dt>Qualifications</dt><dd>MBChB</dd></div>
+                <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
+                <div><dt>Clinic days</dt><dd>Daily ward rounds</dd></div>
+              </dl>
+              <a href="/appointments/?department=inpatient" class="btn btn--primary btn--sm">Request an appointment</a>
+            </div>
+          </article>
+          <article class="doctor-card" id="dr-demo-maternity-medical-officer" data-search="dr demo maternity medical officer medical officer, maternity maternity pregnancy pregnant delivery birth labour mother baby midwife caesarean c-section postnatal english, lugbara mbchb">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
+            <div class="doctor-card__body">
+              <h3 class="doctor-card__name">Dr Demo Maternity Medical Officer</h3>
+              <p class="doctor-card__role">Medical Officer, Maternity · <a href="/departments/maternity/">Maternity</a></p>
+              <p class="doctor-card__bio">Works with the midwives on the labour ward and with the obstetrician on complicated births.</p>
+              <dl class="doctor-card__facts">
+                <div><dt>Qualifications</dt><dd>MBChB</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara</dd></div>
-                <div><dt>Clinic days</dt><dd>Antenatal clinic Tuesday and Thursday; gynaecology clinic Wednesday</dd></div>
+                <div><dt>Clinic days</dt><dd>Labour ward, on the duty rota</dd></div>
               </dl>
               <a href="/appointments/?department=maternity" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-          <article class="doctor-card" id="dr-demo-paediatrician" data-search="dr demo paediatrician paediatrician children’s clinic english, luganda, swahili mbchb, mmed paediatrics and child health">
-            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
-            <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Demo Paediatrician</h3>
-              <p class="doctor-card__role">Paediatrician · <a href="/departments/paediatrics/">Children’s Clinic</a></p>
-              <p class="doctor-card__bio">Cares for newborns and sick children on the children’s ward and in clinic, and runs the newborn care unit.</p>
-              <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB, MMed Paediatrics and Child Health</dd></div>
-                <div><dt>Languages</dt><dd>English, Luganda, Swahili</dd></div>
-                <div><dt>Clinic days</dt><dd>Children’s clinic Monday to Friday; Saturday mornings</dd></div>
-              </dl>
-              <a href="/appointments/?department=paediatrics" class="btn btn--primary btn--sm">Request an appointment</a>
-            </div>
-          </article>
-          <article class="doctor-card" id="sister-demo-midwife" data-search="sister demo midwife senior midwife maternity english, lugbara, swahili diploma in midwifery">
+        </div>
+      </section>
+
+      <section class="directory__group" aria-labelledby="doc-head">
+        <h2 class="directory__heading" id="doc-head">Heads of departments</h2>
+        <div class="doctor-grid">
+          <article class="doctor-card" id="sister-demo-midwife" data-search="sister demo midwife head of maternity, antenatal care and the neonatal icu maternity pregnancy pregnant delivery birth labour mother baby midwife caesarean c-section postnatal english, lugbara, swahili diploma in midwifery">
             <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
               <h3 class="doctor-card__name">Sister Demo Midwife</h3>
-              <p class="doctor-card__role">Senior Midwife · <a href="/departments/maternity/">Maternity</a></p>
-              <p class="doctor-card__bio">Leads the midwives on the labour ward and runs the antenatal and postnatal clinics.</p>
+              <p class="doctor-card__role">Head of Maternity, Antenatal Care and the Neonatal ICU · <a href="/departments/maternity/">Maternity</a></p>
+              <p class="doctor-card__bio">Leads the midwives and the nurses of the maternity unit, the antenatal clinic and the Neonatal ICU.</p>
               <dl class="doctor-card__facts">
                 <div><dt>Qualifications</dt><dd>Diploma in Midwifery</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
-                <div><dt>Clinic days</dt><dd>Antenatal clinic Tuesday and Thursday; labour ward</dd></div>
+                <div><dt>Clinic days</dt><dd>Labour ward and antenatal clinic</dd></div>
               </dl>
               <a href="/appointments/?department=maternity" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-        </div>
-      </section>
-
-      <section class="directory__group" aria-labelledby="doc-surgical">
-        <h2 class="directory__heading" id="doc-surgical">Surgery and hospital stays</h2>
-        <div class="doctor-grid">
-          <article class="doctor-card" id="dr-demo-surgeon" data-search="dr demo surgeon general surgeon surgery &amp; theatre english, alur, swahili mbchb, mmed surgery">
+          <article class="doctor-card" id="sister-demo-nursing-officer" data-search="sister demo nursing officer head of nursing, outpatient clinic and wards inpatient wards admission ward stay visiting attendant nursing english, lugbara, swahili diploma in nursing">
             <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Demo Surgeon</h3>
-              <p class="doctor-card__role">General Surgeon · <a href="/departments/surgery/">Surgery &amp; Theatre</a></p>
-              <p class="doctor-card__bio">Carries out planned and emergency operations, including hernia repairs, appendix and gallbladder surgery, and the care of wounds and fractures.</p>
+              <h3 class="doctor-card__name">Sister Demo Nursing Officer</h3>
+              <p class="doctor-card__role">Head of Nursing, Outpatient Clinic and Wards · <a href="/departments/inpatient/">Inpatient Wards</a></p>
+              <p class="doctor-card__bio">Leads the nurses in the outpatient clinic, the wards and the immunisation clinic.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB, MMed Surgery</dd></div>
-                <div><dt>Languages</dt><dd>English, Alur, Swahili</dd></div>
-                <div><dt>Clinic days</dt><dd>Surgical clinic Monday and Thursday</dd></div>
+                <div><dt>Qualifications</dt><dd>Diploma in Nursing</dd></div>
+                <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
+                <div><dt>Clinic days</dt><dd>Wards and outpatient clinic</dd></div>
               </dl>
-              <a href="/appointments/?department=surgery" class="btn btn--primary btn--sm">Request an appointment</a>
+              <a href="/appointments/?department=inpatient" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-        </div>
-      </section>
-
-      <section class="directory__group" aria-labelledby="doc-support">
-        <h2 class="directory__heading" id="doc-support">Tests, medicines and dental care</h2>
-        <div class="doctor-grid">
-          <article class="doctor-card" id="dr-demo-radiologist" data-search="dr demo radiologist consultant radiologist ultrasound &amp; x-ray english, lugbara mbchb, mmed radiology">
+          <article class="doctor-card" id="demo-laboratory-manager" data-search="demo laboratory manager head of laboratory laboratory lab test blood urine stool malaria hiv typhoid sugar results english, lugbara bsc biomedical laboratory technology">
             <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Demo Radiologist</h3>
-              <p class="doctor-card__role">Consultant Radiologist · <a href="/departments/imaging/">Ultrasound &amp; X-ray</a></p>
-              <p class="doctor-card__bio">Performs specialist ultrasound scans and reports every X-ray and scan done at the hospital.</p>
+              <h3 class="doctor-card__name">Demo Laboratory Manager</h3>
+              <p class="doctor-card__role">Head of Laboratory · <a href="/departments/laboratory/">Laboratory</a></p>
+              <p class="doctor-card__bio">Runs the laboratory day and night, and makes sure every result is accurate and reaches the right clinician.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>MBChB, MMed Radiology</dd></div>
+                <div><dt>Qualifications</dt><dd>BSc Biomedical Laboratory Technology</dd></div>
                 <div><dt>Languages</dt><dd>English, Lugbara</dd></div>
-                <div><dt>Clinic days</dt><dd>Ultrasound lists Tuesday and Thursday; reports X-rays daily</dd></div>
+                <div><dt>Clinic days</dt><dd>Laboratory</dd></div>
+              </dl>
+              <a href="/appointments/?department=laboratory" class="btn btn--primary btn--sm">Request an appointment</a>
+            </div>
+          </article>
+          <article class="doctor-card" id="demo-radiographer" data-search="demo radiographer head of imaging ultrasound &amp; x-ray scan ultrasound x-ray xray radiology pregnancy scan imaging english, swahili diploma in diagnostic radiography">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
+            <div class="doctor-card__body">
+              <h3 class="doctor-card__name">Demo Radiographer</h3>
+              <p class="doctor-card__role">Head of Imaging · <a href="/departments/imaging/">Ultrasound &amp; X-ray</a></p>
+              <p class="doctor-card__bio">Runs the ultrasound and X-ray unit, including the daily pregnancy and specialist scans.</p>
+              <dl class="doctor-card__facts">
+                <div><dt>Qualifications</dt><dd>Diploma in Diagnostic Radiography</dd></div>
+                <div><dt>Languages</dt><dd>English, Swahili</dd></div>
+                <div><dt>Clinic days</dt><dd>Imaging unit, 24 hours</dd></div>
               </dl>
               <a href="/appointments/?department=imaging" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
-          <article class="doctor-card" id="dr-demo-dentist" data-search="dr demo dentist dental surgeon dental clinic english, lugbara, swahili bds">
+          <article class="doctor-card" id="demo-pharmacist" data-search="demo pharmacist head of pharmacy pharmacy medicine drugs prescription chemist tablets english, lugbara bachelor of pharmacy">
             <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
             <div class="doctor-card__body">
-              <h3 class="doctor-card__name">Dr Demo Dentist</h3>
-              <p class="doctor-card__role">Dental Surgeon · <a href="/departments/dental/">Dental Clinic</a></p>
-              <p class="doctor-card__bio">Runs the dental clinic: check-ups, fillings, extractions and treatment for tooth pain, for adults and children.</p>
+              <h3 class="doctor-card__name">Demo Pharmacist</h3>
+              <p class="doctor-card__role">Head of Pharmacy · <a href="/departments/pharmacy/">Pharmacy</a></p>
+              <p class="doctor-card__bio">Runs the pharmacy and makes sure medicines are safe, in stock and clearly explained to patients.</p>
               <dl class="doctor-card__facts">
-                <div><dt>Qualifications</dt><dd>BDS</dd></div>
-                <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
-                <div><dt>Clinic days</dt><dd>Monday to Friday</dd></div>
+                <div><dt>Qualifications</dt><dd>Bachelor of Pharmacy</dd></div>
+                <div><dt>Languages</dt><dd>English, Lugbara</dd></div>
+                <div><dt>Clinic days</dt><dd>Pharmacy</dd></div>
               </dl>
-              <a href="/appointments/?department=dental" class="btn btn--primary btn--sm">Request an appointment</a>
+              <a href="/appointments/?department=pharmacy" class="btn btn--primary btn--sm">Request an appointment</a>
+            </div>
+          </article>
+          <article class="doctor-card" id="demo-ambulance-coordinator" data-search="demo ambulance coordinator head of ambulance services ambulance services ambulance transport transfer emergency pick-up road accident referral english, lugbara, swahili diploma in emergency medical care">
+            <div class="doctor-card__photo"><svg class="icon" aria-hidden="true"><use href="#i-avatar" /></svg></div>
+            <div class="doctor-card__body">
+              <h3 class="doctor-card__name">Demo Ambulance Coordinator</h3>
+              <p class="doctor-card__role">Head of Ambulance Services · <a href="/departments/ambulance/">Ambulance Services</a></p>
+              <p class="doctor-card__bio">Coordinates the ambulance, emergency calls and transfers between hospitals.</p>
+              <dl class="doctor-card__facts">
+                <div><dt>Qualifications</dt><dd>Diploma in Emergency Medical Care</dd></div>
+                <div><dt>Languages</dt><dd>English, Lugbara, Swahili</dd></div>
+                <div><dt>Clinic days</dt><dd>Ambulance, 24 hours</dd></div>
+              </dl>
+              <a href="/appointments/?department=ambulance" class="btn btn--primary btn--sm">Request an appointment</a>
             </div>
           </article>
         </div>
@@ -431,16 +572,23 @@
           <!-- build:footer-departments -->
             <a href="/emergency/">Accident &amp; Emergency</a>
             <a href="/departments/outpatient/">Outpatient Clinic</a>
-            <a href="/departments/internal-medicine/">Internal Medicine</a>
-            <a href="/departments/maternity/">Maternity</a>
-            <a href="/departments/gynaecology/">Gynaecology &amp; Family Planning</a>
-            <a href="/departments/paediatrics/">Children’s Clinic</a>
-            <a href="/departments/surgery/">Surgery &amp; Theatre</a>
             <a href="/departments/inpatient/">Inpatient Wards</a>
+            <a href="/departments/maternity/">Maternity</a>
+            <a href="/departments/antenatal/">Antenatal Care</a>
+            <a href="/departments/immunisation/">Immunisation</a>
+            <a href="/departments/neonatal-icu/">Neonatal ICU</a>
+            <a href="/departments/paediatrics/">Paediatrics</a>
+            <a href="/departments/surgery/">General Surgery</a>
+            <a href="/departments/obstetrics-gynaecology/">Obstetrics &amp; Gynaecology</a>
+            <a href="/departments/ent/">ENT (Ear, Nose &amp; Throat)</a>
+            <a href="/departments/physician/">In-house Physician</a>
+            <a href="/departments/dental/">Dental Services</a>
+            <a href="/departments/ophthalmology/">Ophthalmology (Eye Care)</a>
+            <a href="/departments/orthopaedics/">Orthopaedics</a>
             <a href="/departments/laboratory/">Laboratory</a>
             <a href="/departments/imaging/">Ultrasound &amp; X-ray</a>
             <a href="/departments/pharmacy/">Pharmacy</a>
-            <a href="/departments/dental/">Dental Clinic</a>
+            <a href="/departments/ambulance/">Ambulance Services</a>
           <!-- /build:footer-departments -->
         </div>
         <div class="footer__col">

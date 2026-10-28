@@ -635,15 +635,15 @@ h3 {
 }
 
 .mega {
-  left: -320px;
-  width: min(940px, calc(100vw - 48px));
+  left: -360px;
+  width: min(1100px, calc(100vw - 48px));
   padding: 2rem 2.25rem 1.5rem;
 }
 
 .mega__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.75rem;
 }
 
 .mega__heading {

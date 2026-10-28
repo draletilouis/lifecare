@@ -1,24 +1,21 @@
-/* Specialist clinic days, shown as a weekly timetable on the patient guide (/patients/#clinic-days).
-   The timetable section only appears when this list has at least one entry. Edit here, then run "npm run build".
+/* Specialist clinic days, shown as a table on the patient guide (/patients/#clinic-days) and in the facts
+   strip of each department page. The section only appears when this list has at least one entry.
+   Edit here, then run "npm run build".
 
-   DEMO DATA: the timetable below is invented for the internal preview, to match the demo clinicians in
-   data/doctors.js. Replace it with the hospital's real clinic days, or empty the list, before launch.
+   The clinics and their days were confirmed by the hospital on 28 October 2026. No times were given,
+   so each clinic runs for 24 hours on its days, as the hospital asked.
 
-   Fields: day ('Monday' … 'Sunday'), clinic, time, clinician (optional), department (optional slug).
+   Fields: clinic, days (as patients should read them), department (a slug from data/departments.js),
+   time, clinician (optional).
 */
 
 const CLINICS = [
-  { day: 'Monday', clinic: 'Diabetes and blood pressure clinic', time: '8:00 am – 1:00 pm', clinician: 'Dr Demo Physician', department: 'internal-medicine' },
-  { day: 'Monday', clinic: 'Surgical clinic', time: '9:00 am – 1:00 pm', clinician: 'Dr Demo Surgeon', department: 'surgery' },
-  { day: 'Tuesday', clinic: 'Antenatal clinic', time: '8:00 am – 1:00 pm', clinician: 'Dr Demo Obstetrician and the midwives', department: 'maternity' },
-  { day: 'Tuesday', clinic: 'Pregnancy and specialist ultrasound', time: '9:00 am – 4:00 pm', clinician: 'Dr Demo Radiologist', department: 'imaging' },
-  { day: 'Wednesday', clinic: 'Gynaecology and family planning clinic', time: '9:00 am – 1:00 pm', clinician: 'Dr Demo Obstetrician', department: 'gynaecology' },
-  { day: 'Wednesday', clinic: 'Medical review clinic', time: '8:00 am – 1:00 pm', clinician: 'Dr Demo Physician', department: 'internal-medicine' },
-  { day: 'Thursday', clinic: 'Antenatal clinic', time: '8:00 am – 1:00 pm', clinician: 'Sister Demo Midwife and the midwives', department: 'maternity' },
-  { day: 'Thursday', clinic: 'Child immunisation and growth checks', time: '8:30 am – 12:30 pm', clinician: 'Children’s clinic nurses', department: 'paediatrics' },
-  { day: 'Thursday', clinic: 'Surgical clinic', time: '2:00 pm – 5:00 pm', clinician: 'Dr Demo Surgeon', department: 'surgery' },
-  { day: 'Friday', clinic: 'Diabetes and blood pressure clinic', time: '8:00 am – 1:00 pm', clinician: 'Dr Demo Physician', department: 'internal-medicine' },
-  { day: 'Saturday', clinic: 'Children’s clinic', time: '9:00 am – 1:00 pm', clinician: 'Dr Demo Paediatrician', department: 'paediatrics' },
+  { clinic: 'Antenatal clinic', days: 'Every day', time: '24 hours', department: 'antenatal' },
+  { clinic: 'Pregnancy and specialist ultrasound', days: 'Every day', time: '24 hours', department: 'imaging' },
+  { clinic: 'Gynaecology clinic', days: 'Every day', time: '24 hours', department: 'obstetrics-gynaecology' },
+  { clinic: 'Surgical clinic', days: 'Tuesday', time: '24 hours', department: 'surgery' },
+  { clinic: 'Paediatric clinic', days: 'Friday, Saturday and Sunday', time: '24 hours', department: 'paediatrics' },
+  { clinic: 'Immunisation clinic', days: 'Monday and Friday', time: '24 hours', department: 'immunisation' },
 ];
 
 module.exports = { CLINICS };

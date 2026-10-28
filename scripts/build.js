@@ -100,7 +100,7 @@ const departmentPages = DEPARTMENTS.filter((d) => !d.href);
 const deptUrl = (d) => d.href || `/departments/${d.slug}/`;
 
 // Departments shown with a photograph in the homepage services band, in this order.
-const HOME_SERVICES = ['maternity', 'paediatrics', 'surgery', 'internal-medicine', 'laboratory', 'outpatient'];
+const HOME_SERVICES = ['maternity', 'paediatrics', 'surgery', 'obstetrics-gynaecology', 'physician', 'laboratory'];
 
 // Pages with "render" are generated from data/; the others are written by hand.
 const PAGES = [
@@ -133,11 +133,23 @@ function renderDepartmentPage(d, ctx) {
   return renderDepartment(d, {
     ...ctx,
     category: CATEGORIES.find((c) => c.id === d.category),
-    hours: d.hours ? hoursRow(d.hours) : null,
     related: (d.related || []).map((slug) => findDepartment(slug, `data/departments.js (${d.slug})`)),
     all: DEPARTMENTS.map((x) => ({ ...x, url: deptUrl(x) })),
+    when: whenOpen(d),
     people: DOCTORS.filter((doc) => doc.department === d.slug).map((doc) => personCard(doc)),
   });
+}
+
+// When a department can be seen: its row of the hours table, otherwise its clinic days from
+// data/clinics.js, otherwise 24 hours (the hospital's rule where no time is given).
+// Returns { label, time, note }.
+function whenOpen(d) {
+  const hours = d.hours ? hoursRow(d.hours) : null;
+  if (hours) return { label: 'Hours', time: hours.time, note: hours.note };
+  const clinics = CLINICS.filter((c) => c.department === d.slug);
+  if (clinics.length === 1) return { label: 'Clinic days', time: clinics[0].days, note: clinics[0].time };
+  if (clinics.length) return { label: 'Clinic days', time: clinics.map((c) => `${c.clinic}: ${c.days}`).join('; ') };
+  return { label: 'Hours', time: 'Open 24 hours, every day' };
 }
 
 // The anchor for a clinician's card in the /doctors/ directory, e.g. "dr-demo-surgeon".
@@ -225,8 +237,8 @@ const BLOCKS = {
       `  <h2 class="directory__heading" id="cat-${c.id}">${escapeHtml(c.name)}</h2>`,
       '  <div class="directory__grid">',
       ...c.items.map((d) => {
-        const hours = d.hours ? hoursRow(d.hours) : null;
-        const when = d.slug === 'emergency' ? 'Open 24 hours, every day' : hours ? hours.time : '';
+        const open = whenOpen(d);
+        const when = d.slug === 'emergency' ? 'Open 24 hours, every day' : open.label === 'Clinic days' ? `Clinic days: ${open.time}` : open.time;
         const keywords = [d.name, d.keywords, d.card, d.summary, ...(d.services || []).flat()].filter(Boolean).join(' ').toLowerCase();
         return [
           `    <a href="${deptUrl(d)}" class="dept-card${d.slug === 'emergency' ? ' dept-card--urgent' : ''}" data-search="${escapeHtml(keywords)}">`,
@@ -341,21 +353,23 @@ const BLOCKS = {
       '</a>',
     ]).flat(),
 
-  // Weekly specialist clinic timetable, left out while data/clinics.js is empty.
+  // Specialist clinic days, left out while data/clinics.js is empty. The time and clinician columns
+  // appear only when at least one clinic has them.
   'clinic-days': () => {
     if (!CLINICS.length) return [];
-    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    const rows = days.flatMap((day) => CLINICS.filter((c) => c.day === day).map((c, i) => {
-      const dept = c.department ? DEPARTMENTS.find((d) => d.slug === c.department) : null;
-      const name = dept ? `<a href="${deptUrl(dept)}">${escapeHtml(c.clinic)}</a>` : escapeHtml(c.clinic);
-      return `      <tr>${i === 0 ? `<th scope="rowgroup">${day}</th>` : '<td></td>'}<td>${name}</td><td>${escapeHtml(c.time)}</td><td>${escapeHtml(c.clinician || '')}</td></tr>`;
-    }));
+    const withTime = CLINICS.some((c) => c.time);
+    const withClinician = CLINICS.some((c) => c.clinician);
+    const rows = CLINICS.map((c) => {
+      const dept = c.department ? findDepartment(c.department, `data/clinics.js (${c.clinic})`) : null;
+      const name = dept ? `<a href="${dept.url}">${escapeHtml(c.clinic)}</a>` : escapeHtml(c.clinic);
+      return `      <tr><th scope="row">${name}</th><td>${escapeHtml(c.days)}</td>${withTime ? `<td>${escapeHtml(c.time || '')}</td>` : ''}${withClinician ? `<td>${escapeHtml(c.clinician || '')}</td>` : ''}</tr>`;
+    });
     return [
       '<section class="block" id="clinic-days" aria-labelledby="clinic-days-title">',
       '  <h2 id="clinic-days-title">Specialist clinic days</h2>',
-      '  <p>These clinics run on set days. Walk in during the times shown, or request an appointment.</p>',
+      '  <p>These clinics run on set days. Come on a clinic day, or request an appointment. All other services are open 24 hours.</p>',
       '  <table class="hours-table timetable">',
-      '    <thead><tr><th scope="col">Day</th><th scope="col">Clinic</th><th scope="col">Time</th><th scope="col">Clinician</th></tr></thead>',
+      `    <thead><tr><th scope="col">Clinic</th><th scope="col">Days</th>${withTime ? '<th scope="col">Time</th>' : ''}${withClinician ? '<th scope="col">Clinician</th>' : ''}</tr></thead>`,
       '    <tbody>',
       ...rows,
       '    </tbody>',

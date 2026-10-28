@@ -120,7 +120,7 @@ const ARTICLES = [
     readMinutes: 3,
     updated: 'October 2026',
     reviewedBy: null,
-    related: ['internal-medicine', 'pharmacy', 'laboratory'],
+    related: ['physician', 'pharmacy', 'laboratory'],
     sections: [
       {
         heading: 'Why it matters',

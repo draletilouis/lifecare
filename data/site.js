@@ -38,18 +38,22 @@ module.exports = {
   mapQuery: 'Arua City, Uganda',
   geo: null, // e.g. { lat: 3.0201, lng: 30.9110 } once the exact location is known
 
-  // Opening hours shown in the hours tables and in search results.
+  // Opening hours shown in the hours tables and in search results. Confirmed by the hospital on
+  // 28 October 2026: all services are open 24 hours, imaging every day and dental Monday to Saturday.
+  // Where the hospital gave no time, 24 hours is assumed. Specialist clinic days are in data/clinics.js.
   hours: [
     { service: 'Accident & Emergency', time: 'Open 24 hours, every day', allDay: true },
-    { service: 'Maternity and labour ward', time: 'Open 24 hours, every day', allDay: true },
+    { service: 'Outpatient clinic', time: 'Open 24 hours, every day', allDay: true },
     { service: 'Inpatient wards', time: 'Open 24 hours, every day', allDay: true },
-    { service: 'Outpatient clinic', time: 'Monday to Saturday, 8:00 am – 8:00 pm', note: 'Sundays and public holidays: seen through Accident & Emergency' },
-    { service: 'Laboratory', time: 'Open 24 hours for emergencies; routine tests 8:00 am – 8:00 pm' },
-    { service: 'Imaging (ultrasound and X-ray)', time: 'Monday to Saturday, 8:00 am – 6:00 pm; emergencies at any time' },
+    { service: 'Maternity and labour ward', time: 'Open 24 hours, every day', allDay: true },
+    { service: 'Neonatal ICU', time: 'Open 24 hours, every day', allDay: true },
+    { service: 'Laboratory', time: 'Open 24 hours, every day', allDay: true },
     { service: 'Pharmacy', time: 'Open 24 hours, every day', allDay: true },
-    { service: 'Dental clinic', time: 'Monday to Friday, 9:00 am – 5:00 pm' },
+    { service: 'Ambulance', time: 'Available 24 hours, every day', allDay: true },
+    { service: 'Imaging (ultrasound and X-ray)', time: 'Open 24 hours, every day', allDay: true },
+    { service: 'Dental clinic', time: 'Open 24 hours, Monday to Saturday' },
   ],
-  hoursSummary: 'Emergency and maternity: 24 hours',
+  hoursSummary: 'Open 24 hours, every day',
 
   visitingHours: [
     { period: 'Midday', time: '12:30 pm – 2:00 pm' },
@@ -95,9 +99,8 @@ module.exports = {
   // lists are empty. SAMPLE: the values below are invented.
   stats: [
     { value: '2009', label: 'Caring for West Nile since' },
-    { value: '64', label: 'Inpatient beds' },
     { value: '120', label: 'Staff' },
-    { value: '24 hours', label: 'Emergency and maternity' },
+    { value: '24 hours', label: 'Open every day' },
   ],
   accreditations: [
     { name: 'Licensed by the Uganda Medical and Dental Practitioners Council', detail: 'Private hospital licence' },
@@ -133,7 +136,7 @@ module.exports = {
     'address.street',
     'address.landmark',
     'mapQuery',
-    'hours',
+    'data/doctors.js: replace the demo specialists, medical officers and heads of departments with the real staff',
     'visitingHours',
     'visitingByWard',
     'languages',
@@ -144,8 +147,8 @@ module.exports = {
     'data/packages.js: confirm package contents and add prices',
     'refer/index.html: confirm the referral process (referral line, reply to the referring clinician)',
     'patients/international/index.html: confirm interpreter languages, currencies and help with accommodation',
-    'departments (data/departments.js): confirm the list and every service named',
-    'about/index.html: add the history (year opened, founder, medical director, beds and staff); mission, vision and values are drafts',
-    'ambulance: confirm whether the hospital runs one (emergency page)',
+    'data/departments.js: the departments and their groups were confirmed on 28 October 2026; confirm the services named on each page, especially the new ones (Antenatal Care, Immunisation, Neonatal ICU, ENT, Ophthalmology, Orthopaedics, Ambulance Services)',
+    'about/index.html: add the history (year opened, founder, medical director and staff); mission, vision and values are drafts',
+    'ambulance: confirm how the service works (calls, area covered, charges) for the Ambulance Services page',
   ],
 };

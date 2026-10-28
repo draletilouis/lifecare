@@ -3,16 +3,23 @@
   <url><loc>https://lifecare.example/</loc></url>
   <url><loc>https://lifecare.example/departments/</loc></url>
   <url><loc>https://lifecare.example/departments/outpatient/</loc></url>
-  <url><loc>https://lifecare.example/departments/internal-medicine/</loc></url>
+  <url><loc>https://lifecare.example/departments/inpatient/</loc></url>
   <url><loc>https://lifecare.example/departments/maternity/</loc></url>
-  <url><loc>https://lifecare.example/departments/gynaecology/</loc></url>
+  <url><loc>https://lifecare.example/departments/antenatal/</loc></url>
+  <url><loc>https://lifecare.example/departments/immunisation/</loc></url>
+  <url><loc>https://lifecare.example/departments/neonatal-icu/</loc></url>
   <url><loc>https://lifecare.example/departments/paediatrics/</loc></url>
   <url><loc>https://lifecare.example/departments/surgery/</loc></url>
-  <url><loc>https://lifecare.example/departments/inpatient/</loc></url>
+  <url><loc>https://lifecare.example/departments/obstetrics-gynaecology/</loc></url>
+  <url><loc>https://lifecare.example/departments/ent/</loc></url>
+  <url><loc>https://lifecare.example/departments/physician/</loc></url>
+  <url><loc>https://lifecare.example/departments/dental/</loc></url>
+  <url><loc>https://lifecare.example/departments/ophthalmology/</loc></url>
+  <url><loc>https://lifecare.example/departments/orthopaedics/</loc></url>
   <url><loc>https://lifecare.example/departments/laboratory/</loc></url>
   <url><loc>https://lifecare.example/departments/imaging/</loc></url>
   <url><loc>https://lifecare.example/departments/pharmacy/</loc></url>
-  <url><loc>https://lifecare.example/departments/dental/</loc></url>
+  <url><loc>https://lifecare.example/departments/ambulance/</loc></url>
   <url><loc>https://lifecare.example/doctors/</loc></url>
   <url><loc>https://lifecare.example/emergency/</loc></url>
   <url><loc>https://lifecare.example/appointments/</loc></url>

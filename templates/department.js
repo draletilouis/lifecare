@@ -2,7 +2,7 @@
    The shell blocks are left empty here: the build fills them from index.html.
    Text that comes from data/site.js is marked with data-fact so it stays in step. */
 
-module.exports = function renderDepartment(d, { site, icon, escapeHtml: e, category, hours, related, all, people }) {
+module.exports = function renderDepartment(d, { site, icon, escapeHtml: e, category, when, related, all, people }) {
   const title = `${d.name} | ${site.name}, Arua`;
   const list = (items) =>
     `<ul class="check-list">\n${items.map((item) => `                <li>${icon('check')}<span>${e(item)}</span></li>`).join('\n')}\n              </ul>`;
@@ -141,8 +141,8 @@ ${JSON.stringify(schema, null, 2).replace(/^/gm, '    ')}
     <div class="facts">
       <dl class="container facts__list">
         <div>
-          <dt>Hours</dt>
-          <dd>${e(hours.time)}${hours.note ? `<small>${e(hours.note)}</small>` : ''}</dd>
+          <dt>${e(when.label)}</dt>
+          <dd>${e(when.time)}${when.note ? `<small>${e(when.note)}</small>` : ''}</dd>
         </div>
         <div>
           <dt>Reception</dt>

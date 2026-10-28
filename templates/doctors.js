@@ -1,12 +1,12 @@
 /* The "Find a doctor" directory at /doctors/, rendered by scripts/build.js from data/doctors.js.
    It is only built when data/doctors.js has at least one entry. */
 
-module.exports = function renderDoctors(doctors, { site, icon, escapeHtml: e, departments, categories, doctorId }) {
+module.exports = function renderDoctors(doctors, { site, icon, escapeHtml: e, departments, doctorId }) {
   const title = `Find a doctor | ${site.name}, Arua`;
   const deptOf = (slug) => departments.find((d) => d.slug === slug);
   const card = (doc) => {
     const dept = deptOf(doc.department);
-    const keywords = [doc.name, doc.role, dept && dept.name, doc.languages, doc.qualifications].filter(Boolean).join(' ').toLowerCase();
+    const keywords = [doc.name, doc.role, dept && dept.name, dept && dept.keywords, doc.languages, doc.qualifications].filter(Boolean).join(' ').toLowerCase();
     const photo = doc.photo
       ? `<img src="/assets/doctors/${e(doc.photo)}" alt="" width="400" height="400" loading="lazy" />`
       : icon('avatar');
@@ -30,24 +30,24 @@ ${facts.map(([k, v]) => `                <div><dt>${k}</dt><dd>${e(v)}</dd></div
           </article>`;
   };
 
-  const groups = categories
-    .map((c) => ({ c, docs: doctors.filter((doc) => (deptOf(doc.department) || {}).category === c.id) }))
-    .filter((g) => g.docs.length);
-  const other = doctors.filter((doc) => !deptOf(doc.department));
+  // The directory's sections, in order. People without a known group are listed last.
+  const GROUPS = [
+    { id: 'specialist', name: 'Specialist doctors' },
+    { id: 'medical-officer', name: 'Medical officers' },
+    { id: 'head', name: 'Heads of departments' },
+  ];
+  const groups = GROUPS
+    .map((g) => ({ g, docs: doctors.filter((doc) => doc.group === g.id) }))
+    .concat([{ g: { id: 'other', name: 'Other clinicians' }, docs: doctors.filter((doc) => !GROUPS.some((g) => g.id === doc.group)) }])
+    .filter((x) => x.docs.length);
 
   const groupHtml = groups
-    .map((g) => `      <section class="directory__group" aria-labelledby="doc-${g.c.id}">
-        <h2 class="directory__heading" id="doc-${g.c.id}">${e(g.c.name)}</h2>
+    .map((x) => `      <section class="directory__group" aria-labelledby="doc-${x.g.id}">
+        <h2 class="directory__heading" id="doc-${x.g.id}">${e(x.g.name)}</h2>
         <div class="doctor-grid">
-${g.docs.map(card).join('\n')}
+${x.docs.map(card).join('\n')}
         </div>
       </section>`)
-    .concat(other.length ? [`      <section class="directory__group" aria-labelledby="doc-other">
-        <h2 class="directory__heading" id="doc-other">Other clinicians</h2>
-        <div class="doctor-grid">
-${other.map(card).join('\n')}
-        </div>
-      </section>`] : [])
     .join('\n\n');
 
   return `<!DOCTYPE html>
@@ -86,7 +86,7 @@ ${other.map(card).join('\n')}
           </ol>
         </nav>
         <h1>Find a doctor</h1>
-        <p class="lead">Every clinician listed here is registered with their professional council in Uganda. Search by name, specialty or language.</p>
+        <p class="lead">Our specialist doctors, medical officers and heads of departments. Search by name, specialty, department or language.</p>
       </div>
     </section>
 
