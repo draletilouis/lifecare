@@ -1,51 +1,53 @@
 /* The "Find a doctor" directory at /doctors/, rendered by scripts/build.js from data/doctors.js.
    It is only built when data/doctors.js has at least one entry. */
 
-module.exports = function renderDoctors(doctors, { site, icon, escapeHtml: e, departments, doctorId }) {
+module.exports = function renderDoctors(doctors, { site, icon, escapeHtml: e, departments, doctorId, portrait }) {
   const title = `Find a doctor | ${site.name}, Arua`;
   const deptOf = (slug) => departments.find((d) => d.slug === slug);
-  const card = (doc) => {
+  const card = (doc, lead) => {
     const dept = deptOf(doc.department);
     const keywords = [doc.name, doc.role, dept && dept.name, dept && dept.keywords, doc.languages, doc.qualifications].filter(Boolean).join(' ').toLowerCase();
-    const photo = doc.photo
-      ? `<img src="/assets/doctors/${e(doc.photo)}" alt="" width="400" height="400" loading="lazy" />`
-      : icon('avatar');
+    // Only doctors can be booked; heads of departments are listed for information.
+    const doctor = doc.group === 'director' || doc.group === 'specialist';
     const facts = [
       doc.qualifications && ['Qualifications', doc.qualifications],
       doc.languages && ['Languages', doc.languages],
       doc.clinicDays && ['Clinic days', doc.clinicDays],
       doc.registration && ['Registration', doc.registration],
     ].filter(Boolean);
-    return `          <article class="doctor-card" id="${doctorId(doc)}" data-search="${e(keywords)}">
-            <div class="doctor-card__photo">${photo}</div>
+    return `          <article class="doctor-card${lead ? ' doctor-card--lead' : ''}" id="${doctorId(doc)}" data-search="${e(keywords)}">
+            <div class="doctor-card__photo">${portrait(doc)}</div>
             <div class="doctor-card__body">
               <h3 class="doctor-card__name">${e(doc.name)}</h3>
+${lead && doc.leadership ? `              <p class="doctor-card__title">${e(doc.leadership.split(',')[0])}</p>
+` : ''}
               <p class="doctor-card__role">${e(doc.role)}${dept ? ` · <a href="${dept.href || `/departments/${dept.slug}/`}">${e(dept.name)}</a>` : ''}</p>
               ${doc.bio ? `<p class="doctor-card__bio">${e(doc.bio)}</p>` : ''}
-              <dl class="doctor-card__facts">
+${facts.length ? `              <dl class="doctor-card__facts">
 ${facts.map(([k, v]) => `                <div><dt>${k}</dt><dd>${e(v)}</dd></div>`).join('\n')}
               </dl>
-              <a href="/appointments/?department=${e(doc.department || '')}" class="btn btn--primary btn--sm">Request an appointment</a>
-            </div>
+` : ''}${doctor ? `              <a href="/appointments/?department=${e(doc.department || '')}" class="btn btn--primary btn--sm">Request an appointment</a>
+` : ''}            </div>
           </article>`;
   };
 
-  // The directory's sections, in order. People without a known group are listed last.
+  // The directory's sections, in order. The Managing Director has a section of his own, shown wider.
+  // The co-founder ('leadership') appears on the About page only. People without a known group are listed last.
   const GROUPS = [
+    { id: 'director', name: 'Managing Director', lead: true },
     { id: 'specialist', name: 'Specialist doctors' },
-    { id: 'medical-officer', name: 'Medical officers' },
     { id: 'head', name: 'Heads of departments' },
   ];
   const groups = GROUPS
     .map((g) => ({ g, docs: doctors.filter((doc) => doc.group === g.id) }))
-    .concat([{ g: { id: 'other', name: 'Other clinicians' }, docs: doctors.filter((doc) => !GROUPS.some((g) => g.id === doc.group)) }])
+    .concat([{ g: { id: 'other', name: 'Other clinicians' }, docs: doctors.filter((doc) => doc.group !== 'leadership' && !GROUPS.some((g) => g.id === doc.group)) }])
     .filter((x) => x.docs.length);
 
   const groupHtml = groups
     .map((x) => `      <section class="directory__group" aria-labelledby="doc-${x.g.id}">
         <h2 class="directory__heading" id="doc-${x.g.id}">${e(x.g.name)}</h2>
-        <div class="doctor-grid">
-${x.docs.map(card).join('\n')}
+        <div class="doctor-grid${x.g.lead ? ' doctor-grid--lead' : ''}">
+${x.docs.map((doc) => card(doc, x.g.lead)).join('\n')}
         </div>
       </section>`)
     .join('\n\n');
@@ -86,7 +88,7 @@ ${x.docs.map(card).join('\n')}
           </ol>
         </nav>
         <h1>Find a doctor</h1>
-        <p class="lead">Our specialist doctors, medical officers and heads of departments. Search by name, specialty, department or language.</p>
+        <p class="lead">Our Managing Director${doctors.some((doc) => doc.group === 'specialist') ? ', specialist doctors' : ''} and heads of departments. Search by name, role or department.</p>
       </div>
     </section>
 
@@ -96,7 +98,7 @@ ${x.docs.map(card).join('\n')}
           <div class="search">
             ${icon('search')}
             <label class="sr-only" for="deptSearch">Search doctors</label>
-            <input id="deptSearch" type="search" placeholder="Search, for example “maternity” or “Lugbara”" autocomplete="off" />
+            <input id="deptSearch" type="search" placeholder="Search, for example “maternity” or “laboratory”" autocomplete="off" />
           </div>
           <p class="directory__status" id="deptStatus" aria-live="polite"></p>
         </div>

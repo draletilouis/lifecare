@@ -63,7 +63,7 @@ const ARTICLES = [
         heading: 'When to start',
         paragraphs: [
           'Come as soon as you think you are pregnant, ideally before 12 weeks. Starting early lets the midwife check your health, find problems such as anaemia, high blood pressure or infection early, and plan a safe birth with you.',
-          'The World Health Organization recommends at least eight antenatal contacts during a pregnancy. Your midwife will write the date of your next visit on your antenatal card.',
+          'The World Health Organization recommends at least eight antenatal visits during a pregnancy. Your midwife will write the date of your next visit on your antenatal card.',
         ],
       },
       {

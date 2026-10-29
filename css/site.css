@@ -19,23 +19,21 @@
 }
 
 :root {
-  /* Brand: the logo's green and blue */
-  --navy: #0d2847; /* headings, footer, dark bands */
-  --navy-ink: #081a30;
-  --blue: #00a8d4; /* logo blue: small marks only (too light for text) */
-  --blue-ink: #00779e; /* accent buttons and blue text on light backgrounds (AA) */
-  --blue-ink-2: #00607f;
-  --green: #00b964; /* logo green: focus rings, small marks */
-  --green-ink: #00733f; /* brand: buttons, utility bar, links (AA) */
-  --green-ink-2: #005c32;
-  --green-deep: #0a4a30; /* the services band */
-  --leaf: #e7f4ed;
-  --mint: #b9e8cf; /* small text on navy */
-  --sky: #e6f4f9; /* light blue tint for chips and icon tiles */
-  --sun: #ffc845; /* the one sharp accent: small marks and links on dark bands only */
+  /* The palette, and nothing outside it: the logo's navy and green, neutrals, and red for
+     emergencies only. Every colour in this file is one of these (white and navy also appear
+     with transparency). */
 
-  /* A faint woven chevron, after Ugandan basketwork, laid over the dark bands */
-  --weave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='18' viewBox='0 0 36 18'%3E%3Cpath d='M0 18 9 4.5 18 18 27 4.5 36 18M0 9 9-4.5 18 9 27-4.5 36 9' fill='none' stroke='%23ffffff' stroke-opacity='.055' stroke-width='1.4'/%3E%3C/svg%3E");
+  /* Navy: text and the dark bands */
+  --navy: #0d2847;
+  --navy-ink: #081a30; /* photo overlays */
+
+  /* Green: the brand colour, for actions, and its tints */
+  --green: #00b964; /* logo green: focus rings and small marks */
+  --green-ink: #00733f; /* buttons, links, the utility bar (AA on white) */
+  --green-ink-2: #005c32; /* hover */
+  --leaf: #e7f4ed; /* light green surface */
+  --mint: #b9e8cf; /* text and marks on navy */
+
 
   /* Surfaces and text */
   --paper: #f5f7fa; /* light grey band */
@@ -47,16 +45,28 @@
   --line: #e3e8ef;
   --line-strong: #cfd8e3;
 
-  /* Emergency only */
+  /* Red: emergencies, and errors on forms */
   --red: #b42318;
   --red-ink: #8f1d14;
-  --red-50: #fcefed;
+  --red-50: #fcefed; /* light red surface */
+  --red-200: var(--red-200); /* border on the light red surface */
+  --red-light: var(--red-light); /* red text on navy */
 
   --sans: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
   --display: "Parkinsans", "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --radius: 8px;
+  --radius: 6px;
   --radius-sm: 6px;
+
+  /* Type scale: the only eight sizes used on the site */
+  --fs-xs: 0.8125rem; /* 13px: small labels */
+  --fs-sm: 0.9375rem; /* 15px: notes, captions, meta */
+  --fs-base: 1.0625rem; /* 17px: body text */
+  --fs-md: 1.25rem; /* 20px: lead text, card and list titles */
+  --fs-lg: clamp(1.4rem, 2.2vw, 1.75rem); /* sub-section titles */
+  --fs-xl: clamp(1.9rem, 3.2vw, 2.75rem); /* section headings (h2), large figures */
+  --fs-2xl: clamp(2.3rem, 4.4vw, 3.6rem); /* page titles (h1) */
+  --fs-display: clamp(2.75rem, 6vw, 4.6rem); /* the homepage hero */
   --nav-h: 80px;
   --container: 1240px;
   --gutter: 32px;
@@ -75,7 +85,7 @@ body {
   background: var(--white);
   color: var(--text);
   font-family: var(--sans);
-  font-size: 1.0625rem;
+  font-size: var(--fs-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -192,6 +202,7 @@ h4 {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.01em;
+  text-wrap: balance; /* no single word left alone on the last line */
 }
 
 h1,
@@ -219,22 +230,23 @@ h2 {
 }
 
 h1 {
-  font-size: clamp(2.3rem, 4.4vw, 3.6rem);
+  font-size: var(--fs-2xl);
   line-height: 1.08;
 }
 
 h2 {
-  font-size: clamp(1.75rem, 2.8vw, 2.4rem);
-  line-height: 1.15;
+  font-size: var(--fs-xl);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 h3 {
-  font-size: 1.125rem;
+  font-size: var(--fs-base);
 }
 
 .lead {
   color: var(--muted);
-  font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+  font-size: var(--fs-md);
   line-height: 1.6;
 }
 
@@ -272,7 +284,7 @@ h3 {
 .text-link .icon {
   width: 17px;
   height: 17px;
-  transition: transform 160ms ease;
+  transition: transform 160ms ease-out;
 }
 
 .text-link:hover .icon {
@@ -298,13 +310,13 @@ h3 {
   border: 1.5px solid transparent;
   border-radius: var(--radius-sm);
   font-family: var(--sans);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0;
   text-align: center;
   white-space: nowrap;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  transition: background 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out;
 }
 
 .btn .icon {
@@ -315,13 +327,13 @@ h3 {
 .btn--sm {
   min-height: 42px;
   padding: 0 1rem;
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .btn--lg {
   min-height: 54px;
   padding: 0 1.6rem;
-  font-size: 1.05rem;
+  font-size: var(--fs-base);
 }
 
 .btn--block {
@@ -349,12 +361,12 @@ h3 {
 
 /* The logo's blue, for the second most important action (as The Nairobi Hospital uses gold) */
 .btn--accent {
-  background: var(--blue-ink);
+  background: var(--navy);
   color: #fff;
 }
 
 .btn--accent:hover {
-  background: var(--blue-ink-2);
+  background: var(--navy-ink);
 }
 
 .btn--urgent {
@@ -367,12 +379,12 @@ h3 {
 }
 
 .btn--whatsapp {
-  background: #25d366;
-  color: #06331a;
+  background: var(--green-ink);
+  color: #fff;
 }
 
 .btn--whatsapp:hover {
-  background: #1ebe5b;
+  background: var(--green-ink-2);
 }
 
 /* The main button on a dark band */
@@ -407,7 +419,7 @@ h3 {
   border: 1px solid var(--green);
   border-radius: 2px;
   color: var(--green-ink);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -419,7 +431,7 @@ h3 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #ff5a4f;
+  background: currentColor;
   flex: 0 0 auto;
 }
 
@@ -431,7 +443,7 @@ h3 {
 .topbar {
   background: var(--green-ink);
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.875rem;
+  font-size: var(--fs-sm);
   font-weight: 500;
 }
 
@@ -471,7 +483,11 @@ h3 {
 .topbar__group .icon {
   width: 15px;
   height: 15px;
-  color: var(--sun);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.topbar__urgent .icon {
+  color: #fff;
 }
 
 .topbar__group a:hover {
@@ -491,11 +507,11 @@ h3 {
   z-index: 100;
   background: #fff;
   border-bottom: 1px solid var(--line);
-  transition: box-shadow 200ms ease;
+  transition: border-color 160ms ease-out;
 }
 
 .nav.scrolled {
-  box-shadow: 0 1px 0 var(--line), 0 10px 30px rgba(20, 32, 26, 0.06);
+  border-bottom-color: var(--line-strong);
 }
 
 .nav__inner {
@@ -524,7 +540,7 @@ h3 {
 
 .brand__text strong {
   color: var(--navy);
-  font-size: 1.25rem;
+  font-size: var(--fs-md);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -532,7 +548,7 @@ h3 {
 .brand__text span {
   margin-top: 2px;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -560,15 +576,15 @@ h3 {
   padding: 0 0.85rem;
   border-bottom: 3px solid transparent;
   color: var(--ink);
-  font-size: 0.97rem;
+  font-size: var(--fs-sm);
   font-weight: 500;
-  transition: color 160ms ease, border-color 160ms ease;
+  transition: color 160ms ease-out, border-color 160ms ease-out;
 }
 
 .nav__link .icon {
   width: 16px;
   height: 16px;
-  transition: transform 160ms ease;
+  transition: transform 160ms ease-out;
 }
 
 .nav__link:hover,
@@ -631,11 +647,11 @@ h3 {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background: #fff;
-  box-shadow: 0 8px 24px rgba(18, 34, 45, 0.1);
+  box-shadow: 0 6px 16px rgba(13, 40, 71, 0.08);
   opacity: 0;
   visibility: hidden;
   transform: translateY(6px);
-  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
+  transition: opacity 160ms ease-out, transform 160ms ease-out, visibility 160ms;
 }
 
 .has-dropdown.is-open > .dropdown {
@@ -679,7 +695,7 @@ h3 {
   padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--line);
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -689,7 +705,7 @@ h3 {
   display: block;
   padding: 0.4rem 0;
   color: var(--ink);
-  font-size: 1.008rem;
+  font-size: var(--fs-base);
   line-height: 1.3;
   font-weight: 600;
 }
@@ -759,7 +775,13 @@ h3 {
    -------------------------------------------------------------------------- */
 
 .section {
-  padding: clamp(72px, 9vw, 120px) 0;
+  padding: clamp(64px, 7.5vw, 104px) 0;
+}
+
+/* Two white sections in a row share one gap, not two */
+.section:not(.section--paper, .section--tint, .section--sand, .section--surface, .trust)
+  + .section:not(.section--paper, .section--tint, .section--sand, .section--surface, .trust) {
+  padding-top: 0;
 }
 
 .section--tight {
@@ -782,13 +804,13 @@ h3 {
 
 .section__head {
   max-width: 760px;
-  margin-bottom: clamp(36px, 5vw, 56px);
+  margin-bottom: clamp(32px, 4vw, 48px);
 }
 
 .section__head p {
   margin-top: 1rem;
   color: var(--muted);
-  font-size: 1.125rem;
+  font-size: var(--fs-base);
 }
 
 .section__head--center {
@@ -830,24 +852,14 @@ h3 {
   height: 100%;
   object-fit: cover;
   object-position: 50% 50%;
-  animation: hero-settle 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-/* The first screen arrives in order: headline, text, buttons, then the figures one by one.
+/* The first screen arrives in order, quickly: headline, text, buttons, then the figures.
    This runs once on page load; nothing waits for scrolling, and it is off for reduced motion. */
-@keyframes hero-settle {
-  from {
-    transform: scale(1.06);
-  }
-  to {
-    transform: none;
-  }
-}
-
 @keyframes hero-rise {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -859,35 +871,22 @@ h3 {
 .hero .lead,
 .hero__actions,
 .hero__stats > div {
-  animation: hero-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: hero-rise 0.45s ease-out both;
 }
 
 .hero .lead {
-  animation-delay: 0.12s;
+  animation-delay: 0.06s;
 }
 
 .hero__actions {
-  animation-delay: 0.24s;
+  animation-delay: 0.12s;
 }
 
-.hero__stats > div:nth-child(1) {
-  animation-delay: 0.4s;
-}
-
-.hero__stats > div:nth-child(2) {
-  animation-delay: 0.48s;
-}
-
-.hero__stats > div:nth-child(3) {
-  animation-delay: 0.56s;
-}
-
-.hero__stats > div:nth-child(n + 4) {
-  animation-delay: 0.64s;
+.hero__stats > div {
+  animation-delay: 0.18s;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__bg,
   .hero h1,
   .hero .lead,
   .hero__actions,
@@ -913,7 +912,7 @@ h3 {
 .hero h1 {
   max-width: 11ch;
   color: #fff;
-  font-size: clamp(2.75rem, 6vw, 4.6rem);
+  font-size: var(--fs-display);
   line-height: 1.02;
   letter-spacing: -0.035em;
 }
@@ -942,6 +941,7 @@ h3 {
 .hero__stats > div {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: flex-end; /* figures line up at the top even when a label wraps */
   padding: 0 1.75rem;
 }
 
@@ -954,8 +954,9 @@ h3 {
 }
 
 .hero__stats dd {
-  color: var(--sun);
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-xl);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -964,7 +965,7 @@ h3 {
 .hero__stats dt {
   margin-top: 0.3rem;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
 }
 
 /* "I need …" finder, as a strip under the hero */
@@ -983,7 +984,7 @@ h3 {
 
 .finder__label {
   color: var(--ink);
-  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-size: var(--fs-lg);
   line-height: 1.1;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -1001,7 +1002,7 @@ h3 {
   border-radius: var(--radius-sm);
   background: var(--paper);
   color: var(--navy);
-  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  font-size: var(--fs-md);
   font-weight: 600;
   appearance: none;
   cursor: pointer;
@@ -1024,26 +1025,21 @@ h3 {
 }
 
 /* Where to get care: three routes side by side, divided by rules */
+/* Where to go: Accident & Emergency first and largest, on navy; the two everyday routes beside it */
 .routes {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--line-strong);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
 }
 
 .route {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 2rem 2rem 2.25rem 0;
-}
-
-.route + .route {
-  padding-left: 2rem;
-  border-left: 1px solid var(--line);
+  gap: 0.6rem;
 }
 
 .route h3 {
-  font-size: clamp(1.35rem, 2vw, 1.6rem);
+  font-size: var(--fs-lg);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -1053,43 +1049,78 @@ h3 {
   color: var(--muted);
 }
 
-.route__detail {
+.route .text-link {
+  align-self: flex-start;
+}
+
+.route--urgent {
+  gap: 0.85rem;
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: var(--radius);
+  background: var(--navy);
+}
+
+.route--urgent h3 {
+  color: #fff;
+  font-size: var(--fs-xl);
+}
+
+.route--urgent p {
+  max-width: 38ch;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.route__call {
+  display: grid;
+  gap: 0.2rem;
   margin-top: auto;
-  padding-top: 0.75rem;
+  padding-top: 1.75rem;
+}
+
+.route__call span {
+  color: var(--mint);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.route__number {
+  color: #fff;
+  font-family: var(--display);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.route__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  margin-top: 1rem;
+}
+
+.routes__side {
+  display: grid;
+  border-top: 1px solid var(--line-strong);
+}
+
+.routes__side .route {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.route__detail {
+  margin-top: 0.25rem;
   color: var(--ink);
   font-weight: 600;
 }
 
-.route__number {
-  display: block;
-  color: var(--ink);
-  font-size: 1.4rem;
-  line-height: 1.2;
-  font-weight: 700;
-}
-
-.route--urgent .route__number {
-  color: var(--red);
-}
-
-/* Services: a full-width band in the brand colour, with photographs (no boxed cards) */
-/* Layered: the woven chevron, a green glow from the top left, a blue glow from the bottom right */
+/* Services: a light band of photographs; green only for the arrows and the button */
 .services-band {
-  padding: clamp(64px, 8vw, 104px) 0;
-  background:
-    var(--weave),
-    radial-gradient(ellipse 60% 55% at 12% 0%, rgba(0, 185, 100, 0.24), transparent 70%),
-    radial-gradient(ellipse 55% 60% at 100% 100%, rgba(0, 168, 212, 0.18), transparent 70%),
-    var(--green-deep);
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.services-band h2 {
-  color: #fff;
-}
-
-.services-band .section__head p {
-  color: rgba(255, 255, 255, 0.75);
+  padding: clamp(64px, 7.5vw, 104px) 0;
+  background: var(--paper);
+  color: var(--text);
 }
 
 .services {
@@ -1116,47 +1147,39 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 500ms ease;
 }
 
-.service-tile:hover .service-tile__media img {
-  transform: scale(1.04);
-}
+
 
 .service-tile__name {
-  color: #fff;
-  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink);
+  font-size: var(--fs-md);
   font-weight: 700;
   letter-spacing: -0.015em;
 }
 
+.service-tile__name .icon {
+  width: 18px;
+  height: 18px;
+  color: var(--green-ink);
+  transition: transform 160ms ease-out;
+}
+
+.service-tile:hover .service-tile__name {
+  color: var(--green-ink);
+}
+
+.service-tile:hover .service-tile__name .icon {
+  transform: translateX(4px);
+}
+
 .service-tile__text {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--muted);
 }
 
-.service-tile__more {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.2rem;
-  color: var(--sun);
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-.service-tile__more .icon {
-  width: 16px;
-  height: 16px;
-  transition: transform 160ms ease;
-}
-
-.service-tile:hover .service-tile__more {
-  color: #fff;
-}
-
-.service-tile:hover .service-tile__more .icon {
-  transform: translateX(3px);
-}
 
 .services-band__more {
   display: flex;
@@ -1166,35 +1189,47 @@ h3 {
   gap: 1.5rem 3rem;
   margin-top: clamp(48px, 6vw, 64px);
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-top: 1px solid var(--line-strong);
 }
 
 .services-band__more h3 {
-  color: #fff;
-  font-size: 1.25rem;
+  color: var(--ink);
+  font-size: var(--fs-md);
   font-weight: 700;
 }
 
 .services-band__more p {
   margin-top: 0.25rem;
+  color: var(--muted);
 }
 
 /* Insurance partners: names in a row, like a strip of logos */
+/* Insurers: an even grid of names rather than a ragged centred run */
 .partners {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.1rem 2.75rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line);
 }
 
 .partners li {
-  color: #7b8898;
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  display: grid;
+  place-items: center;
+  min-height: 76px;
+  padding: 0.75rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--fs-base);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .partners {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .partners__links {
@@ -1227,7 +1262,7 @@ h3 {
 
 .bring h3 {
   margin-bottom: 0.75rem;
-  font-size: 1.26rem;
+  font-size: var(--fs-md);
   font-weight: 700;
 }
 
@@ -1276,32 +1311,6 @@ h3 {
   border: 0;
 }
 
-.map__placeholder {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 1rem;
-  padding: 2rem;
-  background:
-    repeating-linear-gradient(0deg, transparent 0 47px, rgba(15, 59, 45, 0.08) 47px 48px),
-    repeating-linear-gradient(90deg, transparent 0 47px, rgba(15, 59, 45, 0.08) 47px 48px),
-    var(--sand);
-  color: var(--muted);
-  text-align: center;
-}
-
-.map__placeholder .icon {
-  width: 40px;
-  height: 40px;
-  color: var(--navy);
-}
-
-.map__placeholder p {
-  max-width: 34ch;
-}
-
 .info-card {
   display: grid;
   gap: 1.25rem;
@@ -1309,7 +1318,7 @@ h3 {
 }
 
 .info-card h3 {
-  font-size: 1.62rem;
+  font-size: var(--fs-lg);
   font-weight: 700;
 }
 
@@ -1329,7 +1338,7 @@ h3 {
 .info-row strong {
   display: block;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1338,7 +1347,7 @@ h3 {
 .info-row span,
 .info-row a {
   color: var(--ink);
-  font-size: 1.05rem;
+  font-size: var(--fs-base);
 }
 
 .info-row a:hover {
@@ -1357,12 +1366,72 @@ h3 {
   align-items: center;
   gap: 0.6rem;
   margin-bottom: 0.75rem;
-  font-size: 1.44rem;
+  font-size: var(--fs-lg);
   font-weight: 700;
 }
 
 .hours-card h3 .icon {
   display: none;
+}
+
+/* Homepage: opening hours in brief */
+.hours-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 2rem 4rem;
+  margin-top: clamp(40px, 5vw, 56px);
+  padding-top: 2rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.hours-summary h3 {
+  color: var(--ink);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hours-summary__list {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+/* The separating dot belongs to the item before it, so a line never starts with one */
+.hours-summary__list li {
+  display: inline;
+  white-space: nowrap;
+}
+
+.hours-summary__list li:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.6rem;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.hours-summary__other {
+  display: grid;
+  align-content: start;
+}
+
+.hours-summary__other div {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.hours-summary__other div:first-child {
+  padding-top: 0;
+}
+
+.hours-summary__other dt {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.hours-summary__other dd {
+  margin-top: 0.15rem;
+  color: var(--muted);
 }
 
 .hours-table {
@@ -1390,7 +1459,7 @@ h3 {
   display: block;
   margin-top: 0.15rem;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: var(--fs-sm);
 }
 
 /* Questions */
@@ -1409,7 +1478,7 @@ h3 {
   gap: 1.5rem;
   padding: 1.25rem 0;
   color: var(--ink);
-  font-size: 1.17rem;
+  font-size: var(--fs-md);
   line-height: 1.3;
   cursor: pointer;
   list-style: none;
@@ -1428,7 +1497,7 @@ h3 {
   width: 22px;
   height: 22px;
   color: var(--green-ink);
-  transition: transform 200ms ease;
+  transition: transform 160ms ease-out;
 }
 
 .faq__item[open] summary .icon {
@@ -1474,7 +1543,7 @@ h3 {
 .cta-band p {
   max-width: 560px;
   margin-top: 0.85rem;
-  font-size: 1.1rem;
+  font-size: var(--fs-base);
 }
 
 .cta-band__actions {
@@ -1493,7 +1562,7 @@ h3 {
 }
 
 .page-hero--urgent {
-  background: #fbf1ee;
+  background: var(--red-50);
 }
 
 .page-hero h1 {
@@ -1542,7 +1611,7 @@ h3 {
 
 .breadcrumb {
   margin-bottom: clamp(28px, 4vw, 48px);
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
 }
 
 .breadcrumb ol {
@@ -1598,7 +1667,7 @@ h3 {
 .facts dt {
   margin-bottom: 0.3rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1635,7 +1704,7 @@ h3 {
 
 .glance__title {
   margin-bottom: 0.75rem;
-  font-size: 1.35rem;
+  font-size: var(--fs-md);
   font-weight: 700;
 }
 
@@ -1680,12 +1749,12 @@ h3 {
 .dept-main > h2,
 .dept-main .two-lists h2 {
   margin: 3.5rem 0 1.25rem;
-  font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+  font-size: var(--fs-xl);
 }
 
 .dept-main .prose {
   color: var(--ink);
-  font-size: clamp(1.08rem, 1.44vw, 1.26rem);
+  font-size: var(--fs-md);
   line-height: 1.5;
 }
 
@@ -1704,7 +1773,7 @@ h3 {
 .service h3 {
   margin-bottom: 0.35rem;
   color: var(--ink);
-  font-size: 1.1rem;
+  font-size: var(--fs-base);
 }
 
 .service p {
@@ -1772,9 +1841,9 @@ h3 {
 }
 
 .callout--urgent {
-  border-color: #efc3be;
+  border-color: var(--red-200);
   background: var(--red-50);
-  color: #5f1510;
+  color: var(--red-ink);
 }
 
 .callout--urgent .callout__title {
@@ -1789,7 +1858,7 @@ h3 {
   padding-top: 1.25rem;
   border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
 }
 
 .disclaimer .icon {
@@ -1807,7 +1876,7 @@ h3 {
 
 .aside-card h2 {
   margin-bottom: 0.75rem;
-  font-size: 1.35rem;
+  font-size: var(--fs-md);
   font-weight: 700;
 }
 
@@ -1845,7 +1914,13 @@ h3 {
 
 .aside-card--cta .btn--secondary {
   border-color: rgba(255, 255, 255, 0.6);
+  background: transparent;
   color: #fff;
+}
+
+.aside-card--cta .btn--secondary:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .side-nav {
@@ -1894,28 +1969,28 @@ h3 {
 }
 
 .dept-tile__name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--ink);
-  font-size: 1.35rem;
+  font-size: var(--fs-md);
   line-height: 1.2;
   font-weight: 600;
 }
 
+.dept-tile__name .icon {
+  width: 18px;
+  height: 18px;
+  color: var(--green-ink);
+  transition: transform 160ms ease-out;
+}
+
+.dept-tile:hover .dept-tile__name .icon {
+  transform: translateX(4px);
+}
+
 .dept-tile__text {
   color: var(--muted);
-}
-
-.dept-tile__more {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.75rem;
-  color: var(--green-ink);
-  font-weight: 700;
-}
-
-.dept-tile__more .icon {
-  width: 16px;
-  height: 16px;
 }
 
 .dept-tile:hover .dept-tile__name {
@@ -1960,7 +2035,7 @@ h3 {
   border-bottom: 2px solid var(--ink);
   border-radius: 0;
   background: transparent;
-  font-size: 1.305rem;
+  font-size: var(--fs-md);
   font-weight: 400;
 }
 
@@ -1985,7 +2060,7 @@ h3 {
   margin-bottom: 0.5rem;
   color: var(--muted);
   font-family: var(--sans);
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2018,7 +2093,7 @@ h3 {
 
 .dept-card__name {
   color: var(--ink);
-  font-size: 1.44rem;
+  font-size: var(--fs-lg);
   line-height: 1.15;
   font-weight: 600;
 }
@@ -2033,7 +2108,7 @@ h3 {
   gap: 0.4rem;
   margin-top: 0.3rem;
   color: var(--ink);
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
 }
 
@@ -2045,7 +2120,7 @@ h3 {
 
 .dept-card__arrow {
   color: var(--green-ink);
-  transition: transform 160ms ease;
+  transition: transform 160ms ease-out;
 }
 
 .dept-card:hover .dept-card__name {
@@ -2065,7 +2140,7 @@ h3 {
 .directory__empty {
   padding: 2rem 0;
   color: var(--muted);
-  font-size: 1.17rem;
+  font-size: var(--fs-md);
   font-weight: 400;
 }
 
@@ -2088,7 +2163,7 @@ h3 {
 .toc p {
   margin-bottom: 0.75rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2154,7 +2229,7 @@ h3 {
   align-items: center;
   gap: 0.6rem;
   margin-bottom: 0.6rem;
-  font-size: 1.305rem;
+  font-size: var(--fs-md);
   font-weight: 700;
 }
 
@@ -2216,7 +2291,7 @@ h3 {
   left: 0;
   top: -0.2rem;
   color: var(--green-ink);
-  font-size: 1.53rem;
+  font-size: var(--fs-lg);
   line-height: 1;
   font-weight: 700;
 }
@@ -2239,7 +2314,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2253,7 +2328,7 @@ h3 {
   display: block;
   margin: 0.75rem 0 1.5rem;
   color: #fff;
-  font-size: clamp(1.8rem, 3.06vw, 2.475rem);
+  font-size: var(--fs-xl);
   line-height: 1.05;
   font-weight: 700;
 }
@@ -2270,7 +2345,7 @@ h3 {
 .call-panel__note {
   margin-top: 1rem;
   color: rgba(255, 255, 255, 0.92);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .signs {
@@ -2289,7 +2364,7 @@ h3 {
   align-items: center;
   gap: 0.6rem;
   margin-bottom: 1rem;
-  font-size: 1.53rem;
+  font-size: var(--fs-lg);
   font-weight: 700;
 }
 
@@ -2334,7 +2409,7 @@ h3 {
 }
 
 .form-card > h2 {
-  font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+  font-size: var(--fs-xl);
 }
 
 .form-card > p {
@@ -2383,8 +2458,8 @@ h3 {
   border: 1.5px solid var(--line-strong);
   border-radius: var(--radius-sm);
   background: #fff;
-  font-size: 1.05rem;
-  transition: border-color 160ms ease, box-shadow 160ms ease;
+  font-size: var(--fs-base);
+  transition: border-color 160ms ease-out, box-shadow 160ms ease-out;
 }
 
 .field textarea {
@@ -2417,12 +2492,12 @@ h3 {
 
 .field__hint {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
 }
 
 .field__error {
   color: var(--red);
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
 }
 
@@ -2459,7 +2534,7 @@ fieldset.field {
   border-radius: var(--radius-sm);
   background: #fff;
   font-weight: 600;
-  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+  transition: border-color 160ms ease-out, background 160ms ease-out, color 160ms ease-out;
 }
 
 .choice input:checked + span {
@@ -2500,7 +2575,7 @@ fieldset.field {
 
 .form-actions small {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .form-success {
@@ -2509,7 +2584,7 @@ fieldset.field {
   gap: 0.75rem;
   margin-top: 1.5rem;
   padding: 1.1rem 1.25rem;
-  border: 1px solid #b9dfc9;
+  border: 1px solid var(--mint);
   border-radius: var(--radius);
   background: var(--leaf);
   color: var(--navy);
@@ -2526,10 +2601,10 @@ fieldset.field {
   gap: 0.6rem;
   margin-top: 1.5rem;
   padding: 1rem 1.1rem;
-  border: 1px solid #ecd3a4;
+  border: 1px solid var(--red-200);
   border-radius: var(--radius);
-  background: #fdf5e6;
-  color: #6b4204;
+  background: var(--red-50);
+  color: var(--red-ink);
   font-weight: 600;
 }
 
@@ -2578,7 +2653,7 @@ fieldset.field {
 
 .contact-card__label {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2586,7 +2661,7 @@ fieldset.field {
 
 .contact-card__value {
   color: var(--ink);
-  font-size: 1.395rem;
+  font-size: var(--fs-md);
   line-height: 1.2;
   overflow-wrap: anywhere;
   font-weight: 600;
@@ -2606,7 +2681,7 @@ a.contact-card:hover .contact-card__value {
 }
 
 .contact-card--whatsapp .contact-card__icon {
-  color: #128c4a;
+  color: var(--green-ink);
 }
 
 .about-logo {
@@ -2630,20 +2705,20 @@ a.contact-card:hover .contact-card__value {
 .mv__item p:first-child {
   margin-bottom: 0.5rem;
   color: var(--ink);
-  font-size: 1.25rem;
+  font-size: var(--fs-md);
   font-weight: 700;
 }
 
 .mv__item p:last-child {
   color: var(--text);
-  font-size: 1.15rem;
+  font-size: var(--fs-base);
   line-height: 1.5;
 }
 
 .values {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem 2.5rem;
   border-top: 1px solid var(--line-strong);
 }
 
@@ -2653,7 +2728,7 @@ a.contact-card:hover .contact-card__value {
 
 .value h3 {
   margin-bottom: 0.4rem;
-  font-size: 1.35rem;
+  font-size: var(--fs-md);
   font-weight: 700;
 }
 
@@ -2683,7 +2758,7 @@ a.contact-card:hover .contact-card__value {
 }
 
 .team-role h3 {
-  font-size: 1.215rem;
+  font-size: var(--fs-md);
   font-weight: 700;
 }
 
@@ -2698,7 +2773,7 @@ a.contact-card:hover .contact-card__value {
 
 .legal h2 {
   margin: 3rem 0 0.75rem;
-  font-size: 1.9rem;
+  font-size: var(--fs-lg);
 }
 
 .legal ul {
@@ -2748,10 +2823,7 @@ a.contact-card:hover .contact-card__value {
 
 .footer {
   padding: clamp(64px, 8vw, 96px) 0 0;
-  background:
-    var(--weave),
-    radial-gradient(ellipse 50% 60% at 0% 0%, rgba(0, 185, 100, 0.12), transparent 70%),
-    var(--navy);
+  background: var(--navy);
   color: rgba(255, 255, 255, 0.72);
 }
 
@@ -2759,7 +2831,6 @@ a.contact-card:hover .contact-card__value {
 .footer__marks {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 1.5rem 3.5rem;
   margin-top: clamp(48px, 6vw, 64px);
   padding: 2rem 0;
@@ -2775,31 +2846,39 @@ a.contact-card:hover .contact-card__value {
 
 .footer__marks .icon {
   flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
-  padding: 10px;
-  border: 1.5px solid var(--mint);
-  border-radius: 50%;
+  width: 24px;
+  height: 24px;
   color: var(--mint);
 }
 
 .footer__marks strong {
   display: block;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: var(--fs-sm);
   line-height: 1.35;
 }
 
 .footer__marks small {
   display: block;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
 }
 
 .footer__top {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 0.8fr)) minmax(0, 1.2fr);
-  gap: 2.5rem;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.9fr) minmax(0, 0.85fr) minmax(0, 0.75fr) minmax(0, 1.05fr);
+  gap: 2rem;
+}
+
+.footer__links {
+  columns: 2;
+  column-gap: 1.25rem;
+}
+
+.footer__links a {
+  display: block;
+  margin-bottom: 0.55rem;
+  break-inside: avoid;
 }
 
 .footer__brand .brand-badge {
@@ -2819,7 +2898,7 @@ a.contact-card:hover .contact-card__value {
 
 .footer__name {
   color: #fff;
-  font-size: 1.53rem;
+  font-size: var(--fs-md);
   line-height: 1.1;
   font-weight: 700;
 }
@@ -2828,7 +2907,7 @@ a.contact-card:hover .contact-card__value {
 .footer__tagline {
   margin: 0.2rem 0 1rem;
   color: var(--mint);
-  font-size: 1.035rem;
+  font-size: var(--fs-base);
   font-weight: 700;
 }
 
@@ -2847,7 +2926,7 @@ a.contact-card:hover .contact-card__value {
 .footer__contact strong {
   margin-bottom: 0.5rem;
   color: #fff;
-  font-size: 1.17rem;
+  font-size: var(--fs-md);
   font-weight: 700;
 }
 
@@ -2870,7 +2949,7 @@ a.contact-card:hover .contact-card__value {
 
 .footer__contact-item span {
   color: rgba(255, 255, 255, 0.55);
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2878,24 +2957,24 @@ a.contact-card:hover .contact-card__value {
 
 .footer__contact-item a {
   color: #fff;
-  font-size: 1.215rem;
+  font-size: var(--fs-md);
   font-weight: 600;
 }
 
 .footer__contact-item--urgent a {
-  color: #ff9c90;
+  color: var(--red-light);
 }
 
 .footer__bottom {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.75rem 2rem;
   padding: 1.5rem 72px 1.75rem 0; /* clear of the WhatsApp button */
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.55);
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
 }
 
 .footer__bottom nav {
@@ -2911,9 +2990,13 @@ a.contact-card:hover .contact-card__value {
 
 /* Public-health notice across the top of every page (off unless switched on in data/site.js) */
 .alert-band {
-  background: #fdf3d8;
-  border-bottom: 1px solid #ecd9a3;
-  color: #4d3600;
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.alert-band strong,
+.alert-band__inner a {
+  color: #fff;
 }
 
 .alert-band__inner {
@@ -2923,11 +3006,11 @@ a.contact-card:hover .contact-card__value {
   flex-wrap: wrap;
   min-height: 48px;
   padding: 0.6rem 0;
-  font-size: 0.97rem;
+  font-size: var(--fs-sm);
 }
 
 .alert-band__inner > .icon {
-  color: #a86b00;
+  color: var(--mint);
 }
 
 .alert-band__inner p {
@@ -2978,7 +3061,7 @@ a.contact-card:hover .contact-card__value {
 
 .trust__stats dd {
   color: var(--navy);
-  font-size: clamp(1.98rem, 3.6vw, 2.88rem);
+  font-size: var(--fs-xl);
   line-height: 1;
   font-weight: 700;
 }
@@ -2986,7 +3069,7 @@ a.contact-card:hover .contact-card__value {
 .trust__stats dt {
   margin-top: 0.4rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .trust__marks {
@@ -3016,7 +3099,7 @@ a.contact-card:hover .contact-card__value {
 .bring__hint {
   margin: -0.35rem 0 1rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .checklist,
@@ -3070,12 +3153,12 @@ a.contact-card:hover .contact-card__value {
 }
 
 .checklist__actions .icon {
-  color: #128c4a;
+  color: var(--green-ink);
 }
 
 .checklist__count {
   color: var(--green-ink);
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
 }
 
@@ -3102,12 +3185,12 @@ a.contact-card:hover .contact-card__value {
 .article-card__cat,
 .article-row__cat {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .article-card__title {
   color: var(--ink);
-  font-size: 1.395rem;
+  font-size: var(--fs-md);
   line-height: 1.2;
   font-weight: 700;
 }
@@ -3120,13 +3203,46 @@ a.contact-card:hover .contact-card__value {
 .article-row__meta {
   margin-top: auto;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: var(--fs-sm);
 }
 
 .article-card:hover .article-card__title,
 .article-row:hover .article-row__title {
   color: var(--green-ink);
 }
+
+/* Homepage: the guides as rows beside a short introduction */
+.health-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+
+.health-split__intro {
+  position: sticky;
+  top: calc(var(--nav-h) + 32px);
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+}
+
+.article-grid--rows {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.article-grid--rows .article-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "cat meta" "title title" "text text";
+  gap: 0.4rem 2rem;
+  padding: 1.75rem 0;
+}
+
+.article-grid--rows .article-card__cat { grid-area: cat; }
+.article-grid--rows .article-card__meta { grid-area: meta; margin-top: 0; }
+.article-grid--rows .article-card__title { grid-area: title; font-size: var(--fs-lg); }
+.article-grid--rows .article-card__text { grid-area: text; max-width: 60ch; }
 
 .article-list {
   border-top: 1px solid var(--line-strong);
@@ -3147,7 +3263,7 @@ a.contact-card:hover .contact-card__value {
 .article-row__title {
   max-width: 34ch;
   color: var(--ink);
-  font-size: clamp(1.44rem, 2.34vw, 1.89rem);
+  font-size: var(--fs-lg);
   line-height: 1.15;
   font-weight: 700;
 }
@@ -3164,7 +3280,7 @@ a.contact-card:hover .contact-card__value {
   width: 24px;
   height: 24px;
   color: var(--green-ink);
-  transition: transform 160ms ease;
+  transition: transform 160ms ease-out;
 }
 
 .article-row:hover > .icon {
@@ -3173,7 +3289,7 @@ a.contact-card:hover .contact-card__value {
 
 .page-hero--article h1 {
   max-width: 22ch;
-  font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+  font-size: var(--fs-2xl);
 }
 
 .article__meta {
@@ -3183,7 +3299,7 @@ a.contact-card:hover .contact-card__value {
   gap: 0.5rem;
   margin-top: 1.5rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .article__meta .icon {
@@ -3199,12 +3315,12 @@ a.contact-card:hover .contact-card__value {
 
 .article {
   max-width: 70ch;
-  font-size: 1.1rem;
+  font-size: var(--fs-base);
 }
 
 .article > h2 {
   margin: 2.5rem 0 0.85rem;
-  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  font-size: var(--fs-xl);
 }
 
 .article > h2:first-child {
@@ -3235,7 +3351,7 @@ a.contact-card:hover .contact-card__value {
 
 .article__urgent .callout__title {
   font-family: var(--sans);
-  font-size: 1.1rem;
+  font-size: var(--fs-base);
   font-weight: 700;
   letter-spacing: 0;
 }
@@ -3306,7 +3422,7 @@ a.contact-card:hover .contact-card__value {
 }
 
 .package__name {
-  font-size: 1.53rem;
+  font-size: var(--fs-lg);
   font-weight: 700;
   line-height: 1.15;
 }
@@ -3334,7 +3450,7 @@ a.contact-card:hover .contact-card__value {
 
 .package__price {
   color: var(--ink);
-  font-size: 1.215rem;
+  font-size: var(--fs-md);
   font-weight: 700;
 }
 
@@ -3357,14 +3473,14 @@ a.contact-card:hover .contact-card__value {
   display: block;
   margin-bottom: 0.75rem;
   color: var(--green-ink);
-  font-size: 2.34rem;
+  font-size: var(--fs-xl);
   line-height: 1;
   font-weight: 700;
 }
 
 .process__step h3 {
   margin-bottom: 0.5rem;
-  font-size: 1.44rem;
+  font-size: var(--fs-lg);
   font-weight: 700;
 }
 
@@ -3394,7 +3510,7 @@ a.contact-card:hover .contact-card__value {
 }
 
 .refer-band h2 {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: var(--fs-xl);
 }
 
 .refer-band p {
@@ -3425,7 +3541,7 @@ a.contact-card:hover .contact-card__value {
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -3495,26 +3611,43 @@ a.contact-card:hover .contact-card__value {
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--sand);
-  color: #b3c2cc;
+  color: var(--line-strong);
 }
 
-/* Plain avatar for clinicians without a photograph */
-.doctor-card__photo .icon,
-.person__photo .icon {
+/* Until the hospital's photographs arrive: the person's initials on a quiet brand tint */
+.initials {
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 100%;
-  fill: currentColor;
-  stroke: none;
+  background: var(--leaf);
+  color: var(--green-ink);
+  font-family: var(--display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
+.person__photo .initials {
+  font-size: var(--fs-xl);
+}
+
+.doctor-card--lead .initials {
+  font-size: var(--fs-2xl);
+}
+
+/* Portraits are cropped to a square; faces usually sit in the upper third of a staff photo.
+   "photoPosition" in data/doctors.js adjusts one that is framed differently. */
 .doctor-card__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 30%;
 }
 
 .doctor-card__name {
-  font-size: 1.44rem;
+  font-size: var(--fs-lg);
   font-weight: 700;
 }
 
@@ -3522,6 +3655,39 @@ a.contact-card:hover .contact-card__value {
   margin-top: 0.2rem;
   color: var(--green-ink);
   font-weight: 600;
+}
+
+/* The Managing Director's section: one wider entry with a larger portrait */
+.doctor-grid--lead {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.doctor-card--lead {
+  grid-template-columns: 200px minmax(0, 46rem);
+  gap: 2.5rem;
+  padding: 2.25rem 0;
+}
+
+.doctor-card--lead .doctor-card__photo {
+  width: 200px;
+  height: 200px;
+}
+
+.doctor-card--lead .doctor-card__name {
+  font-family: var(--display);
+  font-size: var(--fs-xl);
+  line-height: 1.15;
+}
+
+.doctor-card__title {
+  margin-top: 0.35rem;
+  color: var(--navy);
+  font-size: var(--fs-base);
+  font-weight: 700;
+}
+
+.doctor-card--lead .doctor-card__bio {
+  font-size: var(--fs-base);
 }
 
 .doctor-card__role a {
@@ -3538,7 +3704,7 @@ a.contact-card:hover .contact-card__value {
   display: grid;
   gap: 0.35rem;
   margin: 1rem 0 1.25rem;
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .doctor-card__facts div {
@@ -3587,23 +3753,21 @@ a.contact-card:hover .contact-card__value {
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--sand);
-  color: #b3c2cc;
+  color: var(--line-strong);
 }
 
 .person__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  object-position: center 30%;
 }
 
-.person:hover .person__photo img {
-  transform: scale(1.03);
-}
+
 
 .person__name {
   display: block;
-  font-size: 1.1rem;
+  font-size: var(--fs-base);
   font-weight: 700;
   line-height: 1.3;
 }
@@ -3618,12 +3782,12 @@ a.contact-card:hover .contact-card__value {
   display: block;
   margin-top: 0.15rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
   line-height: 1.4;
 }
 
 .people--compact .person__name {
-  font-size: 1rem;
+  font-size: var(--fs-base);
 }
 
 /* Insurers: names in a plain wrapping list */
@@ -3635,7 +3799,7 @@ a.contact-card:hover .contact-card__value {
 
 .insurers h3 {
   margin-bottom: 1rem;
-  font-size: 1.15rem;
+  font-size: var(--fs-base);
   font-weight: 700;
 }
 
@@ -3657,7 +3821,7 @@ a.contact-card:hover .contact-card__value {
 .insurers__note {
   margin-top: 1rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .block .insurers {
@@ -3685,7 +3849,7 @@ a.contact-card:hover .contact-card__value {
 .gallery figcaption {
   margin-top: 0.6rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .about-logo--wide img {
@@ -3720,6 +3884,18 @@ a.contact-card:hover .contact-card__value {
 }
 
 @media (max-width: 768px) {
+  .partners {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .partners li {
+    min-height: 60px;
+  }
+
+  .hours-summary {
+    grid-template-columns: 1fr;
+  }
+
   .checklist,
   .article__urgent ul {
     grid-template-columns: 1fr;
@@ -3742,7 +3918,17 @@ a.contact-card:hover .contact-card__value {
   .doctor-card__photo {
     width: 72px;
     height: 72px;
-    font-size: 1.5rem;
+    font-size: var(--fs-lg);
+  }
+
+  .doctor-card--lead {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .doctor-card--lead .doctor-card__photo {
+    width: 140px;
+    height: 140px;
   }
 
   .doctor-card__facts div {
@@ -3765,14 +3951,14 @@ a.contact-card:hover .contact-card__value {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #25d366;
+  background: var(--green-ink);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(10, 42, 32, 0.25);
-  transition: transform 160ms ease;
+  box-shadow: 0 2px 8px rgba(13, 40, 71, 0.18);
+  transition: background 160ms ease-out;
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.06);
+  background: var(--green-ink-2);
 }
 
 .whatsapp-float svg {
@@ -3796,7 +3982,7 @@ a.contact-card:hover .contact-card__value {
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
-  transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
+  transition: opacity 160ms ease-out, transform 160ms ease-out, visibility 160ms;
 }
 
 .back-to-top.is-visible {
@@ -3848,7 +4034,7 @@ a.contact-card:hover .contact-card__value {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
-    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+    transition: opacity 160ms ease-out, transform 160ms ease-out, visibility 160ms;
   }
 
   .nav__mobile.is-open {
@@ -3865,7 +4051,7 @@ a.contact-card:hover .contact-card__value {
     padding: 1rem 0;
     border-bottom: 1px solid var(--line);
     color: var(--ink);
-    font-size: 1.305rem;
+    font-size: var(--fs-md);
     cursor: pointer;
     list-style: none;
   font-weight: 600;
@@ -3876,7 +4062,7 @@ a.contact-card:hover .contact-card__value {
   }
 
   .nav__mobile summary .icon {
-    transition: transform 160ms ease;
+    transition: transform 160ms ease-out;
   }
 
   .nav__mobile details[open] summary .icon {
@@ -3892,7 +4078,7 @@ a.contact-card:hover .contact-card__value {
   .nav__mobile details > div a {
     padding: 0.5rem 0;
     color: var(--text);
-    font-size: 1.05rem;
+    font-size: var(--fs-base);
   }
 
   .nav__mobile a[aria-current="page"] {
@@ -3926,6 +4112,10 @@ a.contact-card:hover .contact-card__value {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .footer__links {
+    columns: 1;
+  }
+
   .footer__brand,
   .footer__contact {
     grid-column: 1 / -1;
@@ -3954,11 +4144,12 @@ a.contact-card:hover .contact-card__value {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .route,
-  .route + .route {
-    padding: 1.75rem 0;
-    border-left: 0;
-    border-bottom: 1px solid var(--line);
+  .health-split {
+    grid-template-columns: 1fr;
+  }
+
+  .health-split__intro {
+    position: static;
   }
 
   .split,
@@ -4024,7 +4215,7 @@ a.contact-card:hover .contact-card__value {
 
   body {
     padding-bottom: 66px;
-    font-size: 1rem;
+    font-size: var(--fs-base);
   }
 
   .topbar__info,
@@ -4042,11 +4233,11 @@ a.contact-card:hover .contact-card__value {
   }
 
   .brand__text strong {
-    font-size: 1.2rem;
+    font-size: var(--fs-md);
   }
 
   .brand__text span {
-    font-size: 0.65rem;
+    font-size: var(--fs-xs);
   }
 
   .nav__hamburger span {
@@ -4063,12 +4254,12 @@ a.contact-card:hover .contact-card__value {
   }
 
   .hero h1 {
-    font-size: 2.6rem;
+    font-size: var(--fs-xl);
   }
 
   .hero .lead {
     margin-top: 1rem;
-    font-size: 1.05rem;
+    font-size: var(--fs-base);
   }
 
   .hero__actions {
@@ -4179,7 +4370,7 @@ a.contact-card:hover .contact-card__value {
     align-content: center;
     gap: 0.15rem;
     color: var(--ink);
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
     font-weight: 700;
   }
 

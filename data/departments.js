@@ -57,7 +57,7 @@ const DEPARTMENTS = [
     ],
     whenToCome: [
       'Fever, headache or body pains',
-      'A cough, cold or chest infection (come to Emergency if breathing is difficult)',
+      'A cough, cold or chest infection (come to Accident & Emergency if breathing is difficult)',
       'Stomach pain, diarrhoea or vomiting',
       'Pain or burning when passing urine',
       'Skin rashes, wounds and minor injuries',
@@ -79,6 +79,8 @@ const DEPARTMENTS = [
 
   {
     slug: 'inpatient',
+    bookable: false,
+    whenTitle: 'How patients are admitted',
     photo: { file: 'nurse-ward', alt: 'A nurse in pink scrubs leans over a patient resting on a bed covered in a bright wrapper.', position: '50% 50%' },
     keywords: 'admission ward stay visiting attendant nursing',
     name: 'Inpatient Wards',
@@ -101,7 +103,7 @@ const DEPARTMENTS = [
       ['Clear billing', 'Ask for an update on your bill at any time during your stay.'],
     ],
     whenToCome: [
-      'Admission is arranged by a clinician after you are assessed in Emergency, the clinic or maternity',
+      'Admission is arranged by a clinician after you are assessed in Accident & Emergency, a clinic or maternity',
       'Planned admissions for an operation are booked through the surgical clinic',
     ],
     bring: [
@@ -132,7 +134,7 @@ const DEPARTMENTS = [
     card: 'Safe delivery and care for mother and baby after birth, with a labour ward open day and night.',
     summary: 'Labour, delivery and care for you and your baby in the weeks after birth, with a labour ward open day and night.',
     intro: [
-      'Our midwives and doctors look after women through labour, birth and the weeks after. The labour ward is open 24 hours a day, and an obstetrician is on call for any complication.',
+      'Our midwives and doctors look after women through labour, birth and the weeks after. The labour ward is open 24 hours a day.',
       'If complications arise in labour, our team can perform a caesarean section in the hospital’s own theatre, and babies who need extra care go to our Neonatal ICU.',
     ],
     services: [
@@ -186,7 +188,7 @@ const DEPARTMENTS = [
       'The antenatal clinic runs every day. Our midwives see you at each visit, and our obstetrician sees women who need closer care.',
     ],
     services: [
-      ['Your first visit', 'Your history and an examination, blood pressure and weight, and tests for blood group, haemoglobin, HIV, syphilis and hepatitis B.'],
+      ['Your first visit', 'Your history and an examination, a pregnancy scan, and tests: pregnancy test, malaria, urine test, full blood count, blood group, HIV, syphilis, blood sugar, sickle cell and hepatitis B.'],
       ['Regular check-ups', 'Blood pressure, urine, your baby’s growth and heartbeat at every visit.'],
       ['Pregnancy scans', 'Ultrasound scans to date the pregnancy and check your baby’s growth and position.'],
       ['Protecting you and your baby', 'Medicines to prevent malaria, iron and folic acid, and the tetanus vaccine, as Uganda’s guidelines recommend.'],
@@ -215,7 +217,7 @@ const DEPARTMENTS = [
     ],
     faqs: [
       ['Do I need an appointment?', 'No. The antenatal clinic runs every day, so you can come on any day that suits you.'],
-      ['How many visits will I need?', 'The World Health Organization recommends at least eight antenatal contacts during pregnancy. Your midwife will mark the date of your next visit on your card.'],
+      ['How many visits will I need?', 'The World Health Organization recommends at least eight antenatal visits during pregnancy. Your midwife will mark the date of your next visit on your card.'],
       ['Can my partner come with me?', 'Yes. Partners are welcome at antenatal visits, and it helps to plan for the birth together.'],
     ],
     related: ['maternity', 'imaging', 'obstetrics-gynaecology'],
@@ -231,7 +233,7 @@ const DEPARTMENTS = [
     summary: 'Vaccines for babies and children on Uganda’s national schedule, with every dose recorded on the child health card.',
     intro: [
       'Vaccines protect children from serious diseases such as measles, polio, whooping cough, pneumonia and severe diarrhoea. Each dose works best when it is given on time.',
-      'The immunisation clinic runs on Mondays and Fridays. Babies born at Life Care receive the vaccines due at birth before they go home.',
+      'The immunisation clinic runs on Mondays and Fridays, from 8 am to 1 pm. Babies born at Life Care receive the vaccines due at birth before they go home.',
     ],
     services: [
       ['Vaccines at birth', 'The first vaccines, given before your baby leaves the hospital.'],
@@ -260,6 +262,8 @@ const DEPARTMENTS = [
 
   {
     slug: 'neonatal-icu',
+    bookable: false,
+    whenTitle: 'How babies are admitted',
     keywords: 'neonatal nicu newborn premature preterm baby special care jaundice incubator',
     name: 'Neonatal ICU',
     category: 'family',
@@ -319,7 +323,7 @@ const DEPARTMENTS = [
     card: 'Specialist care for sick babies, children and teenagers, in clinic and on the ward.',
     summary: 'A paediatrician for babies, children and teenagers, in the paediatric clinic and on the children’s ward.',
     intro: [
-      'Children’s illnesses can change quickly, and children need clinicians who know how to examine them and how to talk to them, and to you. Our paediatrician runs the paediatric clinic on Fridays, Saturdays and Sundays and cares for children admitted to the ward.',
+      'Children’s illnesses can change quickly. Our paediatrician runs the paediatric clinic on Fridays, Saturdays and Sundays, from 8 am to 5 pm, and cares for children admitted to the ward.',
       'A sick child can be seen at any hour in the outpatient clinic or Accident & Emergency. Malaria, pneumonia and diarrhoea remain the most common serious illnesses in young children in West Nile, so bring your child as soon as you are worried.',
     ],
     services: [
@@ -355,7 +359,7 @@ const DEPARTMENTS = [
     ],
     faqs: [
       ['Should I wait to see whether the fever goes down?', 'No. In West Nile a child with fever should be tested for malaria the same day. Please do not give leftover medicines at home before your child has been tested.'],
-      ['Can my child get vaccines here?', 'Yes, at the immunisation clinic on Mondays and Fridays. Bring the child health card so we can see which doses are due.'],
+      ['Can my child get vaccines here?', 'Yes, at the immunisation clinic on Mondays and Fridays, from 8 am to 1 pm. Bring the child health card so we can see which doses are due.'],
       ['Can I stay with my child if they are admitted?', 'Yes. A parent or caregiver stays with their child on the ward.'],
     ],
     related: ['immunisation', 'neonatal-icu', 'laboratory'],
@@ -380,7 +384,6 @@ const DEPARTMENTS = [
       ['Minor surgery', 'Removal of cysts and small lumps, circumcision, draining of abscesses and wound care.'],
       ['Injuries and wounds', 'Treatment of cuts, burns and injuries, with our orthopaedic surgeon for broken bones.'],
       ['Surgical clinic', 'Assessment before an operation, and wound checks and follow-up afterwards.'],
-      ['Clear costs', 'A written estimate before any planned operation.'],
     ],
     whenToCome: [
       'A lump or swelling anywhere on the body',
@@ -431,7 +434,7 @@ const DEPARTMENTS = [
       ['Gynaecology consultations', 'Period problems, pelvic pain, discharge and infections, fibroids and the menopause.'],
       ['Fertility assessment', 'First tests for couples trying to conceive, with referral for specialised treatment when needed.'],
       ['Cervical cancer screening', 'Screening that finds early changes before they become cancer, with treatment or referral if anything is found.'],
-      ['Family planning', 'Counselling and a choice of short- and long-acting methods, including pills, injections, implants and IUDs.'],
+      ['Family planning', 'Counselling and a choice of short- and long-acting methods, including pills, injections, implants and coils (IUDs).'],
     ],
     whenToCome: [
       'Periods that are very heavy, painful or irregular',
@@ -449,7 +452,7 @@ const DEPARTMENTS = [
     ],
     faqs: [
       ['Will my visit be kept private?', 'Yes. What you tell us is confidential and shared only with the people caring for you, unless you agree otherwise or the law requires it.'],
-      ['Which family planning method is right for me?', 'It depends on your health, whether and when you want more children, and your preferences. A provider will explain each option, how long it lasts and its possible side effects, so you can choose.'],
+      ['Which family planning method is right for me?', 'It depends on your health, whether and when you want more children, and your preferences. A clinician will explain each option, how long it lasts and its possible side effects, so you can choose.'],
       ['Does cervical screening hurt?', 'Most women feel only mild discomfort for a few minutes. The clinician will explain each step and you can ask them to stop at any time.'],
     ],
     related: ['antenatal', 'maternity', 'imaging'],
@@ -744,12 +747,11 @@ const DEPARTMENTS = [
     summary: 'Ultrasound scans, including pregnancy scans, and X-rays, 24 hours a day, with a written report for your clinician.',
     intro: [
       'Imaging helps your clinician find the cause of a problem quickly and safely. Ultrasound uses sound waves, not radiation, so it is safe in pregnancy. X-rays use a small, controlled dose of radiation and are the quickest way to check bones and the chest.',
-      'The imaging unit is open 24 hours, every day, including for pregnancy and specialist ultrasound scans. Every examination is reviewed and a written report goes to the clinician who requested it.',
     ],
     services: [
       ['Pregnancy scans', 'Dating, growth checks and the position of the baby and placenta.'],
       ['Abdominal and pelvic ultrasound', 'The liver, gall bladder, kidneys, bladder, womb, ovaries and prostate.'],
-      ['Small-parts ultrasound', 'Breast, thyroid, scrotum and lumps under the skin.'],
+      ['Other ultrasound scans', 'Breast, thyroid, testicles and lumps under the skin.'],
       ['Chest X-ray', 'For coughs, chest infections and check-ups.'],
       ['Bone and joint X-ray', 'For injuries, suspected fractures and joint pain.'],
       ['Written reports', 'A report on every examination, sent to your clinician.'],
@@ -774,6 +776,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'pharmacy',
+    bookable: false,
     keywords: 'medicine drugs prescription chemist tablets',
     name: 'Pharmacy',
     category: 'support',
@@ -786,7 +789,7 @@ const DEPARTMENTS = [
       'Our pharmacy staff explain how and when to take each medicine, which side effects to look out for, and what to do if you miss a dose. Ask any question, however small.',
     ],
     services: [
-      ['Prescriptions', 'Prescriptions from our clinicians and from other prescribers dispensed promptly.'],
+      ['Prescriptions', 'We dispense prescriptions from our own clinicians and from other clinics and doctors.'],
       ['Medicine advice', 'How to take each medicine, how to store it, and what to avoid while taking it.'],
       ['Repeat medicines', 'Regular supplies for long-term conditions, such as high blood pressure and diabetes.'],
       ['Ward pharmacy', 'Medicines supplied to the wards, theatre and emergency unit day and night.'],
@@ -814,6 +817,9 @@ const DEPARTMENTS = [
 
   {
     slug: 'ambulance',
+    bookable: false,
+    callLine: 'emergency',
+    whenTitle: 'When to call the ambulance',
     keywords: 'ambulance transport transfer emergency pick-up road accident referral',
     name: 'Ambulance Services',
     category: 'ambulance',
@@ -823,7 +829,7 @@ const DEPARTMENTS = [
     summary: 'Call our emergency line for an ambulance, day or night. We also transfer patients to and from other hospitals and health centres.',
     intro: [
       'If someone is seriously ill or injured and cannot travel safely, call our emergency line and ask for the ambulance. Tell us where you are, what has happened and how many people are hurt, and keep your phone on so the team can call you back.',
-      'The ambulance team gives first care on the way and calls ahead, so Accident & Emergency is ready when you arrive. We also transfer patients to and from other hospitals and health centres.',
+      'The ambulance team gives first care on the way and calls ahead, so Accident & Emergency is ready when you arrive.',
     ],
     services: [
       ['Emergency calls', 'An ambulance sent to homes, roads and workplaces when someone cannot travel safely.'],

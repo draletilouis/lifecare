@@ -2,13 +2,13 @@ BEGIN:VCARD
 VERSION:3.0
 FN:Life Care Hospital Arua
 ORG:Life Care Hospital
-item1.TEL;TYPE=VOICE:+2567XXXXXXXX
+item1.TEL;TYPE=VOICE:+256772487959
 item1.X-ABLabel:Emergency (24 hours)
-TEL;TYPE=WORK,VOICE:+2567XXXXXXXX
-item2.TEL;TYPE=CELL:+2567XXXXXXXX
+TEL;TYPE=WORK,VOICE:+256392656378
+item2.TEL;TYPE=CELL:+256772487859
 item2.X-ABLabel:WhatsApp
-EMAIL;TYPE=WORK:info@lifecare.example
-ADR;TYPE=WORK:;;Street address to be confirmed;Arua City;West Nile;;Uganda
+EMAIL;TYPE=WORK:fcc.arua@gmail.com
+ADR;TYPE=WORK:;;Plot 2\, Abram Riji Road\, Congoloya Cell\, Nsambia\, Central Division;Arua City;West Nile;;Uganda
 URL:https://lifecare.example/
 NOTE:Emergency line answered day and night. We care for your Life.
 END:VCARD

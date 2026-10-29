@@ -2,7 +2,11 @@
    The shell blocks are left empty here: the build fills them from index.html.
    Text that comes from data/site.js is marked with data-fact so it stays in step. */
 
-module.exports = function renderDepartment(d, { site, icon, escapeHtml: e, category, when, related, all, people }) {
+module.exports = function renderDepartment(d, { site, icon, escapeHtml: e, category, when, related, all, people, teamTitle }) {
+  // Wards, the Neonatal ICU, the pharmacy and the ambulance are not booked in advance, so their pages
+  // offer a call instead of an appointment.
+  const bookable = d.bookable !== false;
+  const line = d.callLine === 'emergency' ? 'phones.emergency' : 'phones.main';
   const title = `${d.name} | ${site.name}, Arua`;
   const list = (items) =>
     `<ul class="check-list">\n${items.map((item) => `                <li>${icon('check')}<span>${e(item)}</span></li>`).join('\n')}\n              </ul>`;
@@ -38,7 +42,7 @@ ${d.warning.items.map((item) => `              <li>${e(item)}</li>`).join('\n')}
 
   const team = people.length
     ? `
-          <h2 id="team">Doctors in this department</h2>
+          <h2 id="team">${e(teamTitle)}</h2>
           <div class="people people--compact">
 ${people.join('\n')}
           </div>
@@ -51,9 +55,8 @@ ${people.join('\n')}
 
   const relatedCards = related
     .map((r) => `          <a href="${r.url}" class="dept-tile">
-            <span class="dept-tile__name">${e(r.name)}</span>
+            <span class="dept-tile__name">${e(r.name)} ${icon('arrow')}</span>
             <span class="dept-tile__text">${e(r.card)}</span>
-            <span class="dept-tile__more">Learn more ${icon('arrow')}</span>
           </a>`)
     .join('\n');
 
@@ -130,8 +133,10 @@ ${JSON.stringify(schema, null, 2).replace(/^/gm, '    ')}
             <h1>${e(d.name)}</h1>
             <p class="lead">${e(d.summary)}</p>
             <div class="page-hero__actions">
-              <a href="/appointments/?department=${d.slug}" class="btn btn--primary btn--lg">Book an appointment</a>
-              <a href="tel:" data-fact-href="tel:phones.main" class="text-link">${icon('phone')} Call reception</a>
+${bookable
+    ? `              <a href="/appointments/?department=${d.slug}" class="btn btn--primary btn--lg">Book an appointment</a>
+              <a href="tel:" data-fact-href="tel:phones.main" class="text-link">${icon('phone')} Call reception</a>`
+    : `              <a href="tel:" data-fact-href="tel:${line}" class="btn ${d.callLine === 'emergency' ? 'btn--urgent' : 'btn--primary'} btn--lg">${icon('phone')} ${d.callLine === 'emergency' ? 'Call the emergency line' : 'Call reception'}</a>`}
             </div>
           </div>${photo}
         </div>
@@ -154,7 +159,7 @@ ${JSON.stringify(schema, null, 2).replace(/^/gm, '    ')}
         </div>
         <div class="facts__urgent">
           <dt>Emergency, 24 hours</dt>
-          <dd><a href="tel:" data-fact-href="tel:phones.emergency" data-fact="phones.emergency"></a><small>Or come straight to A&amp;E</small></dd>
+          <dd><a href="tel:" data-fact-href="tel:phones.emergency" data-fact="phones.emergency"></a><small>Or come straight to Accident &amp; Emergency</small></dd>
         </div>
       </dl>
     </div>
@@ -173,7 +178,7 @@ ${services}
 ${team}${warning}
           <div class="two-lists">
             <div>
-              <h2 id="when">When to come to us</h2>
+              <h2 id="when">${e(d.whenTitle || 'When to come to us')}</h2>
               ${list(d.whenToCome)}
             </div>
             <div>
@@ -192,9 +197,13 @@ ${faqs}
 
         <aside class="dept-aside">
           <div class="aside-card aside-card--cta">
-            <h2>See a clinician</h2>
+${bookable
+    ? `            <h2>See a clinician</h2>
             <p>Send an appointment request and our team will call you back to confirm a time.</p>
-            <a href="/appointments/?department=${d.slug}" class="btn btn--primary btn--block">Request an appointment</a>
+            <a href="/appointments/?department=${d.slug}" class="btn btn--primary btn--block">Request an appointment</a>`
+    : `            <h2>Questions?</h2>
+            <p>Call us or send a WhatsApp message.</p>
+            <a href="tel:" data-fact-href="tel:${line}" class="btn btn--primary btn--block">${icon('phone')} ${d.callLine === 'emergency' ? 'Call the emergency line' : 'Call reception'}</a>`}
             <a href="https://wa.me/" data-fact-href="wa:phones.whatsapp" class="btn btn--whatsapp btn--block" target="_blank" rel="noopener noreferrer">${icon('whatsapp')} Message us on WhatsApp</a>
           </div>
           <nav class="aside-card" aria-label="All departments">

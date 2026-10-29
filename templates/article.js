@@ -20,7 +20,7 @@ ${[paragraphs, list].filter(Boolean).join('\n')}`;
 
   const review = a.reviewedBy
     ? `Reviewed by ${e(a.reviewedBy)} · Updated ${e(a.updated)}`
-    : `Updated ${e(a.updated)} · Awaiting review by a Life Care clinician`;
+    : `Updated ${e(a.updated)} · Awaiting clinical review`;
 
   const relatedLinks = related
     .map((r) => `            <li><a href="${r.url}">${e(r.name)} ${icon('arrow')}</a></li>`)

@@ -36,19 +36,38 @@
   });
 })();
 
-/* Google Maps is about a megabyte on a phone, so the map loads only when a visitor asks for it. */
-(function initMaps() {
-  document.querySelectorAll('[data-map-load]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const map = button.closest('.map');
-      const frame = document.createElement('iframe');
-      frame.src = button.dataset.src;
-      frame.title = 'Map showing the location of Life Care Hospital';
-      frame.loading = 'lazy';
-      frame.referrerPolicy = 'no-referrer-when-downgrade';
-      frame.allowFullscreen = true;
-      map.appendChild(frame);
-      map.querySelector('.map__placeholder')?.remove();
+/* Figures such as "56 professional staff" count up from zero once, when they come into view.
+   The real number is already in the page, so without JavaScript, or for anyone who prefers reduced
+   motion, it simply shows. */
+(function initCountUp() {
+  const figures = Array.from(document.querySelectorAll('[data-count-to]'));
+  if (!figures.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const run = (el) => {
+    const target = Number(el.dataset.countTo);
+    const duration = 1000;
+    const start = performance.now();
+    const ease = (t) => 1 - Math.pow(1 - t, 3);
+    const step = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      el.textContent = String(Math.round(target * ease(t)));
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  // The page is built with the final figures, so visitors without JavaScript still see them.
+  figures.forEach((el) => { el.textContent = '0'; });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      // In the homepage hero, wait for the figures to finish rising into place.
+      setTimeout(() => run(entry.target), entry.target.closest('.hero') ? 250 : 0);
     });
-  });
+  }, { threshold: 0.6 });
+  figures.forEach((el) => observer.observe(el));
 })();
+

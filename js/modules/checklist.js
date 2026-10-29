@@ -18,7 +18,7 @@
       try { localStorage.setItem(key, JSON.stringify(boxes.map((box, i) => (box.checked ? i : null)).filter((i) => i !== null))); } catch (error) { /* private browsing */ }
       if (share) {
         const title = list.querySelector('h2, h3');
-        const lines = boxes.map((box) => `${box.checked ? '✔' : '•'} ${label(box)}`);
+        const lines = boxes.map((box) => `${box.checked ? '✓' : '•'} ${label(box)}`);
         const text = `${title ? title.textContent.trim() : 'Please bring'} (Life Care Hospital, Arua):\n${lines.join('\n')}`;
         share.href = `https://wa.me/?text=${encodeURIComponent(text)}`;
       }

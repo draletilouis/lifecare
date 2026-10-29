@@ -2,8 +2,9 @@
    strip of each department page. The section only appears when this list has at least one entry.
    Edit here, then run "npm run build".
 
-   The clinics and their days were confirmed by the hospital on 28 October 2026. No times were given,
-   so each clinic runs for 24 hours on its days, as the hospital asked.
+   The clinics and their days were confirmed by the hospital on 28 October 2026, and the immunisation and
+   paediatric times on 29 October. Where no time was given, the clinic runs for 24 hours on its days, as
+   the hospital asked.
 
    Fields: clinic, days (as patients should read them), department (a slug from data/departments.js),
    time, clinician (optional).
@@ -14,8 +15,8 @@ const CLINICS = [
   { clinic: 'Pregnancy and specialist ultrasound', days: 'Every day', time: '24 hours', department: 'imaging' },
   { clinic: 'Gynaecology clinic', days: 'Every day', time: '24 hours', department: 'obstetrics-gynaecology' },
   { clinic: 'Surgical clinic', days: 'Tuesday', time: '24 hours', department: 'surgery' },
-  { clinic: 'Paediatric clinic', days: 'Friday, Saturday and Sunday', time: '24 hours', department: 'paediatrics' },
-  { clinic: 'Immunisation clinic', days: 'Monday and Friday', time: '24 hours', department: 'immunisation' },
+  { clinic: 'Paediatric clinic', days: 'Friday, Saturday and Sunday', time: '8:00 am – 5:00 pm', department: 'paediatrics' },
+  { clinic: 'Immunisation clinic', days: 'Monday and Friday', time: '8:00 am – 1:00 pm', department: 'immunisation' },
 ];
 
 module.exports = { CLINICS };

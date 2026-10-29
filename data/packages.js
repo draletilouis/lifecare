@@ -26,7 +26,7 @@ const PACKAGES = [
     id: 'antenatal',
     name: 'Antenatal first visit',
     for: 'Women at their first antenatal visit',
-    includes: ['Consultation with a midwife or doctor', 'Blood group and haemoglobin', 'HIV, syphilis and hepatitis B tests, with counselling', 'Urine test', 'Pregnancy ultrasound scan', 'Your antenatal card and a plan for your next visits'],
+    includes: ['Pregnancy test', 'Pregnancy scan', 'Malaria test', 'Urine test', 'Full blood count', 'Blood group', 'HIV test, with counselling', 'Syphilis test', 'Blood sugar test', 'Sickle cell test', 'Hepatitis B test'],
     price: null,
   },
   {

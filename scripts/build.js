@@ -84,7 +84,8 @@ const FORMATS = {
   tel: (v) => `tel:${v.replace(/[^\d+X]/gi, '')}`,
   wa: (v) => `https://wa.me/${v.replace(/[^\dX]/gi, '')}`,
   mailto: (v) => `mailto:${v}`,
-  map: (v) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v)}`,
+  // Directions go to the hospital's own map pin when there is one, otherwise to a search for mapQuery.
+  map: (v) => site.mapLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v)}`,
   mapembed: (v) => `https://maps.google.com/maps?q=${encodeURIComponent(v)}&z=15&output=embed`,
 };
 
@@ -128,7 +129,17 @@ const findDepartment = (slug, from) => {
   return { ...d, url: deptUrl(d) };
 };
 
+// The heading over a department's people, so heads of departments are not called doctors.
+function teamTitle(team) {
+  const heads = team.filter((doc) => doc.group === 'head').length;
+  if (!heads) return team.length === 1 ? 'Our doctor' : 'Doctors in this department';
+  if (heads === team.length) return heads === 1 ? 'Head of department' : 'Heads of department';
+  return 'Our team';
+}
+
 function renderDepartmentPage(d, ctx) {
+  // The head is listed before the doctors.
+  const team = DOCTORS.filter((doc) => doc.department === d.slug).sort((a, b) => (b.group === 'head') - (a.group === 'head'));
   if (d.hours && !hoursRow(d.hours)) throw new BuildError(`data/departments.js: ${d.slug} uses hours "${d.hours}", which is not a row in data/site.js.`);
   return renderDepartment(d, {
     ...ctx,
@@ -136,8 +147,18 @@ function renderDepartmentPage(d, ctx) {
     related: (d.related || []).map((slug) => findDepartment(slug, `data/departments.js (${d.slug})`)),
     all: DEPARTMENTS.map((x) => ({ ...x, url: deptUrl(x) })),
     when: whenOpen(d),
-    people: DOCTORS.filter((doc) => doc.department === d.slug).map((doc) => personCard(doc)),
+    people: team.map((doc) => personCard(doc)),
+    teamTitle: teamTitle(team),
   });
+}
+
+// A figure from site.stats. Whole numbers are marked so js/modules/ui.js can count them up from zero;
+// the number itself is in the page, so it reads correctly without JavaScript.
+function statValue(s) {
+  const number = /^\d+$/.test(s.value)
+    ? `<span data-count-to="${s.value}">${s.value}</span>`
+    : escapeHtml(s.value);
+  return number + (s.suffix ? escapeHtml(s.suffix) : '');
 }
 
 // When a department can be seen: its row of the hours table, otherwise its clinic days from
@@ -155,18 +176,51 @@ function whenOpen(d) {
 // The anchor for a clinician's card in the /doctors/ directory, e.g. "dr-demo-surgeon".
 const doctorId = (doc) => slug(doc.name);
 
-// A small card for one clinician: photo (or a plain avatar), name and role (or a leadership title),
-// linking to the directory.
+// Staff portraits live in assets/doctors/. A file named after the person, e.g. anthony-luluwa.jpg, is
+// used on its own; "photo" in data/doctors.js names any other file. The name must match exactly,
+// capitals included: the server is case-sensitive even where Windows is not.
+const PORTRAIT_DIR = path.join(root, 'assets', 'doctors');
+const PORTRAIT_TYPES = ['jpg', 'jpeg', 'png', 'webp'];
+const PORTRAIT_MAX_KB = 400;
+const portraitWarnings = new Set();
+function portraitFile(doc) {
+  const files = fs.existsSync(PORTRAIT_DIR) ? fs.readdirSync(PORTRAIT_DIR) : [];
+  let file = null;
+  if (doc.photo) {
+    if (!files.includes(doc.photo)) throw new BuildError(`data/doctors.js: the photo "${doc.photo}" for ${doc.name} is not in assets/doctors/ (check the capitals).`);
+    file = doc.photo;
+  } else {
+    file = PORTRAIT_TYPES.map((type) => `${doctorId(doc)}.${type}`).find((f) => files.includes(f)) || null;
+    const nearMiss = !file && files.find((f) => f.toLowerCase().replace(/\.[^.]+$/, '') === doctorId(doc));
+    if (nearMiss) portraitWarnings.add(`assets/doctors/${nearMiss}: rename it to ${doctorId(doc)}.jpg (lower case) so it is used for ${doc.name}.`);
+  }
+  if (file && fs.statSync(path.join(PORTRAIT_DIR, file)).size > PORTRAIT_MAX_KB * 1024) {
+    portraitWarnings.add(`assets/doctors/${file} is over ${PORTRAIT_MAX_KB} KB: resize it to about 800 x 800 px so pages load quickly on phones.`);
+  }
+  return file;
+}
+
+// The person's photograph, or until it arrives their initials, e.g. "OE" for Dr Odar Emmanuel.
+// Both fill the same square, so a row that mixes the two still lines up.
+const initials = (name) => name.replace(/^(Dr|Mr|Mrs|Ms|Sr)\.?\s+/, '').split(/\s+/).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+const portrait = (doc) => {
+  const file = portraitFile(doc);
+  return file
+    ? `<img src="/assets/doctors/${escapeHtml(file)}" alt="" width="800" height="800" loading="lazy"${doc.photoPosition ? ` style="object-position: ${escapeHtml(doc.photoPosition)}"` : ''} />`
+    : `<span class="initials" aria-hidden="true">${initials(doc.name)}</span>`;
+};
+
+// A small card for one clinician: photo (or their initials), name and role (or a leadership title),
+// linking to the directory when the person is listed there.
 function personCard(doc, title) {
-  const photo = doc.photo
-    ? `<img src="/assets/doctors/${escapeHtml(doc.photo)}" alt="" width="400" height="400" loading="lazy" />`
-    : icon('avatar');
+  // The co-founder is not in the directory, so her card has nothing to link to.
+  const listed = doc.group !== 'leadership';
   return [
-    `      <a href="/doctors/#${doctorId(doc)}" class="person">`,
-    `        <span class="person__photo">${photo}</span>`,
+    listed ? `      <a href="/doctors/#${doctorId(doc)}" class="person">` : '      <div class="person">',
+    `        <span class="person__photo">${portrait(doc)}</span>`,
     `        <span class="person__name">${escapeHtml(doc.name)}</span>`,
     `        <span class="person__role">${escapeHtml(title || doc.role)}</span>`,
-    '      </a>',
+    listed ? '      </a>' : '      </div>',
   ].join('\n');
 }
 
@@ -182,6 +236,19 @@ function renderArticlePage(a, ctx) {
 
 const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#i-${name}" /></svg>`;
 const byCategory = () => CATEGORIES.map((c) => ({ ...c, items: DEPARTMENTS.filter((d) => d.category === c.id) }));
+
+// The department choices for a form, grouped by category. Emergency is never a form choice.
+const departmentOptions = (keep) => [
+  '<option value="">Choose a department</option>',
+  ...byCategory().map((c) => ({ ...c, items: c.items.filter((d) => d.slug !== 'emergency' && keep(d)) }))
+    .filter((c) => c.items.length)
+    .map((c) => [
+      `<optgroup label="${escapeHtml(c.name)}">`,
+      ...c.items.map((d) => `  <option value="${d.slug}">${escapeHtml(d.name)}</option>`),
+      '</optgroup>',
+    ]).flat(),
+  '<option value="not-sure">Not sure: please advise me</option>',
+];
 
 const hoursRow = (service) => site.hours.find((h) => h.service === service);
 
@@ -205,9 +272,8 @@ const BLOCKS = {
       .map((d) => [
         `<a href="${deptUrl(d)}" class="service-tile">`,
         `  <span class="service-tile__media"><img src="/assets/photos/${d.photo.file}-800.jpg" alt="" width="800" height="600" loading="lazy"${d.photo.position ? ` style="object-position: ${d.photo.position}"` : ''} /></span>`,
-        `  <span class="service-tile__name">${escapeHtml(d.name)}</span>`,
+        `  <span class="service-tile__name">${escapeHtml(d.name)} ${icon('arrow')}</span>`,
         `  <span class="service-tile__text">${escapeHtml(d.card)}</span>`,
-        `  <span class="service-tile__more">Learn more ${icon('arrow')}</span>`,
         '</a>',
       ]).flat(),
 
@@ -226,7 +292,7 @@ const BLOCKS = {
     site.stats.length
       ? [
           '<dl class="hero__stats">',
-          ...site.stats.map((s) => `  <div><dt>${escapeHtml(s.label)}</dt><dd>${escapeHtml(s.value)}</dd></div>`),
+          ...site.stats.map((s) => `  <div><dt>${escapeHtml(s.label)}</dt><dd>${statValue(s)}</dd></div>`),
           '</dl>',
         ]
       : [],
@@ -256,21 +322,35 @@ const BLOCKS = {
       '</section>',
     ]).flat(),
 
-  'department-options': () => [
-    '<option value="">Choose a department</option>',
-    ...byCategory().map((c) => [
-      `<optgroup label="${escapeHtml(c.name)}">`,
-      ...c.items
-        .filter((d) => d.slug !== 'emergency')
-        .map((d) => `  <option value="${d.slug}">${escapeHtml(d.name)}</option>`),
-      '</optgroup>',
-    ]).flat(),
-    '<option value="not-sure">Not sure: please advise me</option>',
-  ],
+  'department-options': () => departmentOptions(() => true),
+
+  // The appointment form leaves out the services nobody books in advance (bookable: false).
+  'appointment-departments': () => departmentOptions((d) => d.bookable !== false),
 
   hours: () =>
     site.hours.map((h) =>
-      `<tr><th scope="row">${escapeHtml(h.service)}</th><td>${h.allDay ? '<span class="badge badge--open">24 hours</span> ' : ''}${escapeHtml(h.time)}${h.note ? `<small>${escapeHtml(h.note)}</small>` : ''}</td></tr>`),
+      `<tr><th scope="row">${escapeHtml(h.service)}</th><td>${escapeHtml(h.time)}${h.note ? `<small>${escapeHtml(h.note)}</small>` : ''}</td></tr>`),
+
+  // Homepage: the opening hours in brief. Services open around the clock are named in one line, and only
+  // the exceptions get a row of their own; the full table is on the patient guide.
+  'hours-summary': () => {
+    const allDay = site.hours.filter((h) => h.allDay && /every day/.test(h.time));
+    const others = site.hours.filter((h) => !allDay.includes(h));
+    return [
+      '<div class="hours-summary">',
+      '  <div class="hours-summary__main">',
+      '    <h3>Open 24 hours, every day</h3>',
+      '    <ul class="hours-summary__list">',
+      ...allDay.map((h) => `      <li>${escapeHtml(h.service)}</li>`),
+      '    </ul>',
+      '  </div>',
+      '  <dl class="hours-summary__other">',
+      ...others.map((h) => `    <div><dt>${escapeHtml(h.service)}</dt><dd>${escapeHtml(h.time)}</dd></div>`),
+      ...(CLINICS.length ? [`    <div><dt>Specialist clinics</dt><dd>On set days. <a class="link" href="/patients/#clinic-days">See the clinic days</a></dd></div>`] : []),
+      '  </dl>',
+      '</div>',
+    ];
+  },
 
   'visiting-hours': () =>
     site.visitingHours.map((v) => `<tr><th scope="row">${escapeHtml(v.period)}</th><td>${escapeHtml(v.time)}</td></tr>`),
@@ -300,7 +380,7 @@ const BLOCKS = {
       '  <div class="container">',
       '    <h2 class="sr-only" id="trust-title">Life Care Hospital in figures</h2>',
       site.stats.length ? '    <dl class="trust__stats">' : '',
-      ...site.stats.map((s) => `      <div><dt>${escapeHtml(s.label)}</dt><dd>${escapeHtml(s.value)}</dd></div>`),
+      ...site.stats.map((s) => `      <div><dt>${escapeHtml(s.label)}</dt><dd>${statValue(s)}</dd></div>`),
       site.stats.length ? '    </dl>' : '',
       site.accreditations.length ? '    <ul class="trust__marks">' : '',
       ...site.accreditations.map((a) => `      <li>${icon('shield')}<span><strong>${escapeHtml(a.name)}</strong>${a.detail ? `<small>${escapeHtml(a.detail)}</small>` : ''}</span></li>`),
@@ -367,7 +447,7 @@ const BLOCKS = {
     return [
       '<section class="block" id="clinic-days" aria-labelledby="clinic-days-title">',
       '  <h2 id="clinic-days-title">Specialist clinic days</h2>',
-      '  <p>These clinics run on set days. Come on a clinic day, or request an appointment. All other services are open 24 hours.</p>',
+      '  <p>Come on a clinic day, or request an appointment.</p>',
       '  <table class="hours-table timetable">',
       `    <thead><tr><th scope="col">Clinic</th><th scope="col">Days</th>${withTime ? '<th scope="col">Time</th>' : ''}${withClinician ? '<th scope="col">Clinician</th>' : ''}</tr></thead>`,
       '    <tbody>',
@@ -390,8 +470,8 @@ const BLOCKS = {
       '<section class="section" aria-labelledby="doctors-title">',
       '  <div class="container">',
       '    <div class="section__head section__head--split">',
-      '      <h2 id="doctors-title">Our doctors</h2>',
-      `      <a href="/doctors/" class="text-link">All doctors and clinicians ${icon('arrow')}</a>`,
+      '      <h2 id="doctors-title">Our team</h2>',
+      `      <a href="/doctors/" class="text-link">Specialists and heads of departments ${icon('arrow')}</a>`,
       '    </div>',
       '    <div class="people">',
       ...featured.map((doc) => personCard(doc)),
@@ -426,7 +506,7 @@ const BLOCKS = {
           '<section class="section section--paper" aria-labelledby="partners-title">',
           '  <div class="container">',
           '    <div class="section__head section__head--center">',
-          '      <h2 id="partners-title">Insurance partners</h2>',
+          '      <h2 id="partners-title">Insurers and schemes we work with</h2>',
           '      <p>Members of these insurers and medical schemes can be treated on cover. You can also pay by cash, MTN Mobile Money or Airtel Money.</p>',
           '    </div>',
           '    <ul class="partners">',
@@ -450,7 +530,6 @@ const BLOCKS = {
           '  <ul class="insurers__list">',
           ...site.insurers.map((name) => `    <li>${escapeHtml(name)}</li>`),
           '  </ul>',
-          '  <p class="insurers__note">Not on the list? Call reception before your visit and we will check your cover.</p>',
           '</div>',
         ]
       : [],
@@ -654,7 +733,7 @@ function build() {
   const sources = PAGES.map((page) => {
     const { text, eol } = read(page.file);
     if (page.render) {
-      const generated = page.render({ site, icon, escapeHtml, departments: DEPARTMENTS, categories: CATEGORIES, doctorId });
+      const generated = page.render({ site, icon, escapeHtml, departments: DEPARTMENTS, categories: CATEGORIES, doctorId, portrait });
       // Keep the shell already in the file, so an unchanged page is not reported as changed.
       let merged = generated;
       if (text) {
@@ -739,6 +818,13 @@ try {
 
   if (!stale.length) console.log(`All ${outputs.length} files are up to date.`);
   orphans.forEach((dir) => console.warn(`Note: ${dir} has no entry in data/. Delete the folder if it was removed on purpose.`));
+
+  const noPortrait = DOCTORS.filter((doc) => !portraitFile(doc));
+  if (noPortrait.length) {
+    console.warn(`\nStaff portraits: ${DOCTORS.length - noPortrait.length} of ${DOCTORS.length}. Still to come (save as assets/doctors/<name>.jpg):`);
+    noPortrait.forEach((doc) => console.warn(`  - ${doctorId(doc)}.jpg  ${doc.name}, ${doc.role}`));
+  }
+  portraitWarnings.forEach((warning) => console.warn(`Warning: ${warning}`));
 
   if (site.PENDING.length) {
     console.warn(`\n${site.PENDING.length} items still need confirming with the hospital (data/site.js, PENDING):`);

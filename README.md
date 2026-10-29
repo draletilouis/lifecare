@@ -132,16 +132,18 @@ To receive requests by email instead, create a form on a form-delivery service s
 
 ## Sample content (internal preview only)
 
-So the preview looks like a finished site, it currently holds **invented** content:
+Most facts are now real: the hospital confirmed its departments, hours and clinic days on 28 October 2026,
+and its history, leadership, staff, contacts, address, visiting hours and insurers on 29 October. A few placeholders
+remain for the internal preview:
 
-- nine demo clinicians in `data/doctors.js`, named after their roles (for example "Dr Demo Surgeon") and shown
-  with plain avatars instead of photographs. Real portraits go in `assets/doctors/` once the hospital supplies them.
-- a weekly timetable in `data/clinics.js`
-- a list of insurers, figures (year opened, beds, staff) and two licences in `data/site.js`
-- a short history on the About page
-- stock photos standing in for the building and its interior
+- stock photos standing in for the building and its interior (the hospital is sending its own)
+- two licences in `accreditations` in `data/site.js`
+- initials in place of staff portraits. When the hospital sends a portrait, save it as
+  `assets/doctors/<name>.jpg`, for example `anthony-luluwa.jpg` or `dr-odar-emmanuel.jpg`, and rebuild: it
+  appears on the homepage, the directory, the department page and the About page with no other change.
+  Every build lists the file names still missing. Crop to about 800 x 800 px and keep each under 400 KB.
 
-None of it is real. While `sampleContent` in `data/site.js` is `true`:
+While `sampleContent` in `data/site.js` is `true`:
 
 - every page carries `noindex, nofollow`
 - `robots.txt` blocks search engines
@@ -153,27 +155,22 @@ Before launch:
 
 ## Before launch: details to confirm with the hospital
 
-Every build prints this list from `PENDING` in `data/site.js`. The site currently uses safe placeholders:
-phone numbers written with `X`, and the reserved domain `lifecare.example`.
+Every build prints this list from `PENDING` in `data/site.js`. The web address is still the reserved domain
+`lifecare.example`, which Railway replaces with its public domain at deploy.
 
-1. Web address (domain).
-2. Phone numbers: reception, 24-hour emergency line, WhatsApp, and the referral line for health workers.
-3. Email addresses: general and careers.
-4. Street address, nearest landmark, and the Google Maps pin (`mapQuery`, `geo`).
-5. Opening hours for each service, visiting hours, and the visiting rules for each ward.
-6. Languages spoken by staff and by interpreters, accepted payment methods and insurers, and other currencies.
-7. **The list of departments and every service named on each department page.** The current set is a
-   standard private-hospital set and must be checked by the medical director.
-8. **Clinical sign-off of each health article** (`reviewedBy` in `data/articles.js`).
-9. What each health check package includes, and its price.
-10. How referrals are handled (who answers the referral line, and how the referring clinician hears back).
-11. Mission, vision and values on the About page (marked DRAFT in the HTML).
-12. Whether the hospital runs an ambulance.
-13. Licence and registration details, and figures such as beds, if the hospital wants them shown.
-14. The hospital's own photographs to replace the Unsplash placeholders, plus doctor profiles with photos,
-    qualifications and clinic days.
+Still open on 29 October 2026:
 
-Remove an item from `PENDING` once it is confirmed.
+1. Web address (domain), and a referral line and careers email if the hospital has them (they show reception and
+   the main email for now).
+2. The spelling of three insurers (Britam, Cigna, MTC), and whether UAP and UAP Uganda are one scheme.
+3. Staff numbers: the history said about 57 staff; the figures given were 56 professional and 28 support staff.
+4. The specialists for paediatrics, general surgery, ENT, the in-house physician, dental, ophthalmology and
+   orthopaedics, and titles for the heads of departments.
+5. Languages spoken by staff and by interpreters, accepted payment methods, and other currencies.
+6. **Every service named on each department page**, especially the newer departments.
+7. **Clinical sign-off of each health article** (`reviewedBy` in `data/articles.js`).
+8. What each health check package includes, and its price.
+9. How referrals are handled, and how the ambulance service works (calls, area covered, charges).
 
 ## Deploying
 
