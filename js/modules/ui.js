@@ -46,7 +46,7 @@
 
   const run = (el) => {
     const target = Number(el.dataset.countTo);
-    const duration = 1000;
+    const duration = 2200;
     const start = performance.now();
     const ease = (t) => 1 - Math.pow(1 - t, 3);
     const step = (now) => {
