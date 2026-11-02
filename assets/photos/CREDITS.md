@@ -3,11 +3,12 @@
 ## The hospital's own photographs
 
 These come from the hospital's profile document (LIFECARE PROFILE 2025.docx), shared by the hospital
-administrator. They were cropped and resized only.
+administrator. They were cropped, resized and colour-corrected (levels, white balance, a little
+saturation and sharpening), with nothing added or removed inside the frame.
 
 | File | Used for | Shows |
 | --- | --- | --- |
-| hospital-exterior | Homepage hero, About | The hospital building with the ambulance outside |
+| hospital-exterior | Homepage hero, About | The hospital building with the ambulance outside (cropped to leave out a parked truck and the boundary fence) |
 | waiting-area | About gallery | The waiting area |
 | corridor | About gallery | A covered walkway (only an 800 px file: the original is 446 px wide) |
 | x-ray-room | About gallery | The X-ray room |
