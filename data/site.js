@@ -86,8 +86,8 @@ module.exports = {
 
   // Insurers and schemes whose members can be treated on cover, confirmed by the hospital on
   // 29 October 2026. Shown on the homepage and the patient guide; hidden while empty. A logo saved as
-  // assets/insurers/<name>.png (e.g. uap-uganda.png) is shown with the name; the logos so far come from
-  // the hospital's 2025 profile.
+  // assets/insurers/<name>.png or .svg (e.g. uap-uganda.png) is shown with the name. The logos came from
+  // the hospital (its 2025 profile and a folder of logos, 2 November 2026); MTC has none yet.
   insurers: [
     'Jubilee',
     'UAP Uganda',

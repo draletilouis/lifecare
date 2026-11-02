@@ -200,17 +200,25 @@ function portraitFile(doc) {
   return file;
 }
 
-// Insurer logos live in assets/insurers/ as PNGs named after the insurer as written in data/site.js,
-// e.g. "UAP Uganda" is uap-uganda.png. An insurer without a logo is shown by name only.
+// Insurer logos live in assets/insurers/ as PNG or SVG files named after the insurer as written in
+// data/site.js, e.g. "UAP Uganda" is uap-uganda.png. An insurer without a logo is shown by name only.
 // Each logo is drawn at about the same area (5,000 px²), so a wide wordmark and a square emblem look
 // equally big, within a 130 x 56 px box.
 const INSURER_DIR = path.join(root, 'assets', 'insurers');
-const hasInsurerLogo = (name) => fs.existsSync(path.join(INSURER_DIR, `${slug(name)}.png`));
+const insurerLogoFile = (name) => ['png', 'svg'].map((type) => `${slug(name)}.${type}`).find((f) => fs.existsSync(path.join(INSURER_DIR, f)));
+const hasInsurerLogo = (name) => Boolean(insurerLogoFile(name));
+// Width over height: from the PNG header, or from the SVG's viewBox.
+function logoRatio(file) {
+  const data = fs.readFileSync(path.join(INSURER_DIR, file));
+  if (file.endsWith('.png')) return data.readUInt32BE(16) / data.readUInt32BE(20);
+  const box = /viewBox="\s*[\d.-]+[\s,]+[\d.-]+[\s,]+([\d.]+)[\s,]+([\d.]+)/.exec(data.toString('utf8'));
+  if (!box) throw new BuildError(`assets/insurers/${file}: the SVG needs a viewBox so the build can size it.`);
+  return Number(box[1]) / Number(box[2]);
+}
 function insurerLogo(name) {
-  if (!hasInsurerLogo(name)) return '';
-  const file = `${slug(name)}.png`;
-  const png = fs.readFileSync(path.join(INSURER_DIR, file));
-  const ratio = png.readUInt32BE(16) / png.readUInt32BE(20); // width and height from the PNG header
+  const file = insurerLogoFile(name);
+  if (!file) return '';
+  const ratio = logoRatio(file);
   let width = Math.sqrt(5000 * ratio);
   width = Math.min(width, 130, 56 * ratio);
   return `<img class="insurer-logo" src="/assets/insurers/${file}" alt="" width="${Math.round(width)}" height="${Math.round(width / ratio)}" loading="lazy" />`;
