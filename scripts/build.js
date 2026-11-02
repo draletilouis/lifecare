@@ -200,6 +200,22 @@ function portraitFile(doc) {
   return file;
 }
 
+// Insurer logos live in assets/insurers/ as PNGs named after the insurer as written in data/site.js,
+// e.g. "UAP Uganda" is uap-uganda.png. An insurer without a logo is shown by name only.
+// Each logo is drawn at about the same area (5,000 px²), so a wide wordmark and a square emblem look
+// equally big, within a 130 x 56 px box.
+const INSURER_DIR = path.join(root, 'assets', 'insurers');
+const hasInsurerLogo = (name) => fs.existsSync(path.join(INSURER_DIR, `${slug(name)}.png`));
+function insurerLogo(name) {
+  if (!hasInsurerLogo(name)) return '';
+  const file = `${slug(name)}.png`;
+  const png = fs.readFileSync(path.join(INSURER_DIR, file));
+  const ratio = png.readUInt32BE(16) / png.readUInt32BE(20); // width and height from the PNG header
+  let width = Math.sqrt(5000 * ratio);
+  width = Math.min(width, 130, 56 * ratio);
+  return `<img class="insurer-logo" src="/assets/insurers/${file}" alt="" width="${Math.round(width)}" height="${Math.round(width / ratio)}" loading="lazy" />`;
+}
+
 // The person's photograph, or until it arrives their initials, e.g. "OE" for Dr Odar Emmanuel.
 // Both fill the same square, so a row that mixes the two still lines up.
 const initials = (name) => name.replace(/^(Dr|Mr|Mrs|Ms|Sr)\.?\s+/, '').split(/\s+/).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
@@ -499,7 +515,8 @@ const BLOCKS = {
     ];
   },
 
-  // Homepage: insurers as a row of names, and how else to pay. Left out while site.insurers is empty.
+  // Homepage: insurers as a grid of logos with their names, and how else to pay. Left out while
+  // site.insurers is empty.
   'insurance-partners': () =>
     site.insurers && site.insurers.length
       ? [
@@ -510,7 +527,13 @@ const BLOCKS = {
           '      <p>Members of these insurers and medical schemes can be treated on cover. You can also pay by cash, MTN Mobile Money or Airtel Money.</p>',
           '    </div>',
           '    <ul class="partners">',
-          ...site.insurers.map((name) => `      <li>${escapeHtml(name)}</li>`),
+          // Logos first, then the insurers known by name only, so the grid reads as two even runs.
+          ...[...site.insurers.filter(hasInsurerLogo), ...site.insurers.filter((n) => !hasInsurerLogo(n))].map((name) => {
+            const logo = insurerLogo(name);
+            return logo
+              ? `      <li class="has-logo">${logo}<span class="partners__name">${escapeHtml(name)}</span></li>`
+              : `      <li>${escapeHtml(name)}</li>`;
+          }),
           '    </ul>',
           '    <p class="partners__links">',
           `      <a href="/patients/#paying" class="text-link">Payment and insurance details ${icon('arrow')}</a>`,

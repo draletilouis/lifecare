@@ -85,7 +85,9 @@ module.exports = {
   sampleContent: true,
 
   // Insurers and schemes whose members can be treated on cover, confirmed by the hospital on
-  // 29 October 2026. Shown on the homepage and the patient guide; hidden while empty.
+  // 29 October 2026. Shown on the homepage and the patient guide; hidden while empty. A logo saved as
+  // assets/insurers/<name>.png (e.g. uap-uganda.png) is shown with the name; the logos so far come from
+  // the hospital's 2025 profile.
   insurers: [
     'Jubilee',
     'UAP Uganda',
@@ -145,7 +147,7 @@ module.exports = {
 
   PENDING: [
     'Placeholders for the internal preview: the stock photographs still on some pages (see assets/photos/CREDITS.md), and the two licences in accreditations. The 2025 profile says the facility is registered with the Allied Health Professionals Council but leaves the number blank. Replace them and set sampleContent to false before launch',
-    'three staff portraits in the 2025 profile ("Our team") have no names, so they are not used yet',
+    'two of the three staff portraits in the 2025 profile ("Our team") have no names, so they are not used yet (the third is Wandera David, the Hospital Administrator)',
     'url',
     'phones.referral: no referral line was given, so it shows reception',
     'careersEmail: no careers address was given, so it shows the main email',

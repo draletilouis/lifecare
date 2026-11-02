@@ -1203,8 +1203,8 @@ h3 {
   color: var(--muted);
 }
 
-/* Insurance partners: names in a row, like a strip of logos */
-/* Insurers: an even grid of names rather than a ragged centred run */
+/* Insurers: an even grid of logos, each named underneath; an insurer without a logo shows its name.
+   White cells, because several logos come on a white background. */
 .partners {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -1215,15 +1215,35 @@ h3 {
 .partners li {
   display: grid;
   place-items: center;
-  min-height: 76px;
-  padding: 0.75rem;
+  align-content: center;
+  gap: 0.6rem;
+  min-height: 120px;
+  padding: 1rem 0.75rem;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  background: #fff;
   color: var(--muted);
   font-size: var(--fs-base);
   font-weight: 700;
   letter-spacing: -0.015em;
   text-align: center;
+}
+
+/* Logos sit in a band of the same height, so the names below them line up across a row */
+.partners li.has-logo {
+  grid-template-rows: 56px auto;
+}
+
+.partners .insurer-logo {
+  max-width: 100%;
+  height: auto; /* the build sets each logo's size; this keeps the shape if the cell is narrower */
+}
+
+.partners__name {
+  font-family: var(--sans);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 @media (max-width: 1024px) {
