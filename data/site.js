@@ -115,6 +115,7 @@ module.exports = {
   // when it comes into view; 'suffix' is shown after the number.
   stats: [
     { value: String(new Date().getFullYear() - 2003), label: 'Years of care, since 2003' }, // Family Care Clinic opened in 2003,
+    { value: '2000', suffix: '+', label: 'Patients a month' }, // "over 2000 patients per month", hospital profile 2025
     { value: '56', label: 'Professional staff' },
     { value: '28', label: 'Support staff' },
     { value: '24', suffix: ' hours', label: 'Open every day' },
@@ -143,12 +144,13 @@ module.exports = {
   },
 
   PENDING: [
-    'Placeholders for the internal preview: stock photographs (the hospital is sending its own), and the two licences in accreditations. Replace them and set sampleContent to false before launch',
+    'Placeholders for the internal preview: the stock photographs still on some pages (see assets/photos/CREDITS.md), and the two licences in accreditations. The 2025 profile says the facility is registered with the Allied Health Professionals Council but leaves the number blank. Replace them and set sampleContent to false before launch',
+    'three staff portraits in the 2025 profile ("Our team") have no names, so they are not used yet',
     'url',
     'phones.referral: no referral line was given, so it shows reception',
     'careersEmail: no careers address was given, so it shows the main email',
-    'insurers: check the spelling of Britam (sent as Britain), Cigna (sent as CIGNA Medi) and MTC, and whether UAP and UAP Uganda are one scheme (shown once)',
-    'staff numbers: the history said about 57 staff, the figures say 56 professional and 28 support staff',
+    'insurers: check MTC, and whether UAP and UAP Uganda are one scheme (shown once). The 2025 profile’s logos confirm Britam and Cigna, but show "Case Medinsurance" (sent as Case Medcare), "Liberty" (sent as Liberty Blue) and Acacia Insurance, which is not in the list',
+    'staff numbers: the history said about 57 staff, the figures say 56 professional and 28 support staff, the 2025 profile says over 42 health workers',
     'data/doctors.js: add the specialists for paediatrics, general surgery, ENT, the in-house physician, dental, ophthalmology and orthopaedics; and titles (Mr, Ms, Sister) for the heads of departments',
     'languages',
     'interpreterLanguages',
@@ -158,7 +160,7 @@ module.exports = {
     'data/packages.js: confirm package contents and add prices',
     'refer/index.html: confirm the referral process (referral line, reply to the referring clinician)',
     'patients/international/index.html: confirm interpreter languages, currencies and help with accommodation',
-    'data/departments.js: confirm the services named on each page, especially the new ones (Antenatal Care, Immunisation, Neonatal ICU, ENT, Ophthalmology, Orthopaedics, Ambulance Services)',
+    'data/departments.js: confirm the services named on each page, especially the new ones (Antenatal Care, Immunisation, Neonatal ICU, ENT, Ambulance Services). The 2025 profile listed the services for imaging, laboratory, surgery, orthopaedics, ophthalmology and dental, and those pages now follow it',
     'ambulance: confirm how the service works (calls, area covered, charges) for the Ambulance Services page',
   ],
 };

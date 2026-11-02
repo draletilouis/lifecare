@@ -153,10 +153,10 @@ function renderDepartmentPage(d, ctx) {
 }
 
 // A figure from site.stats. Whole numbers are marked so js/modules/ui.js can count them up from zero;
-// the number itself is in the page, so it reads correctly without JavaScript.
+// the number itself is in the page, so it reads correctly without JavaScript. Thousands get a comma (2,000).
 function statValue(s) {
   const number = /^\d+$/.test(s.value)
-    ? `<span data-count-to="${s.value}">${s.value}</span>`
+    ? `<span data-count-to="${s.value}">${Number(s.value).toLocaleString('en-GB')}</span>`
     : escapeHtml(s.value);
   return number + (s.suffix ? escapeHtml(s.suffix) : '');
 }

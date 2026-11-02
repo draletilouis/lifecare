@@ -1,6 +1,24 @@
 # Photo credits
 
-**These are placeholder photographs.** They come from Unsplash and are used under the
+## The hospital's own photographs
+
+These come from the hospital's profile document (LIFECARE PROFILE 2025.docx), shared by the hospital
+administrator. They were cropped and resized only.
+
+| File | Used for | Shows |
+| --- | --- | --- |
+| hospital-exterior | Homepage hero, About | The hospital building with the ambulance outside |
+| waiting-area | About gallery | The waiting area |
+| corridor | About gallery | A covered walkway (only an 800 px file: the original is 446 px wide) |
+| x-ray-room | About gallery | The X-ray room |
+| neonatal-unit | Neonatal ICU, About gallery | Incubator and warmer in the Neonatal ICU |
+| ultrasound-room | Ultrasound & X-ray | The ultrasound scanner and couch |
+| operating-theatre | General Surgery, homepage services | The operating theatre |
+| laboratory | Laboratory, homepage services | The laboratory bench (cropped to leave out a staff member) |
+
+## Placeholder photographs
+
+**The photographs below are placeholders.** They come from Unsplash and are used under the
 [Unsplash License](https://unsplash.com/license), which allows free commercial use without attribution.
 They do not show Life Care Hospital, its staff or its patients.
 
@@ -10,8 +28,6 @@ need their written consent.
 
 | File | Used for | Photographer | Source |
 | --- | --- | --- | --- |
-| operating-theatre | Surgery, homepage services | Ezebunwo Omachi | https://unsplash.com/photos/a-nurse-prepares-instruments-in-an-operating-room-4DYgu3mSjGA |
-| surgical-team | Homepage hero | yaser mobarakabadi | https://unsplash.com/photos/surgeons-performing-an-operation-in-a-brightly-lit-operating-room-b3y2aiqfbE4 |
 | nurse-comforting-child | Not currently used | Lisa Marie Theck | https://unsplash.com/photos/nurse-comforting-a-young-child-on-a-sofa-5PMciQ-z8Xs |
 | nurse-green-scrubs | Not currently used | Lisa Marie Theck | https://unsplash.com/photos/a-woman-in-green-scrubs-with-a-stethoscope-O8ekTIhHBRY |
 | midwife-ward | Maternity | Iwaria Inc. | https://unsplash.com/photos/a-woman-holding-a-baby-in-a-hospital-bed-q7PY6bXbmzk |
@@ -22,8 +38,4 @@ need their written consent.
 | consultation | Outpatient clinic, your visit | Ninthgrid | https://unsplash.com/photos/two-men-sitting-at-a-desk-talking-to-each-other-BsboLMESZg8 |
 | mother-newborn | Maternity, homepage | Richard Nyoni | https://unsplash.com/photos/a-mother-holds-her-baby-gently-and-tenderly-sgjI2jzC1wg |
 | dentist-child | Dental clinic | Hush Naidoo Jade Photography | https://unsplash.com/photos/dentist-holding-syringe-into-boys-mouth-9ROuHJ25XVc |
-| laboratory | Laboratory, homepage | Andrew Oklu | https://unsplash.com/photos/a-woman-in-a-lab-coat-looking-through-a-microscope-TZUjC1TyPBg |
 | baby-shoulder | Children's clinic, homepage | TopSphere Media | https://unsplash.com/photos/girls-sleeping-on-mothers-shoulder-leUFTSlCEXk |
-| hospital-exterior | About (stands in for the hospital building) | Kame BGCREATIONS | https://unsplash.com/photos/modern-brick-architecture-with-multiple-levels-and-a-cloudy-sky-XqgRJKiEf1o |
-| corridor | About, inside the hospital | Richard Stachmann | https://unsplash.com/photos/a-long-hallway-with-a-bunch-of-chairs-in-it-R4SQwqYq0XI |
-| waiting-area | About, inside the hospital | Adhitya Sibikumar | https://unsplash.com/photos/three-red-chairs-in-a-waiting-room-by-window-2d3cHa8RMSY |

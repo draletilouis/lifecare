@@ -51,7 +51,7 @@
     const ease = (t) => 1 - Math.pow(1 - t, 3);
     const step = (now) => {
       const t = Math.min((now - start) / duration, 1);
-      el.textContent = String(Math.round(target * ease(t)));
+      el.textContent = Math.round(target * ease(t)).toLocaleString('en-GB');
       if (t < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);

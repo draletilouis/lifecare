@@ -8,6 +8,7 @@
    rule where no time is given).
    "keywords" are extra words the department search on /departments/ should match.
    "photo" names a photograph in assets/photos (<file>-800.jpg and <file>-1600.jpg); it is optional.
+   "stock: true" marks a placeholder photograph that does not show Life Care (see assets/photos/CREDITS.md).
 
    The list of departments and their groups was confirmed by the hospital on 28 October 2026.
    Every service named on each page must still be confirmed by the medical director before launch. */
@@ -35,7 +36,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'outpatient',
-    photo: { file: 'consultation', alt: 'A doctor talks with a patient across a desk, a blood pressure monitor beside them.', position: '35% 50%' },
+    photo: { file: 'consultation', stock: true, alt: 'A doctor talks with a patient across a desk, a blood pressure monitor beside them.', position: '35% 50%' },
     keywords: 'opd doctor consultation fever malaria cough general check-up medical form walk-in',
     name: 'Outpatient Clinic',
     category: 'urgent',
@@ -81,7 +82,7 @@ const DEPARTMENTS = [
     slug: 'inpatient',
     bookable: false,
     whenTitle: 'How patients are admitted',
-    photo: { file: 'nurse-ward', alt: 'A nurse in pink scrubs leans over a patient resting on a bed covered in a bright wrapper.', position: '50% 50%' },
+    photo: { file: 'nurse-ward', stock: true, alt: 'A nurse in pink scrubs leans over a patient resting on a bed covered in a bright wrapper.', position: '50% 50%' },
     keywords: 'admission ward stay visiting attendant nursing',
     name: 'Inpatient Wards',
     category: 'urgent',
@@ -125,7 +126,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'maternity',
-    photo: { file: 'midwife-ward', alt: 'A midwife in pink scrubs cares for a mother and baby on the ward while a relative watches.', position: '50% 50%' },
+    photo: { file: 'midwife-ward', stock: true, alt: 'A midwife in pink scrubs cares for a mother and baby on the ward while a relative watches.', position: '50% 50%' },
     keywords: 'pregnancy pregnant delivery birth labour mother baby midwife caesarean c-section postnatal',
     name: 'Maternity',
     category: 'family',
@@ -264,6 +265,7 @@ const DEPARTMENTS = [
     slug: 'neonatal-icu',
     bookable: false,
     whenTitle: 'How babies are admitted',
+    photo: { file: 'neonatal-unit', alt: 'An incubator, a baby warmer and monitoring equipment in the Life Care Neonatal ICU.', position: '50% 50%' },
     keywords: 'neonatal nicu newborn premature preterm baby special care jaundice incubator',
     name: 'Neonatal ICU',
     category: 'family',
@@ -315,7 +317,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'paediatrics',
-    photo: { file: 'clinic-child', alt: 'A doctor at her desk turns to talk with a young girl.', position: '50% 50%' },
+    photo: { file: 'clinic-child', stock: true, alt: 'A doctor at her desk turns to talk with a young girl.', position: '50% 50%' },
     keywords: 'paediatrics pediatrics paediatrician child children baby teenager growth',
     name: 'Paediatrics',
     category: 'specialist',
@@ -367,12 +369,12 @@ const DEPARTMENTS = [
 
   {
     slug: 'surgery',
-    keywords: 'surgeon general surgery operation theatre hernia appendix circumcision lump wound',
+    keywords: 'surgeon general surgery operation theatre hernia appendix circumcision lump wound urology prostate bladder gynaecological',
     name: 'General Surgery',
     category: 'specialist',
     icon: 'scalpel',
-    photo: { file: 'operating-theatre', alt: 'A theatre nurse prepares instruments in a modern operating theatre.', position: '60% 50%' },
-    card: 'Planned and emergency operations for hernias, lumps, appendicitis and other surgical conditions.',
+    photo: { file: 'operating-theatre', alt: 'The Life Care operating theatre, with the anaesthetic machine, theatre light and operating table.', position: '40% 50%' },
+    card: 'Planned and emergency operations, from hernias and appendicitis to urological, gynaecological and orthopaedic surgery.',
     summary: 'Assessment, operations and recovery care for general surgical conditions, planned or in an emergency.',
     intro: [
       'Our surgeon sees you in the surgical clinic on Tuesdays, explains your options and what to expect, and plans your operation with you. Emergency operations, such as for appendicitis, are performed day and night.',
@@ -381,8 +383,11 @@ const DEPARTMENTS = [
     services: [
       ['General surgery', 'Operations for hernias, lumps and swellings, appendicitis and other abdominal conditions.'],
       ['Emergency surgery', 'Assessment and surgery for acute abdominal pain, injuries and other urgent conditions, at any hour.'],
+      ['Urological surgery', 'Operations on the urinary tract, including the bladder and prostate.'],
+      ['Gynaecological surgery', 'Operations for conditions of the womb, ovaries and other female organs, with our gynaecologist.'],
+      ['Orthopaedic surgery', 'Operations on bones and joints with our orthopaedic surgeon, from fixing fractures to joint replacement.'],
       ['Minor surgery', 'Removal of cysts and small lumps, circumcision, draining of abscesses and wound care.'],
-      ['Injuries and wounds', 'Treatment of cuts, burns and injuries, with our orthopaedic surgeon for broken bones.'],
+      ['Injuries and wounds', 'Treatment of cuts, burns and other injuries.'],
       ['Surgical clinic', 'Assessment before an operation, and wound checks and follow-up afterwards.'],
     ],
     whenToCome: [
@@ -417,7 +422,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'obstetrics-gynaecology',
-    photo: { file: 'doctor-portrait', alt: 'A smiling doctor in a white coat with a stethoscope.', position: '50% 25%' },
+    photo: { file: 'doctor-portrait', stock: true, alt: 'A smiling doctor in a white coat with a stethoscope.', position: '50% 25%' },
     keywords: 'obstetrics gynaecology gynecology obstetrician gynaecologist women period fertility infertility family planning contraception cervical screening fibroids caesarean high-risk pregnancy',
     name: 'Obstetrics & Gynaecology',
     category: 'specialist',
@@ -510,7 +515,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'physician',
-    photo: { file: 'blood-pressure', alt: 'A clinician in blue scrubs checks an older man’s blood pressure.', position: '50% 40%' },
+    photo: { file: 'blood-pressure', stock: true, alt: 'A clinician in blue scrubs checks an older man’s blood pressure.', position: '50% 40%' },
     keywords: 'physician internal medicine blood pressure hypertension sugar diabetes asthma heart kidney chronic adult',
     name: 'In-house Physician',
     category: 'specialist',
@@ -551,21 +556,26 @@ const DEPARTMENTS = [
 
   {
     slug: 'dental',
-    photo: { file: 'dentist-child', alt: 'A dentist in gloves treats a young boy’s teeth.', position: '50% 45%' },
+    photo: { file: 'dentist-child', stock: true, alt: 'A dentist in gloves treats a young boy’s teeth.', position: '50% 45%' },
     keywords: 'dentist dental teeth tooth toothache gum filling extraction',
     name: 'Dental Services',
     category: 'specialist',
     icon: 'tooth',
     hours: 'Dental clinic',
-    card: 'Check-ups, cleaning, fillings, extractions and treatment of tooth pain for the whole family.',
-    summary: 'Check-ups, cleaning, fillings and extractions for adults and children, 24 hours a day from Monday to Saturday.',
+    card: 'Check-ups, cleaning, fillings, root canal treatment, extractions and whitening for the whole family.',
+    summary: 'Check-ups, cleaning, fillings, root canal treatment and extractions for adults and children, 24 hours a day from Monday to Saturday.',
     intro: [
       'Toothache, bleeding gums and broken teeth are painful, but most dental problems can be prevented, or treated simply when they are caught early. Our dental team treats the problem today and helps you keep your teeth healthy.',
+      'The dental clinic handles everything from minor procedures to major dental surgery, with dental X-rays in the same building.',
     ],
     services: [
-      ['Check-ups and cleaning', 'Examination, scaling and polishing, and advice on caring for teeth and gums.'],
+      ['Check-ups, scaling and polishing', 'Examination, scaling and polishing, and advice on caring for teeth and gums.'],
       ['Fillings', 'Repair of decayed and broken teeth.'],
-      ['Extractions', 'Removal of teeth that cannot be saved, with local anaesthetic.'],
+      ['Root canal treatment', 'Treatment that clears infection from inside a tooth, so the tooth can be kept.'],
+      ['Extractions and disimpaction', 'Removal of teeth that cannot be saved, and of impacted teeth, such as wisdom teeth stuck in the gum or bone, with local anaesthetic.'],
+      ['Splinting and fracture fixation', 'Stabilising loose teeth and fixing fractures after an injury to the mouth.'],
+      ['Teeth whitening', 'Lightening of stained or discoloured teeth.'],
+      ['Dental X-rays', 'X-rays of the teeth to find hidden decay, infection and impacted teeth.'],
       ['Tooth pain and infection', 'Treatment of toothache, abscesses and swelling.'],
       ['Gum care', 'Treatment of bleeding and swollen gums.'],
       ['Children’s dental care', 'Gentle check-ups and treatment for children.'],
@@ -602,17 +612,19 @@ const DEPARTMENTS = [
     name: 'Ophthalmology (Eye Care)',
     category: 'specialist',
     icon: 'eye',
-    card: 'Eye examinations, and treatment of eye infections, injuries, cataract and other eye conditions.',
-    summary: 'An ophthalmologist for eye examinations, eye infections and injuries, cataract, glaucoma and children’s eye problems.',
+    card: 'Eye examinations, and medical and surgical treatment of cataract, glaucoma, eye infections, injuries and other eye conditions.',
+    summary: 'An ophthalmologist for eye examinations and the medical and surgical treatment of eye diseases, in the eye clinic and on the ward.',
     intro: [
-      'Good sight matters at every age, for school, work and getting around safely. Our ophthalmologist examines your eyes, treats eye infections and injuries, and finds conditions such as cataract and glaucoma early.',
+      'Good sight matters at every age, for school, work and getting around safely. Our ophthalmologist examines your eyes, treats eye infections and injuries, and finds conditions such as cataract and glaucoma early. Patients who need an operation or a stay in hospital are cared for on the ward.',
       'If you have diabetes or high blood pressure, have your eyes checked regularly: both can damage the eyes before you notice any change in your sight.',
     ],
     services: [
       ['Eye examinations', 'A check of your sight and the health of your eyes, with a prescription if you need glasses.'],
       ['Red and painful eyes', 'Treatment of eye infections, allergies and inflammation.'],
       ['Eye injuries', 'Care for injuries, scratches and objects in the eye.'],
-      ['Cataract and glaucoma', 'Assessment and treatment, with surgery or referral when it is needed.'],
+      ['Cataract and glaucoma', 'Assessment, and medical and surgical treatment.'],
+      ['Cornea and eyelids', 'Treatment of diseases of the cornea and the outer eye, and of eyelid problems.'],
+      ['Retina and eye tumours', 'Assessment and treatment of conditions of the retina and vitreous, and of tumours of the eye.'],
       ['Diabetes and blood pressure checks', 'Regular eye checks for people with diabetes or high blood pressure.'],
       ['Children’s eyes', 'Checks for squint and poor sight, which can hold children back at school.'],
     ],
@@ -647,23 +659,29 @@ const DEPARTMENTS = [
 
   {
     slug: 'orthopaedics',
-    keywords: 'orthopaedics orthopedics bone fracture broken joint knee hip back pain sprain cast plaster',
+    keywords: 'orthopaedics orthopedics bone fracture broken joint knee hip back pain sprain cast plaster replacement arthroscopy acl ligament tendon spine arthritis gout sports physiotherapy rehabilitation',
     name: 'Orthopaedics',
     category: 'specialist',
     icon: 'bone',
-    card: 'Care for broken bones, joint and back pain, and injuries to muscles and ligaments.',
-    summary: 'An orthopaedic surgeon for broken bones, joint and back pain, and injuries to muscles, tendons and ligaments.',
+    card: 'Broken bones and injuries, joint replacement, spine surgery, sports injuries, arthritis and rehabilitation.',
+    summary: 'An orthopaedic surgeon for broken bones and injuries, joint replacement, spine and sports surgery, arthritis and children’s bone conditions.',
     intro: [
       'Road accidents, falls and sports injuries are a common cause of broken bones and joint damage. Our orthopaedic surgeon treats fractures and injuries, from a plaster cast to surgery, and follows you up until you are back on your feet.',
-      'We also see adults and children with joint pain, back pain and problems with walking.',
+      'We also see adults and children with joint pain, back pain, arthritis and problems with walking, and replace joints that are badly damaged.',
     ],
     services: [
-      ['Fractures', 'X-rays, casts and splints, and surgery for broken bones when it is needed.'],
-      ['Joint pain', 'Assessment and treatment of painful knees, hips, shoulders and other joints, including arthritis.'],
-      ['Back and neck pain', 'Assessment of back and neck pain, and advice and treatment to help you move again.'],
-      ['Sprains and sports injuries', 'Care for injuries to ligaments, tendons and muscles.'],
-      ['Children’s bones and joints', 'Checks for limping, bowed legs and other problems with how a child walks.'],
-      ['Follow-up', 'Cast checks, removal of plaster and advice on exercises after an injury or operation.'],
+      ['Fractures and trauma', 'X-rays, casts and splints, and surgery to fix broken bones, including open fractures and injuries from accidents and falls.'],
+      ['Joint replacement', 'Partial or total replacement of a damaged hip, knee, shoulder or other joint with an artificial one.'],
+      ['Arthroscopy', 'Keyhole surgery to look inside a joint and treat the problem.'],
+      ['Ligament and tendon repair', 'Repair of torn ligaments and tendons, such as reconstruction of the ACL in the knee.'],
+      ['Spine surgery', 'Treatment of back and neck pain, narrowing of the spinal canal (spinal stenosis) and other spine problems.'],
+      ['Hand, foot and ankle', 'Treatment of injuries and conditions of the hand and wrist, such as carpal tunnel syndrome, and of the foot and ankle, such as plantar fasciitis and sprains.'],
+      ['Sports injuries', 'Diagnosis and treatment of injuries from sport and exercise.'],
+      ['Arthritis and gout', 'Treatment of osteoarthritis, rheumatoid arthritis and gout.'],
+      ['Children’s bones and joints', 'Care for children with bone and joint conditions, including deformities present from birth.'],
+      ['Bone infections and tumours', 'Surgery and other treatment for infections and tumours of the bone.'],
+      ['Limb reconstruction', 'Operations to rebuild a limb damaged by injury or disease.'],
+      ['Rehabilitation', 'Physiotherapy and exercises to restore strength and movement after an injury or operation.'],
     ],
     whenToCome: [
       'Joint pain or swelling that does not settle',
@@ -698,8 +716,8 @@ const DEPARTMENTS = [
 
   {
     slug: 'laboratory',
-    photo: { file: 'laboratory', alt: 'A laboratory scientist in a white coat looks through a microscope.', position: '50% 40%' },
-    keywords: 'lab test blood urine stool malaria hiv typhoid sugar results',
+    photo: { file: 'laboratory', alt: 'Blood analysers and a computer on the bench in the Life Care laboratory.', position: '50% 50%' },
+    keywords: 'lab test blood urine stool malaria hiv typhoid sugar results electrolytes liver kidney h pylori hepatitis',
     name: 'Laboratory',
     category: 'support',
     icon: 'microscope',
@@ -711,10 +729,10 @@ const DEPARTMENTS = [
       'You can also bring a request form from another clinic or doctor and have your tests done here.',
     ],
     services: [
-      ['Blood counts and grouping', 'Full blood count, haemoglobin, blood grouping and cross-matching.'],
-      ['Malaria and infections', 'Malaria tests, and tests for typhoid, brucellosis, syphilis and hepatitis B.'],
+      ['Blood counts and grouping', 'Complete blood count, haemoglobin, blood grouping and cross-matching.'],
+      ['Malaria and infections', 'Malaria tests (rapid test and blood slide), H. pylori and hepatitis B, and tests for typhoid, brucellosis and syphilis.'],
       ['HIV testing', 'Voluntary, confidential testing with counselling before and after.'],
-      ['Blood chemistry', 'Blood sugar, kidney and liver function, and cholesterol.'],
+      ['Blood chemistry', 'Random and fasting blood sugar, kidney and liver function, serum electrolytes and cholesterol.'],
       ['Urine and stool tests', 'Urinalysis, pregnancy tests and stool examination.'],
       ['Check-up packages', 'Groups of tests for routine check-ups and employment requirements.'],
     ],
@@ -738,22 +756,25 @@ const DEPARTMENTS = [
 
   {
     slug: 'imaging',
-    keywords: 'scan ultrasound x-ray xray radiology pregnancy scan imaging',
+    photo: { file: 'ultrasound-room', alt: 'The ultrasound scanner beside the examination couch in the Life Care scan room.', position: '40% 50%' },
+    keywords: 'scan ultrasound x-ray xray radiology pregnancy scan imaging ecg echo echocardiography heart doppler hsg transvaginal',
     name: 'Ultrasound & X-ray',
     category: 'support',
     icon: 'scan',
     hours: 'Imaging (ultrasound and X-ray)',
-    card: 'Ultrasound scans, including pregnancy scans every day, and X-rays, with a written report for your clinician.',
-    summary: 'Ultrasound scans, including pregnancy scans, and X-rays, 24 hours a day, with a written report for your clinician.',
+    card: 'Ultrasound scans, including pregnancy scans, X-rays, ECG and heart scans, with a written report for your clinician.',
+    summary: 'Ultrasound scans, X-rays, ECG and echocardiography, 24 hours a day, with a written report for your clinician.',
     intro: [
       'Imaging helps your clinician find the cause of a problem quickly and safely. Ultrasound uses sound waves, not radiation, so it is safe in pregnancy. X-rays use a small, controlled dose of radiation and are the quickest way to check bones and the chest.',
     ],
     services: [
-      ['Pregnancy scans', 'Dating, growth checks and the position of the baby and placenta.'],
-      ['Abdominal and pelvic ultrasound', 'The liver, gall bladder, kidneys, bladder, womb, ovaries and prostate.'],
-      ['Other ultrasound scans', 'Breast, thyroid, testicles and lumps under the skin.'],
-      ['Chest X-ray', 'For coughs, chest infections and check-ups.'],
-      ['Bone and joint X-ray', 'For injuries, suspected fractures and joint pain.'],
+      ['Pregnancy and pelvic scans', 'Pregnancy scans for dating, growth and the position of the baby and placenta, and pelvic and transvaginal scans of the womb and ovaries.'],
+      ['Abdominal scans', 'The liver, gall bladder, kidneys, bladder and other organs of the abdomen.'],
+      ['Other ultrasound scans', 'Breast, thyroid, prostate and scrotal scans, scans of the eye (orbital), and scans of the head (cranial) for babies.'],
+      ['Doppler ultrasound', 'Scans of the blood flow in arteries and veins.'],
+      ['Heart tests', 'ECG, a recording of the heart’s rhythm, and echocardiography, an ultrasound scan of the heart.'],
+      ['X-rays', 'Chest, bone and joint X-rays for coughs, chest infections, injuries and suspected fractures.'],
+      ['Contrast X-rays', 'Hysterosalpingography (HSG) to check whether the fallopian tubes are open, and cystourethrography to examine the bladder and urethra.'],
       ['Written reports', 'A report on every examination, sent to your clinician.'],
     ],
     whenToCome: [

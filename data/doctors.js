@@ -36,8 +36,9 @@ const DOCTORS = [
     group: 'director',
     role: 'Senior Consultant Obstetrician and Gynaecologist',
     department: 'obstetrics-gynaecology',
+    qualifications: 'MMed', // from the hospital profile, 2025
     clinicDays: 'Gynaecology clinic every day',
-    bio: 'Founded the hospital as Family Care Clinic in 2003 and still leads its team.',
+    bio: 'Founded the hospital as Family Care Clinic in 2003 and still leads its team. Named Obstetrician of the Year at the National Safe Motherhood Conference in 2022.',
     featured: true,
     leadership: 'Founder and Managing Director, Senior Consultant Obstetrician and Gynaecologist',
   },
