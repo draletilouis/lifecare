@@ -200,6 +200,17 @@ function portraitFile(doc) {
   return file;
 }
 
+// A licence or accreditation is marked by its council's logo (a file in assets/licences/, named by
+// "logo" in data/site.js) or, without one, by a shield icon. The logo sits in a white circle so it
+// reads on the navy footer as well as on white.
+function accreditationMark(a) {
+  if (!a.logo) return icon('shield');
+  if (!fs.existsSync(path.join(root, 'assets', 'licences', a.logo))) {
+    throw new BuildError(`data/site.js: the logo "${a.logo}" for "${a.name}" is not in assets/licences/ (check the capitals).`);
+  }
+  return `<img class="licence-logo" src="/assets/licences/${escapeHtml(a.logo)}" alt="" width="48" height="48" loading="lazy" />`;
+}
+
 // Insurer logos live in assets/insurers/ as PNG or SVG files named after the insurer as written in
 // data/site.js, e.g. "UAP Uganda" is uap-uganda.png. An insurer without a logo is shown by name only.
 // Each logo is drawn at about the same area (5,000 px²), so a wide wordmark and a square emblem look
@@ -306,7 +317,7 @@ const BLOCKS = {
     site.accreditations.length
       ? [
           '<ul class="footer__marks" aria-label="Licences and accreditations">',
-          ...site.accreditations.map((a) => `  <li>${icon('shield')}<span><strong>${escapeHtml(a.name)}</strong>${a.detail ? `<small>${escapeHtml(a.detail)}</small>` : ''}</span></li>`),
+          ...site.accreditations.map((a) => `  <li>${accreditationMark(a)}<span><strong>${escapeHtml(a.name)}</strong>${a.detail ? `<small>${escapeHtml(a.detail)}</small>` : ''}</span></li>`),
           '</ul>',
         ]
       : [],
@@ -407,7 +418,7 @@ const BLOCKS = {
       ...site.stats.map((s) => `      <div><dt>${escapeHtml(s.label)}</dt><dd>${statValue(s)}</dd></div>`),
       site.stats.length ? '    </dl>' : '',
       site.accreditations.length ? '    <ul class="trust__marks">' : '',
-      ...site.accreditations.map((a) => `      <li>${icon('shield')}<span><strong>${escapeHtml(a.name)}</strong>${a.detail ? `<small>${escapeHtml(a.detail)}</small>` : ''}</span></li>`),
+      ...site.accreditations.map((a) => `      <li>${accreditationMark(a)}<span><strong>${escapeHtml(a.name)}</strong>${a.detail ? `<small>${escapeHtml(a.detail)}</small>` : ''}</span></li>`),
       site.accreditations.length ? '    </ul>' : '',
       '  </div>',
       '</section>',

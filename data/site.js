@@ -122,10 +122,12 @@ module.exports = {
     { value: '28', label: 'Support staff' },
     { value: '24', suffix: ' hours', label: 'Open every day' },
   ],
-  // SAMPLE: not yet confirmed by the hospital.
+  // The two councils were confirmed by the hospital on 2 November 2026, which sent their logos; the
+  // registration numbers were not given. "logo" names a file in assets/licences/, shown in place of the
+  // shield icon.
   accreditations: [
-    { name: 'Licensed by the Uganda Medical and Dental Practitioners Council', detail: 'Private hospital licence' },
-    { name: 'Laboratory registered with the Allied Health Professionals Council', detail: 'Clinical laboratory' },
+    { name: 'Licensed by the Uganda Medical and Dental Practitioners Council', detail: 'Private hospital licence', logo: 'umdpc.png' },
+    { name: 'Registered with the Allied Health Professionals Council of Uganda', logo: 'ahpc.png' },
   ],
 
   // A public-health notice shown at the top of every page while "on" is true, for example during an
@@ -146,7 +148,8 @@ module.exports = {
   },
 
   PENDING: [
-    'Placeholders for the internal preview: the stock photographs still on some pages (see assets/photos/CREDITS.md), and the two licences in accreditations. The 2025 profile says the facility is registered with the Allied Health Professionals Council but leaves the number blank. Replace them and set sampleContent to false before launch',
+    'Placeholders for the internal preview: the stock photographs still on some pages (see assets/photos/CREDITS.md). Replace them and set sampleContent to false before launch',
+    'accreditations: the registration numbers for both councils, and whether the medical council licence is for a private hospital (shown as such)',
     'two of the three staff portraits in the 2025 profile ("Our team") have no names, so they are not used yet (the third is Wandera David, the Hospital Administrator)',
     'url',
     'phones.referral: no referral line was given, so it shows reception',
