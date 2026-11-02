@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Palette comparison</title>
+  <style>
+    /* A page for comparing the green treatment side by side. Open it from the local server
+       (npm run dev, then /before-after/palette.html). The left frame puts back the previous
+       colours; the right frame is the site as it is now. Scrolling the right frame scrolls both. */
+    :root { --navy: #0d2847; --line: #cfd8e3; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e9eef3; color: var(--navy); font: 15px/1.4 system-ui, sans-serif; }
+    header { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; padding: 12px 16px; background: #fff; border-bottom: 1px solid var(--line); }
+    header strong { font-size: 16px; }
+    select { font: inherit; padding: 4px 8px; }
+    .frames { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px; }
+    figure { margin: 0; }
+    figcaption { margin-bottom: 8px; font-weight: 700; }
+    figcaption span { font-weight: 400; color: #5b6b80; }
+    .viewport { position: relative; height: calc(100vh - 120px); overflow: hidden; border: 1px solid var(--line); background: #fff; }
+    iframe { position: absolute; top: 0; left: 0; width: 1280px; border: 0; transform-origin: 0 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Green treatment</strong>
+    <label>Page
+      <select id="page">
+        <option value="/">Homepage</option>
+        <option value="/departments/maternity/">A department (Maternity)</option>
+        <option value="/doctors/">Find a doctor</option>
+        <option value="/patients/">Patient guide</option>
+        <option value="/about/">About</option>
+      </select>
+    </label>
+  </header>
+  <div class="frames">
+    <figure>
+      <figcaption>Before <span>green top bar, bright green underlines and marks, mint initials</span></figcaption>
+      <div class="viewport"><iframe id="before" title="Before"></iframe></div>
+    </figure>
+    <figure>
+      <figcaption>After <span>navy top bar, one deeper green for actions, grey initials</span></figcaption>
+      <div class="viewport"><iframe id="after" title="After"></iframe></div>
+    </figure>
+  </div>
+  <script>
+    // The colours as they were before the change, put back into the left frame.
+    const BEFORE = `
+      :root { --green-ink: #00733f; --green-ink-2: #005c32; }
+      .topbar { background: #00733f; }
+      .text-link { border-bottom-color: #00b964; }
+      .badge { border-color: #00b964; }
+      .bring li::before { background: #00b964; }
+      .initials { background: #e7f4ed; color: #00733f; }
+      .toc a:hover, .toc a.is-current { border-left-color: #00b964; }
+      .hours-summary__list li:not(:last-child)::after { color: #00b964; }
+      .breadcrumb a:hover { text-decoration-color: #00b964; }
+      .side-nav a[aria-current="page"] { box-shadow: inset 3px 0 0 #00b964; }
+      .checklist input:checked + span { text-decoration-color: #00b964; }
+      .article > ul li::marker { color: #00b964; }
+      .doctor-card:target { background: #e7f4ed; box-shadow: 0 0 0 1rem #e7f4ed; }
+    `;
+    const before = document.getElementById('before');
+    const after = document.getElementById('after');
+    const select = document.getElementById('page');
+
+    // Draw each 1280 px wide page scaled down to fit its column.
+    function fit() {
+      for (const frame of [before, after]) {
+        const scale = frame.parentElement.clientWidth / 1280;
+        frame.style.transform = `scale(${scale})`;
+        frame.style.height = `${frame.parentElement.clientHeight / scale}px`;
+      }
+    }
+
+    function load() {
+      before.src = after.src = select.value;
+    }
+
+    before.addEventListener('load', () => {
+      const style = before.contentDocument.createElement('style');
+      style.textContent = BEFORE;
+      before.contentDocument.head.appendChild(style);
+    });
+
+    after.addEventListener('load', () => {
+      after.contentWindow.addEventListener('scroll', () => {
+        before.contentWindow.scrollTo(0, after.contentWindow.scrollY);
+      });
+    });
+
+    select.addEventListener('change', load);
+    window.addEventListener('resize', fit);
+    fit();
+    load();
+  </script>
+</body>
+</html>

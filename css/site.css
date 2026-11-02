@@ -27,11 +27,11 @@
   --navy: #0d2847;
   --navy-ink: #081a30; /* photo overlays */
 
-  /* Green: the brand colour, for actions, and its tints */
-  --green: #00b964; /* logo green: focus rings and small marks */
-  --green-ink: #00733f; /* buttons, links, the utility bar (AA on white) */
-  --green-ink-2: #005c32; /* hover */
-  --leaf: #e7f4ed; /* light green surface */
+  /* Green: the brand colour, kept for actions (buttons, links) so that green always means "do this" */
+  --green: #00b964; /* logo green: focus rings only */
+  --green-ink: #0e6b47; /* buttons, links and small marks (AA on white) */
+  --green-ink-2: #0a5538; /* hover */
+  --leaf: #e7f4ed; /* light green surface, for success messages */
   --mint: #b9e8cf; /* text and marks on navy */
 
 
@@ -275,7 +275,7 @@ h3 {
   align-items: center;
   gap: 0.45rem;
   padding-bottom: 2px;
-  border-bottom: 1.5px solid var(--green);
+  border-bottom: 1.5px solid var(--green-ink);
   color: var(--navy);
   font-weight: 700;
   line-height: 1.3;
@@ -416,7 +416,7 @@ h3 {
   display: inline-block;
   margin-right: 0.4rem;
   padding: 0.05rem 0.5rem;
-  border: 1px solid var(--green);
+  border: 1px solid var(--green-ink);
   border-radius: 2px;
   color: var(--green-ink);
   font-size: var(--fs-xs);
@@ -439,9 +439,9 @@ h3 {
    Top bar and header
    -------------------------------------------------------------------------- */
 
-/* Utility bar in the brand colour, with the most-used links */
+/* Utility bar in navy, with the most-used links */
 .topbar {
-  background: var(--green-ink);
+  background: var(--navy);
   color: rgba(255, 255, 255, 0.9);
   font-size: var(--fs-sm);
   font-weight: 500;
@@ -1304,7 +1304,7 @@ h3 {
   top: 0.85em;
   width: 6px;
   height: 6px;
-  background: var(--green);
+  background: var(--green-ink);
 }
 
 /* Visit: map, address and hours */
@@ -1426,7 +1426,7 @@ h3 {
 .hours-summary__list li:not(:last-child)::after {
   content: "·";
   margin: 0 0.6rem;
-  color: var(--green);
+  color: var(--green-ink);
   font-weight: 700;
 }
 
@@ -1661,7 +1661,7 @@ h3 {
 }
 
 .breadcrumb a:hover {
-  text-decoration-color: var(--green);
+  text-decoration-color: var(--green-ink);
 }
 
 /* Facts strip below a department header: hours, where, phone, payment */
@@ -1965,7 +1965,7 @@ h3 {
   padding-left: 0.85rem;
   color: var(--navy);
   font-weight: 700;
-  box-shadow: inset 3px 0 0 var(--green);
+  box-shadow: inset 3px 0 0 var(--green-ink);
 }
 
 /* Tiles, used for related departments */
@@ -2204,7 +2204,7 @@ h3 {
 
 .toc a:hover,
 .toc a.is-current {
-  border-left-color: var(--green);
+  border-left-color: var(--green-ink);
   color: var(--navy);
 }
 
@@ -3158,7 +3158,7 @@ a.contact-card:hover .contact-card__value {
 .checklist input:checked + span {
   color: var(--muted);
   text-decoration: line-through;
-  text-decoration-color: var(--green);
+  text-decoration-color: var(--green-ink);
   text-decoration-thickness: 2px;
 }
 
@@ -3362,7 +3362,7 @@ a.contact-card:hover .contact-card__value {
 }
 
 .article > ul li::marker {
-  color: var(--green);
+  color: var(--green-ink);
 }
 
 .article__urgent {
@@ -3634,14 +3634,14 @@ a.contact-card:hover .contact-card__value {
   color: var(--line-strong);
 }
 
-/* Until the hospital's photographs arrive: the person's initials on a quiet brand tint */
+/* Until the hospital's photographs arrive: the person's initials on quiet grey */
 .initials {
   display: grid;
   place-items: center;
   width: 100%;
   height: 100%;
-  background: var(--leaf);
-  color: var(--green-ink);
+  background: var(--sand);
+  color: var(--navy);
   font-family: var(--display);
   font-size: var(--fs-xl);
   font-weight: 600;
@@ -3739,8 +3739,8 @@ a.contact-card:hover .contact-card__value {
 
 /* The card a "person" link points to is briefly tinted */
 .doctor-card:target {
-  background: var(--leaf);
-  box-shadow: 0 0 0 1rem var(--leaf);
+  background: var(--paper);
+  box-shadow: 0 0 0 1rem var(--paper);
 }
 
 /* Clinicians as photo cards: homepage, department pages and About */
