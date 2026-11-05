@@ -155,12 +155,11 @@ Before launch:
 
 ## Before launch: details to confirm with the hospital
 
-Every build prints this list from `PENDING` in `data/site.js`. The web address is still the reserved domain
-`lifecare.example`, which Railway replaces with its public domain at deploy.
+Every build prints this list from `PENDING` in `data/site.js`. The web address is lifecarehospital.co.ug.
 
 Still open on 29 October 2026:
 
-1. Web address (domain), and a referral line and careers email if the hospital has them (they show reception and
+1. A referral line and careers email if the hospital has them (they show reception and
    the main email for now).
 2. The spelling of three insurers (Britam, Cigna, MTC), and whether UAP and UAP Uganda are one scheme.
 3. Staff numbers: the history said about 57 staff; the figures given were 56 professional and 28 support staff.

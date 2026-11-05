@@ -16,7 +16,7 @@ module.exports = {
     'Life Care Hospital is a private hospital in Arua City, Uganda, offering emergency, maternity, children’s, surgical and outpatient care with laboratory, imaging and pharmacy on site.',
 
   // The live web address, with no trailing slash. Used for canonical links, sharing previews and the sitemap.
-  url: 'https://lifecare.example',
+  url: 'https://lifecarehospital.co.ug', // registered at registry.co.ug, November 2026
 
   // Contact details confirmed by the hospital on 29 October 2026.
   phones: {
@@ -151,7 +151,6 @@ module.exports = {
     'Placeholders for the internal preview: the stock photographs still on some pages (see assets/photos/CREDITS.md). Replace them and set sampleContent to false before launch',
     'accreditations: the registration numbers for both councils, and whether the medical council licence is for a private hospital (shown as such)',
     'two of the three staff portraits in the 2025 profile ("Our team") have no names, so they are not used yet (the third is Wandera David, the Hospital Administrator)',
-    'url',
     'phones.referral: no referral line was given, so it shows reception',
     'careersEmail: no careers address was given, so it shows the main email',
     'insurers: check MTC, and whether UAP and UAP Uganda are one scheme (shown once). The 2025 profile’s logos confirm Britam and Cigna, but show "Case Medinsurance" (sent as Case Medcare), "Liberty" (sent as Liberty Blue) and Acacia Insurance, which is not in the list',
