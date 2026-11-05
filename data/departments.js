@@ -36,7 +36,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'outpatient',
-    photo: { file: 'consultation', stock: true, alt: 'A doctor talks with a patient across a desk, a blood pressure monitor beside them.', position: '35% 50%' },
+    photo: { file: 'waiting-area', alt: 'Rows of seats and the reception desk in the Life Care waiting area.', position: '40% 60%' },
     keywords: 'opd doctor consultation fever malaria cough general check-up medical form walk-in',
     name: 'Outpatient Clinic',
     category: 'urgent',
@@ -82,7 +82,7 @@ const DEPARTMENTS = [
     slug: 'inpatient',
     bookable: false,
     whenTitle: 'How patients are admitted',
-    photo: { file: 'nurse-ward', stock: true, alt: 'A nurse in pink scrubs leans over a patient resting on a bed covered in a bright wrapper.', position: '50% 50%' },
+    photo: { file: 'ward-room', stock: true, alt: 'A modern ward room with an adjustable bed, bedside locker and a patient monitor on the wall.', position: '50% 55%' },
     keywords: 'admission ward stay visiting attendant nursing',
     name: 'Inpatient Wards',
     category: 'urgent',
@@ -126,7 +126,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'maternity',
-    photo: { file: 'midwife-ward', stock: true, alt: 'A midwife in pink scrubs cares for a mother and baby on the ward while a relative watches.', position: '50% 50%' },
+    photo: { file: 'maternity-newborn-care', stock: true, alt: 'A nurse settles a newborn baby on a warmer in a bright maternity unit.', position: '55% 50%' },
     keywords: 'pregnancy pregnant delivery birth labour mother baby midwife caesarean c-section postnatal',
     name: 'Maternity',
     category: 'family',
@@ -178,6 +178,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'antenatal',
+    photo: { file: 'antenatal-scan', stock: true, alt: 'Two health workers smile as they scan a patient with an ultrasound machine.', position: '55% 40%' },
     keywords: 'antenatal anc pregnancy pregnant check-up clinic mother baby scan',
     name: 'Antenatal Care',
     category: 'family',
@@ -226,6 +227,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'immunisation',
+    photo: { file: 'vaccine-nurse', stock: true, alt: 'A nurse in a face mask and gloves draws up a vaccine into a syringe.', position: '35% 40%' },
     keywords: 'immunisation immunization vaccine vaccination jab child baby polio measles bcg hpv',
     name: 'Immunisation',
     category: 'family',
@@ -317,7 +319,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'paediatrics',
-    photo: { file: 'clinic-child', stock: true, alt: 'A doctor at her desk turns to talk with a young girl.', position: '50% 50%' },
+    photo: { file: 'paediatric-nurse', stock: true, alt: 'A nurse tends a baby in a cot on a bright children’s unit, with incubators behind her.', position: '60% 45%' },
     keywords: 'paediatrics pediatrics paediatrician child children baby teenager growth',
     name: 'Paediatrics',
     category: 'specialist',
@@ -465,6 +467,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'ent',
+    photo: { file: 'ent-instruments', stock: true, alt: 'An otoscope and other examination instruments mounted on a clinic wall.', position: '50% 50%' },
     keywords: 'ent ear nose throat tonsils adenoids sinus hearing nosebleed hoarse',
     name: 'ENT (Ear, Nose & Throat)',
     category: 'specialist',
@@ -556,7 +559,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'dental',
-    photo: { file: 'dentist-child', stock: true, alt: 'A dentist in gloves treats a young boy’s teeth.', position: '50% 45%' },
+    photo: { file: 'dental-chair', stock: true, alt: 'A dentist in black gloves cleans the teeth of a patient wearing protective glasses in a modern dental chair.', position: '55% 50%' },
     keywords: 'dentist dental teeth tooth toothache gum filling extraction',
     name: 'Dental Services',
     category: 'specialist',
@@ -608,6 +611,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'ophthalmology',
+    photo: { file: 'eye-test', stock: true, alt: 'A woman rests her chin on an eye-testing machine while the eye worker reads the results.', position: '35% 50%' },
     keywords: 'ophthalmology eye eyes vision sight cataract glaucoma red eye glasses squint',
     name: 'Ophthalmology (Eye Care)',
     category: 'specialist',
@@ -659,6 +663,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'orthopaedics',
+    photo: { file: 'x-ray-room', alt: 'The X-ray machine and table at Life Care, where fractures and joint problems are imaged.', position: '40% 60%' },
     keywords: 'orthopaedics orthopedics bone fracture broken joint knee hip back pain sprain cast plaster replacement arthroscopy acl ligament tendon spine arthritis gout sports physiotherapy rehabilitation',
     name: 'Orthopaedics',
     category: 'specialist',
@@ -797,6 +802,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'pharmacy',
+    photo: { file: 'pharmacy-counter', stock: true, alt: 'A pharmacist shows a customer a box of medicine in front of well-stocked shelves.', position: '55% 40%' },
     bookable: false,
     keywords: 'medicine drugs prescription chemist tablets',
     name: 'Pharmacy',
@@ -838,6 +844,7 @@ const DEPARTMENTS = [
 
   {
     slug: 'ambulance',
+    photo: { file: 'hospital-exterior', alt: 'The Life Care ambulance, its blue light on the roof, parked outside the hospital building.', position: '35% 70%' },
     bookable: false,
     callLine: 'emergency',
     whenTitle: 'When to call the ambulance',

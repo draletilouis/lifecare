@@ -67,7 +67,7 @@ ${people.join('\n')}
   const photo = d.photo
     ? `
           <figure class="page-hero__media">${d.photo.stock ? `
-            <!-- Placeholder photograph (Unsplash). Replace with the hospital's own: see assets/photos/CREDITS.md -->` : ''}
+            <!-- Placeholder photograph (stock). Replace with the hospital's own: see assets/photos/CREDITS.md -->` : ''}
             <img src="/assets/photos/${d.photo.file}-1600.jpg" srcset="/assets/photos/${d.photo.file}-800.jpg 800w, /assets/photos/${d.photo.file}-1600.jpg 1600w" sizes="(max-width: 1024px) 100vw, 42vw" alt="${e(d.photo.alt)}" width="1600" height="1200" fetchpriority="high"${d.photo.position ? ` style="object-position: ${d.photo.position}"` : ''} />
           </figure>`
     : '';
