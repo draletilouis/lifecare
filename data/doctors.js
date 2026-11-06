@@ -2,6 +2,7 @@
    /doctors/ (grouped as below), on their department's page, on the About page ("leadership") and, for
    those marked "featured", on the homepage. Edit here, then run "npm run build".
 
+   Portraits of six heads of department were sent on 6 November 2026 (assets/doctors/).
    Names and roles were sent by the hospital on 29 October 2026. Qualifications, languages, clinic days
    and biographies were not, so they are left out rather than guessed. Add them, and a consented
    photograph for each person, when the hospital supplies them.
