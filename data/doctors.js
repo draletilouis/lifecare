@@ -65,7 +65,7 @@ const DOCTORS = [
   { name: 'Achikane Sarah', group: 'head', role: 'Head of Midwives', department: 'maternity', featured: true },
   { name: 'Ajidiru Scovia', group: 'head', role: 'Head of Nursing', department: 'inpatient', featured: true },
   { name: 'Wandera David', group: 'head', role: 'Hospital Administrator' },
-  { name: 'Oketcha Francis', group: 'head', role: 'Head of Claims and Procurement' },
+  { name: 'Okecha Francis', group: 'head', role: 'Head of Claims and Procurement' },
 ];
 
 /* The medical officers the hospital sent on 29 October 2026 are not listed on the site, which shows only
